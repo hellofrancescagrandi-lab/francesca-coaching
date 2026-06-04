@@ -112,4 +112,68 @@ document.addEventListener('DOMContentLoaded', () => {
             adminModal.classList.remove('active');
         });
     }
+
+    // 6. Web3Forms AJAX Submission Logic
+    function handleWeb3Form(formId, onSuccess) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'INVIO IN CORSO...';
+            btn.disabled = true;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let resJson = await response.json();
+                if (response.status == 200) {
+                    onSuccess(btn, originalText);
+                } else {
+                    console.log(response);
+                    alert('Si è verificato un errore. Riprova più tardi.');
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Si è verificato un errore. Riprova più tardi.');
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        });
+    }
+
+    // Handle Lead Magnet Form
+    handleWeb3Form('lead-magnet-form', (btn, originalText) => {
+        btn.innerHTML = 'REINDIRIZZAMENTO...';
+        window.location.href = 'pdf-grazie.html';
+    });
+
+    // Handle Main Contact Form
+    handleWeb3Form('main-contact-form', (btn, originalText) => {
+        btn.innerHTML = 'MESSAGGIO INVIATO! ✓';
+        btn.style.backgroundColor = '#28a745';
+        btn.style.color = '#fff';
+        document.getElementById('main-contact-form').reset();
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+        }, 5000);
+    });
 });
