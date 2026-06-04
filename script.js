@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Lead Magnet Form
     handleWeb3Form('lead-magnet-form', (btn, originalText) => {
         btn.innerHTML = 'REINDIRIZZAMENTO...';
-        window.location.href = 'pdf-grazie.html';
+        window.location.href = 'pdf-grazie.html?v=' + new Date().getTime();
     });
 
     // Handle Main Contact Form
