@@ -294,7 +294,8 @@ section {
 /* 4. About Section */
 .about-image-placeholder {
     position: relative;
-    height: 600px;
+    height: 100%;
+    min-height: 500px;
     background-color: var(--color-dark);
 }
 
