@@ -639,6 +639,50 @@ section {
     transform: translateY(0);
 }
 
+/* REVOLUTION Course Section */
+.revolution-section .module-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 2.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.revolution-section .module-card:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: var(--color-gold);
+}
+
+.revolution-section .module-number {
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.revolution-section .module-title {
+    color: var(--color-light);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.revolution-section .module-subtitle {
+    color: var(--color-gold);
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.revolution-section .module-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
     .hero-content {
