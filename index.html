@@ -36,7 +36,7 @@
                 <h1 class="main-title" style="font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem;">Non sei in ritardo.<br>Stai solo vivendo una vita che non senti più tua.</h1>
                 <p class="description" style="margin-bottom: 2.5rem; line-height: 1.6;">Pensi troppo. Ti blocchi. Ti chiedi se stai sbagliando tutto —<br>o se sei l'unica a sentirsi così.<br>Non lo sei. E da qui iniziamo.<br><br><span style="color: var(--color-light); font-size: 1.2rem;">Sono Francesca Grandi, mental coach.</span></p>
                 <div class="cta-group">
-                    <a href="#corso" class="btn btn-primary">SCOPRI REVOLUTION</a>
+                    <a href="#contatti" class="btn btn-primary">Contatti</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
@@ -277,7 +277,7 @@
     </section>
 
     <!-- SEZIONE CONTATTI FORM -->
-    <section class="contact-section section-dark fade-in">
+    <section id="contatti" class="contact-section section-dark fade-in">
         <div class="container grid grid-2 align-center">
             <div class="contact-text">
                 <h2 class="section-title gold-text">Scrivimi</h2>
@@ -302,9 +302,18 @@
                         <label for="email">Indirizzo Email</label>
                         <input type="email" id="email" name="email" required placeholder="La tua migliore email">
                     </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="servizio" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gold); margin-bottom: 0.5rem;">Di che servizio hai bisogno?</label>
+                        <select id="servizio" name="servizio" required style="width: 100%; padding: 1rem; background-color: transparent; color: var(--color-light); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 0; font-family: inherit; font-size: 1rem; appearance: auto;">
+                            <option value="" disabled selected>Seleziona un'opzione...</option>
+                            <option value="Consulenza strategica 90 minuti" style="background-color: var(--color-dark);">Consulenza strategica 90 minuti</option>
+                            <option value="Percorso intensivo" style="background-color: var(--color-dark);">Percorso intensivo</option>
+                            <option value="Richiesta informazioni" style="background-color: var(--color-dark);">Richiesta informazioni</option>
+                        </select>
+                    </div>
                     <div class="form-group">
-                        <label for="messaggio">Messaggio</label>
-                        <textarea id="messaggio" name="messaggio" rows="5" required placeholder="Come posso aiutarti?"></textarea>
+                        <label for="messaggio">Aggiungi altre informazioni utili</label>
+                        <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui..."></textarea>
                     </div>
                     <!-- Web3Forms Configuration -->
                     <input type="hidden" name="subject" value="Nuovo messaggio dal sito web!">
