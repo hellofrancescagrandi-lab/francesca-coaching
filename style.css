@@ -415,6 +415,18 @@ section {
     color: rgba(26,26,26,0.8);
 }
 
+.section-dark .faq-question {
+    color: var(--color-light);
+}
+
+.section-dark .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-dark .faq-answer p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .faq-item.active .faq-answer {
     max-height: 200px;
 }
