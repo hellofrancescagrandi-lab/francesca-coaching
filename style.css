@@ -1,9 +1,9 @@
 :root {
-    --color-dark: #0E0E0E;
-    --color-gold: #C9A227; /* Or #D4AF37 */
-    --color-light: #F7F3EA;
-    --color-text-dark: #1A1A1A;
-    --color-text-light: #E0E0E0;
+    --color-dark: #000000;
+    --color-gold: #FF1493; /* Fuchsia */
+    --color-light: #FFFFFF;
+    --color-text-dark: #000000;
+    --color-text-light: #FFFFFF;
     
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
@@ -182,7 +182,7 @@ section {
 
 .btn-primary {
     background-color: var(--color-gold);
-    color: var(--color-dark);
+    color: #FFFFFF;
 }
 
 .btn-primary:hover {
@@ -506,7 +506,7 @@ section {
 .contact-form-wrapper {
     background-color: rgba(255,255,255,0.03);
     padding: 3rem;
-    border: 1px solid rgba(201, 162, 39, 0.2);
+    border: 1px solid rgba(255, 20, 147, 0.2);
 }
 
 .form-group-row {
@@ -642,7 +642,7 @@ section {
 /* REVOLUTION Course Section */
 .revolution-section .module-card {
     background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(255, 20, 147, 0.3);
     padding: 2.5rem;
     border-radius: 4px;
     transition: var(--transition);
