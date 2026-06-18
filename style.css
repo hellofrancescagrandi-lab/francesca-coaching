@@ -190,6 +190,17 @@ section {
     color: var(--color-gold);
 }
 
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-gold);
+    color: #FFFFFF;
+}
+
 .microcopy {
     font-size: 0.8rem;
     margin-top: 0.5rem;
