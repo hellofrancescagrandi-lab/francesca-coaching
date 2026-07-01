@@ -1,15 +1,15 @@
 :root {
-    --color-navy: #194a65;
-    --color-blue: #649dbf;
-    --color-sky: #b5d7ea;
-    --color-peach: #efcca4;
-    --color-offwhite: #f4f5f5;
+    --color-navy: #020b5e;
+    --color-blue: #0b7dbb;
+    --color-sky: #88e0ef;
+    --color-cyan: #04badf;
+    --color-ice: #d0f3f8;
 
     --color-dark: var(--color-navy);
-    --color-gold: var(--color-peach);
-    --color-light: var(--color-offwhite);
+    --color-gold: var(--color-cyan);
+    --color-light: var(--color-ice);
     --color-text-dark: var(--color-navy);
-    --color-text-light: var(--color-offwhite);
+    --color-text-light: var(--color-ice);
     
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
@@ -535,7 +535,7 @@ section {
 .contact-form-wrapper {
     background-color: rgba(255,255,255,0.03);
     padding: 3rem;
-    border: 1px solid rgba(239, 204, 164, 0.2);
+    border: 1px solid rgba(4, 186, 223, 0.2);
 }
 
 .form-group-row {
@@ -671,7 +671,7 @@ section {
 /* REVOLUTION Course Section */
 .revolution-section .module-card {
     background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(239, 204, 164, 0.3);
+    border: 1px solid rgba(4, 186, 223, 0.3);
     padding: 2.5rem;
     border-radius: 4px;
     transition: var(--transition);
