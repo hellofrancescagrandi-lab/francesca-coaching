@@ -814,6 +814,11 @@ section {
         grid-template-columns: 1fr;
     }
     
+    .riconosci-layout {
+        flex-direction: column;
+        gap: 2rem !important;
+    }
+    
     .hero-content {
         flex-direction: column;
         text-align: center;
