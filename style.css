@@ -147,7 +147,7 @@ section {
 }
 
 .navbar:not(.scrolled) .logo {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .nav-links a {
@@ -162,8 +162,8 @@ section {
 }
 
 .navbar:not(.scrolled) .nav-links a {
-    color: #ffffff;
-    opacity: 0.9;
+    color: #ffffff !important;
+    opacity: 0.9 !important;
 }
 
 .nav-links a:hover {
@@ -186,7 +186,7 @@ section {
 }
 
 .navbar:not(.scrolled) .hamburger span {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
 
 /* Button */
@@ -273,7 +273,7 @@ section {
 }
 
 .hero .main-title {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .hero .description {
