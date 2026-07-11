@@ -146,6 +146,10 @@ section {
     letter-spacing: -1px;
 }
 
+.navbar:not(.scrolled) .logo {
+    color: #ffffff;
+}
+
 .nav-links a {
     color: var(--color-dark);
     opacity: 0.8;
@@ -155,6 +159,11 @@ section {
     font-weight: 500;
     letter-spacing: 0;
     transition: var(--transition);
+}
+
+.navbar:not(.scrolled) .nav-links a {
+    color: #ffffff;
+    opacity: 0.9;
 }
 
 .nav-links a:hover {
@@ -174,6 +183,10 @@ section {
     background-color: var(--color-dark);
     margin: 5px 0;
     transition: var(--transition);
+}
+
+.navbar:not(.scrolled) .hamburger span {
+    background-color: #ffffff;
 }
 
 /* Button */
@@ -257,6 +270,10 @@ section {
     flex-direction: column;
     justify-content: center;
     padding: 120px 5% 4rem 10%;
+}
+
+.hero .main-title {
+    color: #ffffff;
 }
 
 .hero .description {
