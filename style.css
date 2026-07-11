@@ -231,6 +231,10 @@ section {
     padding-top: 0;
     text-align: left;
     background-color: #0b0b0b;
+    background-image: url('hero_bg_full.png');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
 }
 
 .hero-content {
@@ -841,13 +845,6 @@ section {
     
     .hero-text .cta-group {
         justify-content: center !important;
-    }
-    
-    .hero-image-wrapper {
-        margin-top: 0;
-        height: 50vh;
-        max-width: 100%;
-        min-height: 400px;
     }
 }
 
