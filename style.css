@@ -749,9 +749,9 @@ section {
 .roadmap::before {
     content: '';
     position: absolute;
-    left: 24px; 
-    top: 24px;
-    bottom: 24px;
+    left: 31px; 
+    top: 31px;
+    bottom: 31px;
     width: 2px;
     background: var(--color-gold);
     opacity: 0.5;
@@ -766,18 +766,18 @@ section {
 
 .roadmap-number {
     flex-shrink: 0;
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
     background: var(--color-dark);
     color: var(--color-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     border: 2px solid var(--color-gold);
-    box-shadow: 0 0 0 5px #fcfcfc;
+    box-shadow: 0 0 0 6px #fcfcfc;
 }
 
 .roadmap-content {
@@ -791,13 +791,13 @@ section {
 
 @media (max-width: 768px) {
     .roadmap::before {
-        left: 20px; 
+        left: 24px; 
     }
     .roadmap-number {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        box-shadow: 0 0 0 3px #fcfcfc;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        box-shadow: 0 0 0 4px #fcfcfc;
     }
     .roadmap-step {
         gap: 1.5rem;
