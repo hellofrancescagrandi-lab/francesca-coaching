@@ -1,15 +1,15 @@
 :root {
-    --color-navy: #1d1d1f;
-    --color-blue: #86868b;
-    --color-sky: #f5f5f7;
-    --color-cyan: #0071e3;
-    --color-ice: #ffffff;
+    --color-navy: #111111;
+    --color-blue: #1a1a1a;
+    --color-sky: #222222;
+    --color-cyan: #E2Cda6;
+    --color-ice: #111111;
 
-    --color-dark: var(--color-navy);
-    --color-gold: var(--color-cyan);
-    --color-light: var(--color-sky);
-    --color-text-dark: var(--color-navy);
-    --color-text-light: var(--color-navy);
+    --color-dark: #ffffff;
+    --color-gold: #E2Cda6;
+    --color-light: #111111;
+    --color-text-dark: rgba(255, 255, 255, 0.85);
+    --color-text-light: #ffffff;
     
     --font-sans: 'Inter', sans-serif;
     --font-serif: var(--font-sans);
@@ -84,12 +84,12 @@ p {
 }
 
 .section-dark {
-    background-color: #ffffff;
+    background-color: #111111;
     color: var(--color-text-dark);
 }
 
 .section-light {
-    background-color: var(--color-sky);
+    background-color: #1a1a1a;
     color: var(--color-text-dark);
 }
 
@@ -132,9 +132,9 @@ section {
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(17, 17, 17, 0.85);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 1rem 2rem;
 }
 
@@ -311,8 +311,8 @@ section {
     padding: 2.5rem;
     border: none;
     border-radius: 24px;
-    background-color: #ffffff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    background-color: #222222;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     transition: var(--transition);
 }
 
@@ -331,8 +331,8 @@ section {
 .highlight-box {
     border: none;
     border-radius: 24px;
-    background-color: #ffffff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    background-color: #222222;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     padding: 3rem;
     max-width: 700px;
     margin: 0 auto;
@@ -347,7 +347,7 @@ section {
     font-family: var(--font-sans);
     font-size: 4rem;
     color: var(--color-gold);
-    background-color: #ffffff;
+    background-color: #222222;
     padding: 0 10px;
     line-height: 1;
 }
@@ -376,11 +376,11 @@ section {
 
 /* 5. Services Section */
 .card-dark {
-    background-color: #ffffff;
+    background-color: #222222;
     padding: 3.5rem 2.5rem;
     border: none;
     border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     backdrop-filter: blur(20px);
     transition: var(--transition);
 }
@@ -522,11 +522,11 @@ section {
     display: block;
     text-decoration: none;
     color: var(--color-text-dark);
-    background-color: #ffffff;
+    background-color: #222222;
     border: none;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     transition: var(--transition);
 }
 
@@ -580,11 +580,11 @@ section {
 
 /* Contact Form */
 .contact-form-wrapper {
-    background-color: #ffffff;
+    background-color: #222222;
     padding: 3.5rem;
     border: none;
     border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
 .form-group-row {
@@ -606,14 +606,14 @@ section {
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 1rem;
-    background-color: #f5f5f7;
-    border: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    background-color: #111111;
+    color: #ffffff;
     border-radius: 12px;
-    color: var(--color-dark);
     font-family: var(--font-sans);
     font-size: 1rem;
     transition: var(--transition);
@@ -646,11 +646,11 @@ section {
 }
 
 .percorso-card {
-    background-color: #ffffff;
+    background-color: #222222;
     padding: 3.5rem;
     border: none;
     border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -806,15 +806,15 @@ section {
     font-size: 2rem;
     font-weight: 700;
     border: 2px solid var(--color-gold);
-    box-shadow: 0 0 0 6px #fcfcfc;
+    box-shadow: 0 0 0 6px #1a1a1a;
 }
 
 .roadmap-content {
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.05);
+    background: #222222;
+    border: 1px solid rgba(255,255,255,0.05);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     flex-grow: 1;
 }
 
@@ -826,7 +826,7 @@ section {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
-        box-shadow: 0 0 0 4px #fcfcfc;
+        box-shadow: 0 0 0 4px #1a1a1a;
     }
     .roadmap-step {
         gap: 1.5rem;
