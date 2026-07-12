@@ -914,6 +914,51 @@ section {
     .social-links a {
         margin: 0 0.75rem;
     }
+    
+    /* Overrides for inline styles on mobile */
+    .main-title {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+    }
+    .section-title {
+        font-size: 2rem !important;
+    }
+    .hero-text {
+        padding: 100px 5% 2rem 5% !important;
+    }
+    .hero-text p.description {
+        font-size: 1rem !important;
+    }
+    .hero-text .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem !important;
+    }
+    .hero-text .cta-group .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .about-text-content {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+    .about-text-content h2 {
+        font-size: 2.5rem !important;
+    }
+    .riconosci-text > div {
+        padding: 1.5rem 1rem !important;
+    }
+    .riconosci-text ul li {
+        font-size: 1rem !important;
+    }
+    .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+    .testimonials-slider {
+        margin: 0 1rem !important;
+    }
 }
 
 /* Testimonials Slider */
