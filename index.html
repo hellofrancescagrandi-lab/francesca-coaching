@@ -31,17 +31,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="logo">Francesca Grandi</div>
         <div class="nav-links">
-            <a href="#ti-riconosci">Il Problema</a>
-            <a href="#metodo">Il Metodo</a>
             <a href="#about">Chi Sono</a>
+            <a href="#servizi">I Miei Servizi</a>
             <a href="#contatti">Contatti</a>
+            <a href="#faq">FAQ</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -51,135 +51,194 @@
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <header id="home" class="hero section-dark fade-in">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="main-title" style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 500; letter-spacing: -1px; font-family: 'Playfair Display', serif;">Il problema non è il tuo lavoro.<br>È il peso che senti di dover sostenere ogni giorno.</h1>
-                <p class="description" style="font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); font-weight: 400; max-width: 500px;">Sei una professionista ambiziosa. Hai costruito un business che funziona, ma stai iniziando a pagarne il prezzo con stress, iper-controllo e la costante sensazione di dover fare tutto da sola.</p>
-                <div class="cta-group" style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: flex-start; flex-wrap: wrap;">
-                    <a href="https://www.youtube.com/@grandifrancesca" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #E2Cda6; color: #000; border-radius: 50px; font-weight: 600; padding: 1rem 2rem;">Scopri il mio YouTube</a>
-                    <a href="#contatti" class="btn btn-outline" style="border: none; color: #fff; font-weight: 500; text-decoration: underline; padding: 1rem 2rem;">Contattami</a>
-                </div>
+    <header id="home" class="hero section-light fade-in" style="background-image: none; background-color: var(--color-base); min-height: 90vh; justify-content: center; align-items: center; text-align: center;">
+        <div class="container" style="max-width: 900px; padding: 100px 2rem 4rem 2rem;">
+            <h1 class="main-title" style="font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 4.5rem); color: var(--color-text-main); line-height: 1.1; margin-bottom: 2rem; font-weight: 400; letter-spacing: -1px;">
+                Smetti di sostenere il mondo intero.<br><i style="color: var(--color-accent-warm);">Inizia a sostenere te stessa.</i>
+            </h1>
+            <p class="description" style="font-size: 1.25rem; margin-bottom: 3rem; line-height: 1.7; color: var(--color-text-main); font-weight: 300; max-width: 650px; margin-left: auto; margin-right: auto;">
+                Il successo non deve costarti la pace. Ti guido a sciogliere l'iper-controllo e a ricostruire un'ambizione morbida, consapevole e profondamente tua.
+            </p>
+            <div class="cta-group" style="display: flex; justify-content: center;">
+                <a href="#metodo" class="btn" style="background-color: var(--color-accent-warm); color: var(--color-white); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem;">Scopri il percorso</a>
             </div>
         </div>
     </header>
 
-    <!-- 2. TI RICONOSCI -->
-    <section id="ti-riconosci" class="section-light" style="padding: 6rem 0;">
-        <div class="container" style="max-width: 1100px; margin: 0 auto;">
+    <!-- 2. LO SPECCHIO -->
+    <section id="ti-riconosci" class="section-dark" style="padding: 8rem 0;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
             <div class="text-center mb-l">
-                <h2 class="section-title" style="color: var(--color-dark); font-size: 2.5rem; margin-bottom: 1rem;">Da fuori sembra che tu abbia tutto sotto controllo.</h2>
-                <p class="section-text mx-auto" style="color: var(--color-text-dark); font-size: 1.2rem; margin-bottom: 3rem;">Magari continui a fatturare, a rispettare le scadenze e a mostrarti presente. Ma dentro, senti che la corda è tesa al massimo.</p>
+                <h2 class="section-title" style="color: var(--color-text-main); font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 400;">Da fuori, sei la donna che non si ferma mai.<br><i style="color: var(--color-white);">Dentro, stai chiedendo il permesso di respirare.</i></h2>
             </div>
             
-            <div class="riconosci-layout" style="display: flex; gap: 4rem; align-items: center; margin-bottom: 3rem;">
+            <div class="riconosci-layout" style="display: flex; gap: 4rem; align-items: center; margin-bottom: 4rem;">
                 <div class="riconosci-text" style="flex: 1;">
-                    <div style="background-color: #222222; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border-radius: 24px;">
-                        <ul style="list-style: none; padding: 0; margin: 0; color: var(--color-text-dark); font-size: 1.1rem; line-height: 1.6;">
-                            <li style="margin-bottom: 1rem; display: flex;"><span style="color: var(--color-gold); margin-right: 15px; font-weight: bold; font-size: 1.2rem;">✓</span><span>Hai costruito un business che funziona, ma non riesci mai a staccare veramente la spina.</span></li>
-                            <li style="margin-bottom: 1rem; display: flex;"><span style="color: var(--color-gold); margin-right: 15px; font-weight: bold; font-size: 1.2rem;">✓</span><span>Ti senti in colpa le rare volte in cui provi a riposare o a non essere produttiva.</span></li>
-                            <li style="margin-bottom: 1rem; display: flex;"><span style="color: var(--color-gold); margin-right: 15px; font-weight: bold; font-size: 1.2rem;">✓</span><span>Fai fatica a delegare perché pensi sempre: "Faccio prima a farlo io".</span></li>
-                            <li style="margin-bottom: 1rem; display: flex;"><span style="color: var(--color-gold); margin-right: 15px; font-weight: bold; font-size: 1.2rem;">✓</span><span>Anche quando raggiungi un traguardo importante, non riesci a godertelo: la tua mente è già alla prossima cosa da fare.</span></li>
-                            <li style="margin-bottom: 0; display: flex;"><span style="color: var(--color-gold); margin-right: 15px; font-weight: bold; font-size: 1.2rem;">✓</span><span>Il tuo corpo sta iniziando a mandarti segnali chiari (stanchezza cronica, insonnia, tensioni).</span></li>
-                        </ul>
+                    <div style="padding: 2rem 0;">
+                        <p style="color: var(--color-text-main); font-size: 1.25rem; line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem;">
+                            Hai costruito una realtà che funziona perfettamente, ma la stai pagando in energia, ansia e l'impossibilità di staccare davvero la spina.
+                        </p>
+                        <p style="color: var(--color-text-main); font-size: 1.25rem; line-height: 1.8; font-weight: 300;">
+                            Fai fatica a delegare, ti senti in colpa le rare volte in cui provi a riposare, e ogni traguardo raggiunto è solo l'inizio di una nuova corsa verso l'esaurimento.
+                        </p>
                     </div>
                 </div>
                 <div class="riconosci-image" style="flex: 1;">
-                    <img src="stressed.jpg" alt="Professionista, freelance o imprenditrice stressata che affronta il burnout e l'iper-responsabilità al lavoro" style="width: 100%; height: auto; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                    <img src="specchio_concept.jpg" alt="Rallentare e ritrovare il centro" style="width: 100%; border-radius: 2px; object-fit: cover; box-shadow: 0 10px 30px rgba(58,53,50,0.05);">
                 </div>
             </div>
 
-            <p class="text-center" style="font-size: 1.15rem; color: var(--color-text-dark); font-weight: 500; font-style: italic; line-height: 1.6;">Non sei stanca perché sei debole. <br>Sei stanca perché da troppo tempo senti di dover essere forte per tutto.</p>
+            <p class="text-center" style="font-size: 1.3rem; color: var(--color-text-main); font-weight: 400; font-style: italic; line-height: 1.6;">
+                Non sei stanca perché sei debole.<br>Sei stanca perché da troppo tempo senti di dover essere forte per tutti.
+            </p>
         </div>
     </section>
 
 
 
-    <!-- 4. COME TI AIUTO -->
-    <section id="metodo" class="section-light fade-in" style="padding: 6rem 0;">
-        <div class="container">
+    <!-- 3. L'ALCHIMIA / IL METODO -->
+    <section id="metodo" class="section-light" style="padding: 8rem 0;">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
             <div class="text-center mb-xl">
-                <h2 class="section-title" style="color: var(--color-dark); font-size: 2.8rem;">Non devi scegliere tra ambizione e benessere.</h2>
-                <p class="section-text mx-auto" style="color: var(--color-text-dark); font-size: 1.3rem; max-width: 800px; font-weight: 500;">Puoi costruire entrambi. Ma per farlo, devi smettere di gestire il tempo e iniziare a gestire l'origine profonda del tuo stress. Nelle mie sessioni non troverai frasi motivazionali. Lavoreremo su:</p>
+                <h2 class="section-title" style="color: var(--color-text-main); font-size: 2.8rem; font-weight: 400; margin-bottom: 1.5rem;">Non devi rinunciare alla tua ambizione.<br><i style="color: var(--color-accent-warm);">Devi solo liberarla dal bisogno di controllo.</i></h2>
+                <p class="section-text mx-auto" style="color: var(--color-text-main); font-size: 1.25rem; font-weight: 300; max-width: 700px;">Un viaggio profondo per separare il tuo valore da ciò che produci, ridefinire i tuoi confini e tornare a fiorire. Lavoreremo su quattro pilastri essenziali:</p>
             </div>
-            <div class="roadmap">
-                <div class="roadmap-step">
-                    <div class="roadmap-number">1</div>
-                    <div class="roadmap-content">
-                        <h3 class="module-title" style="color: var(--color-dark); font-size: 1.3rem;">La mappatura dello stress e del bisogno di controllo</h3>
-                        <p class="module-desc" style="color: var(--color-text-dark); margin: 0;">Analizzeremo le cause scatenanti del tuo stress cronico. Capiremo perché fai così fatica a lasciare andare e come imparare a delegare, disinnescando la paura che tutto crolli se non ci sei tu a supervisionare.</p>
+            
+            <div class="roadmap" style="display: flex; flex-direction: column; gap: 4rem;">
+                <div class="roadmap-step" style="display: flex; gap: 3rem; align-items: flex-start; border-bottom: 1px solid rgba(58,53,50,0.1); padding-bottom: 3rem;">
+                    <div class="roadmap-number" style="font-family: var(--font-serif); font-size: 3rem; color: var(--color-accent-warm); line-height: 1; font-style: italic;">I.</div>
+                    <div class="roadmap-content" style="flex-grow: 1; background: transparent; padding: 0; box-shadow: none; border: none;">
+                        <h3 class="module-title" style="color: var(--color-text-main); font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem;">La Mappatura</h3>
+                        <p class="module-desc" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 300; line-height: 1.7;">Analizzeremo le cause scatenanti del tuo stress cronico. Capiremo perché fai così fatica a lasciare andare e come imparare a delegare, disinnescando la paura che tutto crolli se non ci sei tu a supervisionare.</p>
                     </div>
                 </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-number">2</div>
-                    <div class="roadmap-content">
-                        <h3 class="module-title" style="color: var(--color-dark); font-size: 1.3rem;">Ridefinire i confini e l'identità</h3>
-                        <p class="module-desc" style="color: var(--color-text-dark); margin: 0;">Lavoreremo per separare chi sei da quanto produci. Smetterai di far coincidere il tuo valore con il fatturato, creando confini netti che proteggano il tuo tempo libero e riducano il carico mentale.</p>
+                
+                <div class="roadmap-step" style="display: flex; gap: 3rem; align-items: flex-start; border-bottom: 1px solid rgba(58,53,50,0.1); padding-bottom: 3rem;">
+                    <div class="roadmap-number" style="font-family: var(--font-serif); font-size: 3rem; color: var(--color-accent-warm); line-height: 1; font-style: italic;">II.</div>
+                    <div class="roadmap-content" style="flex-grow: 1; background: transparent; padding: 0; box-shadow: none; border: none;">
+                        <h3 class="module-title" style="color: var(--color-text-main); font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem;">L'Identità</h3>
+                        <p class="module-desc" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 300; line-height: 1.7;">Lavoreremo per separare chi sei da quanto produci. Smetterai di far coincidere il tuo valore con il fatturato, creando confini netti che proteggano il tuo tempo libero e riducano il carico mentale.</p>
                     </div>
                 </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-number">3</div>
-                    <div class="roadmap-content">
-                        <h3 class="module-title" style="color: var(--color-dark); font-size: 1.3rem;">Liberarsi dall'iper-responsabilità</h3>
-                        <p class="module-desc" style="color: var(--color-text-dark); margin: 0;">Esploreremo come l'abitudine di farti carico dei problemi di tutti ti stia prosciugando. Imparerai a dire "no" senza farti divorare dai sensi di colpa e a restituire le responsabilità a chi di dovere.</p>
+                
+                <div class="roadmap-step" style="display: flex; gap: 3rem; align-items: flex-start; border-bottom: 1px solid rgba(58,53,50,0.1); padding-bottom: 3rem;">
+                    <div class="roadmap-number" style="font-family: var(--font-serif); font-size: 3rem; color: var(--color-accent-warm); line-height: 1; font-style: italic;">III.</div>
+                    <div class="roadmap-content" style="flex-grow: 1; background: transparent; padding: 0; box-shadow: none; border: none;">
+                        <h3 class="module-title" style="color: var(--color-text-main); font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem;">La Leggerezza</h3>
+                        <p class="module-desc" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 300; line-height: 1.7;">Esploreremo come l'abitudine di farti carico dei problemi di tutti ti stia prosciugando. Imparerai a dire "no" senza farti divorare dai sensi di colpa e a restituire le responsabilità a chi di dovere.</p>
                     </div>
                 </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-number">4</div>
-                    <div class="roadmap-content">
-                        <h3 class="module-title" style="color: var(--color-dark); font-size: 1.3rem;">Strategie per un successo sostenibile</h3>
-                        <p class="module-desc" style="color: var(--color-text-dark); margin: 0;">Costruiremo strumenti pratici per riorganizzare il tuo approccio al lavoro a lungo termine. L'obiettivo è farti raggiungere i tuoi traguardi professionali proteggendo le tue energie ed evitando il rischio di burnout.</p>
+                
+                <div class="roadmap-step" style="display: flex; gap: 3rem; align-items: flex-start;">
+                    <div class="roadmap-number" style="font-family: var(--font-serif); font-size: 3rem; color: var(--color-accent-warm); line-height: 1; font-style: italic;">IV.</div>
+                    <div class="roadmap-content" style="flex-grow: 1; background: transparent; padding: 0; box-shadow: none; border: none;">
+                        <h3 class="module-title" style="color: var(--color-text-main); font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem;">La Sostenibilità</h3>
+                        <p class="module-desc" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 300; line-height: 1.7;">Costruiremo strumenti pratici per riorganizzare il tuo approccio al lavoro a lungo termine. L'obiettivo è farti raggiungere i tuoi traguardi professionali proteggendo le tue energie ed evitando il rischio di burnout.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LA GUIDA (CHI SONO) -->
+    <section id="about" class="about fade-in" style="padding: 10rem 0; background-color: var(--color-base);">
+        <div class="container grid grid-2" style="align-items: center; gap: 6rem; max-width: 1000px;">
+            <div class="about-image-wrapper" style="position: relative;">
+                <img src="francesca_chi_sono.jpg" alt="Francesca Grandi - Mental Coach" style="width: 100%; border-radius: 4px; z-index: 1; position: relative;">
+            </div>
+            <div class="about-text-content" style="padding-left: 0;">
+                <h2 style="font-size: 2.8rem; font-weight: 400; margin-bottom: 2rem; color: var(--color-text-main); font-family: var(--font-serif);">
+                    Conosco il peso dell'iper-responsabilità, <i style="color: var(--color-accent-warm);">perché l'ho portato anche io.</i>
+                </h2>
+                <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; color: var(--color-text-main);">
+                    Sono Francesca Grandi. Unisco la profondità dell'ascolto alla chiarezza analitica, per guidarti a smontare l'illusione del controllo e a ritrovare il tuo centro.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; color: var(--color-text-main);">
+                    So cosa significa essere schiacciate dall'ansia di dover performare costantemente, di dover tenere insieme i pezzi per tutti tranne che per sé stesse. 
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.8; font-weight: 300; color: var(--color-text-main);">
+                    Non sono qui per dirti che "puoi fare tutto", ma per insegnarti che non devi fare tutto tu. L'obiettivo non è spegnere la tua ambizione, ma renderla sostenibile per la tua vita.
+                </p>
             </div>
         </div>
     </section>
 
 
-
-    <!-- 6. SEZIONE CHI SONO -->
-    <section id="about" class="about fade-in" style="padding: 6rem 0; background-color: #111111; color: #ffffff;">
-        <div class="container grid grid-2" style="align-items: center; gap: 4rem;">
-            <div class="about-image-wrapper" style="position: relative; display: flex; justify-content: center; align-items: center;">
-                <div style="position: absolute; width: 100%; height: 100%; background: radial-gradient(circle, rgba(226, 205, 166, 0.1) 0%, rgba(17,17,17,0) 70%); top: 0; left: 0; z-index: 0; transform: scale(1.2);"></div>
-                <img src="francesca_chi_sono.jpg" alt="Francesca Grandi - Mental Coach per Professioniste, Freelance e Imprenditrici" style="width: 100%; max-width: 450px; border-radius: 12px; z-index: 1; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+    <!-- 4.5 I PERCORSI / SERVIZI -->
+    <section id="servizi" class="section-dark fade-in" style="padding: 8rem 0; background-color: var(--color-accent-soft);">
+        <div class="container" style="max-width: 1100px;">
+            <div class="text-center mb-xl">
+                <h2 class="section-title" style="color: var(--color-text-main); font-size: 2.8rem; font-weight: 400; margin-bottom: 1.5rem; font-family: var(--font-serif);">I Percorsi</h2>
+                <p class="section-text mx-auto" style="color: var(--color-text-main); font-size: 1.25rem; font-weight: 300; max-width: 700px;">Scegli lo spazio più adatto alle tue necessità. Lavoreremo insieme per restituirti lucidità, leggerezza e confini sani.</p>
             </div>
-            <div class="about-text-content" style="padding-left: 2rem;">
-                <h2 style="font-size: 3.5rem; font-weight: 300; margin-bottom: 2rem; letter-spacing: -1px; font-family: 'Inter', sans-serif;">Ciao, sono <span style="font-family: 'Playfair Display', serif; font-style: italic; color: #E2Cda6;">Francesca.</span></h2>
-                <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.85);">Non sono qui per farti da cheerleader motivazionale. Non ti dirò mai che "puoi fare tutto". Anzi, il mio compito è proprio aiutarti ad accettare che <em>non devi fare tutto tu</em>.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.85);">So cosa significa essere schiacciati dall'ansia di dover performare costantemente, di dover tenere insieme i pezzi per tutti tranne che per sé stessi. Il mio approccio unisce l'ascolto empatico a una profonda chiarezza analitica per smontare le tue convinzioni limitanti sul lavoro e sul riposo.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 0; color: rgba(255, 255, 255, 0.85);">L'obiettivo non è spegnere la tua ambizione. È renderla sostenibile per la tua vita.</p>
+            
+            <div class="grid grid-3" style="gap: 2.5rem; align-items: stretch;">
+                
+                <!-- Servizio 1 -->
+                <div style="background-color: var(--color-base); padding: 3rem 2rem; border-radius: 4px; display: flex; flex-direction: column; text-align: center; border: 1px solid rgba(58,53,50,0.05);">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text-main); font-weight: 400; margin-bottom: 1rem;">Sessione Singola</h3>
+                    <div style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-accent-warm); margin-bottom: 1.5rem;">60 Minuti</div>
+                    <p style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.6; font-weight: 300; margin-bottom: 2rem; flex-grow: 1;">
+                        Una sessione mirata per sbloccare un nodo specifico, riorganizzare le priorità o affrontare una situazione di sovraccarico mentale acuto.
+                    </p>
+                    <div style="font-size: 2rem; font-family: var(--font-serif); color: var(--color-text-main); margin-bottom: 2rem; font-weight: 400;">99€</div>
+                    <a href="https://calendly.com/hello-francescagrandi/60" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: transparent; border: 1px solid var(--color-text-main); color: var(--color-text-main); padding: 1rem 1rem; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; width: 100%; transition: all 0.3s ease;">Prenota chiamata gratuita</a>
+                </div>
+
+                <!-- Servizio 2 -->
+                <div style="background-color: var(--color-base); padding: 3.5rem 2rem; border-radius: 4px; display: flex; flex-direction: column; text-align: center; border: 1px solid var(--color-accent-warm); transform: scale(1.05); z-index: 1;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-base); background-color: var(--color-accent-warm); padding: 0.4rem 1rem; border-radius: 20px; display: inline-block; margin: 0 auto 1.5rem auto;">Più Scelto</div>
+                    <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text-main); font-weight: 400; margin-bottom: 1rem;">Sessione Intensiva</h3>
+                    <div style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-accent-warm); margin-bottom: 1.5rem;">90 Minuti</div>
+                    <p style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.6; font-weight: 300; margin-bottom: 2rem; flex-grow: 1;">
+                        Un'immersione profonda per mappare l'origine del tuo stress, disinnescare il bisogno di controllo e definire una strategia di decompressione immediata. Essenziale per ritrovare chiarezza.
+                    </p>
+                    <div style="font-size: 2rem; font-family: var(--font-serif); color: var(--color-text-main); margin-bottom: 2rem; font-weight: 400;">157€</div>
+                    <a href="https://calendly.com/hello-francescagrandi/60" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--color-text-main); border: 1px solid var(--color-text-main); color: var(--color-base); padding: 1rem 1rem; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; width: 100%; transition: all 0.3s ease;">Prenota chiamata gratuita</a>
+                </div>
+
+                <!-- Servizio 3 -->
+                <div style="background-color: var(--color-base); padding: 3rem 2rem; border-radius: 4px; display: flex; flex-direction: column; text-align: center; border: 1px solid rgba(58,53,50,0.05);">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text-main); font-weight: 400; margin-bottom: 1rem;">Percorso Trasformativo</h3>
+                    <div style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; color: var(--color-accent-warm); margin-bottom: 1.5rem;">4 Call (1 a settimana da 60 min)</div>
+                    <p style="color: var(--color-text-main); font-size: 1.05rem; line-height: 1.6; font-weight: 300; margin-bottom: 2rem; flex-grow: 1;">
+                        Un viaggio continuo per smontare l'illusione dell'iper-responsabilità, ridefinire stabilmente i tuoi confini e proteggere la tua ambizione a lungo termine, imparando a delegare.
+                    </p>
+                    <div style="font-size: 2rem; font-family: var(--font-serif); color: var(--color-text-main); margin-bottom: 2rem; font-weight: 400;">387€</div>
+                    <a href="https://calendly.com/hello-francescagrandi/60" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: transparent; border: 1px solid var(--color-text-main); color: var(--color-text-main); padding: 1rem 1rem; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; width: 100%; transition: all 0.3s ease;">Prenota chiamata gratuita</a>
+                </div>
+
             </div>
         </div>
     </section>
 
-
-    <section class="youtube-section section-light fade-in" style="padding: 6rem 0;">
+    <!-- 5. RISORSE / YOUTUBE -->
+    <section class="youtube-section section-light fade-in" style="padding: 8rem 0; background-color: var(--color-base);">
         <div class="container">
-            <h2 class="section-title text-center mb-l" style="color: var(--color-dark);">I miei approfondimenti</h2>
-            <div class="grid grid-3">
-                <div class="video-card">
-                    <div class="video-embed">
+            <h2 class="section-title text-center mb-l" style="color: var(--color-text-main); font-weight: 400; font-size: 2.5rem; font-family: var(--font-serif);">Risorse per la tua evoluzione</h2>
+            <div class="grid grid-3" style="gap: 3rem;">
+                <div class="video-card" style="background: transparent; box-shadow: none; border: none; padding: 0;">
+                    <div class="video-embed" style="border-radius: 4px; overflow: hidden;">
                         <iframe id="yt-iframe-1" width="100%" height="200" src="https://www.youtube.com/embed/D_AQXDXnLh4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div class="video-info">
-                        <h3 class="video-title"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: inherit; text-decoration: none;">Come smettere di sentirti sbagliato in un mondo che va di fretta</a></h3>
+                    <div class="video-info" style="padding: 1.5rem 0 0 0;">
+                        <h3 class="video-title" style="font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.5;"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: var(--color-text-main); text-decoration: none;">Come smettere di sentirti sbagliata in un mondo che va di fretta</a></h3>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-embed">
+                <div class="video-card" style="background: transparent; box-shadow: none; border: none; padding: 0;">
+                    <div class="video-embed" style="border-radius: 4px; overflow: hidden;">
                         <iframe id="yt-iframe-2" width="100%" height="200" src="https://www.youtube.com/embed/EpnisJIkuRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div class="video-info">
-                        <h3 class="video-title"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: inherit; text-decoration: none;">Il vero motivo per cui sei bloccato (e come uscirne)</a></h3>
+                    <div class="video-info" style="padding: 1.5rem 0 0 0;">
+                        <h3 class="video-title" style="font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.5;"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: var(--color-text-main); text-decoration: none;">Il vero motivo per cui sei bloccata (e come uscirne)</a></h3>
                     </div>
                 </div>
-                <div class="video-card">
-                    <div class="video-embed">
+                <div class="video-card" style="background: transparent; box-shadow: none; border: none; padding: 0;">
+                    <div class="video-embed" style="border-radius: 4px; overflow: hidden;">
                         <iframe id="yt-iframe-3" width="100%" height="200" src="https://www.youtube.com/embed/cmXtSeYsAR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div class="video-info">
-                        <h3 class="video-title"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: inherit; text-decoration: none;">Smetti di compiacere gli altri: guida pratica per ritrovare te stesso</a></h3>
+                    <div class="video-info" style="padding: 1.5rem 0 0 0;">
+                        <h3 class="video-title" style="font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.5;"><a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" style="color: var(--color-text-main); text-decoration: none;">Smetti di compiacere gli altri: guida pratica per ritrovarti</a></h3>
                     </div>
                 </div>
             </div>
@@ -228,64 +287,81 @@
             </div>
         </div>
 
-        <!-- SEZIONE DICONO DI ME -->
-        <div id="dicono-di-me" class="container mb-xl" style="max-width: 1200px; margin: 0 auto 5rem; padding-top: 5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-            <h2 class="section-title gold-text text-center" style="font-size: 2.8rem; margin-bottom: 4rem;">Dicono di me</h2>
+    <!-- 6. VOCI DI RINASCITA -->
+    <section id="dicono-di-me" class="section-dark fade-in" style="padding: 8rem 0; background-color: var(--color-accent-soft);">
+        <div class="container mb-xl" style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="section-title text-center" style="font-size: 2.8rem; font-weight: 400; margin-bottom: 4rem; color: var(--color-text-main); font-family: var(--font-serif);">Storie di chi ha lasciato andare il controllo</h2>
             
-            <div class="testimonials-slider">
+            <div class="testimonials-slider" style="background: transparent; box-shadow: none;">
                 <div class="slider-track">
-                    <div class="slide"><img src="gloria.png" alt="Recensione Gloria"></div>
-                    <div class="slide"><img src="claudia.png" alt="Recensione Claudia"></div>
-                    <div class="slide"><img src="samantha.png" alt="Recensione Samantha"></div>
+                    <div class="slide"><img src="gloria.png" alt="Recensione Gloria" style="border-radius: 4px;"></div>
+                    <div class="slide"><img src="claudia.png" alt="Recensione Claudia" style="border-radius: 4px;"></div>
+                    <div class="slide"><img src="samantha.png" alt="Recensione Samantha" style="border-radius: 4px;"></div>
                 </div>
-                <button class="slider-btn prev">❮</button>
-                <button class="slider-btn next">❯</button>
+                <button class="slider-btn prev" style="background: rgba(249, 247, 243, 0.5); color: var(--color-text-main);">❮</button>
+                <button class="slider-btn next" style="background: rgba(249, 247, 243, 0.5); color: var(--color-text-main);">❯</button>
             </div>
         </div>
+    </section>
 
-        <!-- SEZIONE BOX DOMANDE -->
-        <div id="contatti" class="container mb-xl" style="max-width: 600px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-            <h3 class="gold-text text-center mb-m" style="font-size: 2rem;">Hai altre domande?</h3>
-            <p class="text-center mb-l" style="color: var(--color-dark);">Scrivimi e ti risponderò il prima possibile.</p>
-            <div class="contact-form-wrapper" style="background: transparent; padding: 0;">
+    <!-- 7. INVITO AL VIAGGIO -->
+    <section id="faq" class="contact-section fade-in" style="padding: 8rem 0; background-color: var(--color-base);">
+        <div class="container grid grid-2" style="max-width: 1100px; gap: 6rem; align-items: flex-start;">
+            
+            <!-- SEZIONE FAQ -->
+            <div class="faq-container">
+                <h2 class="section-title" style="font-size: 2.2rem; font-weight: 400; margin-bottom: 3rem; color: var(--color-text-main); font-family: var(--font-serif);">Domande Frequenti</h2>
+                
+                <div class="faq-item" style="border-bottom: 1px solid rgba(58,53,50,0.1); padding: 1.5rem 0;">
+                    <div class="faq-question" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 400;">Le sessioni sono terapia? <span style="color: var(--color-accent-warm);">+</span></div>
+                    <div class="faq-answer">
+                        <p style="color: var(--color-text-main); font-size: 1.05rem; font-weight: 300;">No. Le sessioni sono un percorso di mental coaching. Lavoriamo su consapevolezza, gestione del carico mentale, confini e passi concreti per riorganizzare il tuo approccio al lavoro e alla vita.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="border-bottom: 1px solid rgba(58,53,50,0.1); padding: 1.5rem 0;">
+                    <div class="faq-question" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 400;">Posso prenotare anche se non so spiegare cosa mi succede? <span style="color: var(--color-accent-warm);">+</span></div>
+                    <div class="faq-answer">
+                        <p style="color: var(--color-text-main); font-size: 1.05rem; font-weight: 300;">Sì. L'iper-responsabilità crea nebbia mentale. Non devi arrivare con le risposte: il mio compito è proprio aiutarti a fare ordine.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" style="border-bottom: 1px solid rgba(58,53,50,0.1); padding: 1.5rem 0;">
+                    <div class="faq-question" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 400;">Come trovo il tempo se sono già oberata? <span style="color: var(--color-accent-warm);">+</span></div>
+                    <div class="faq-answer">
+                        <p style="color: var(--color-text-main); font-size: 1.05rem; font-weight: 300;">È proprio perché non hai tempo che hai bisogno di fermarti. La sessione serve a capire come smettere di rincorrere le urgenze.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEZIONE CONTATTI -->
+            <div id="contatti" class="contact-form-wrapper" style="background: transparent; padding: 0; box-shadow: none;">
+                <h3 style="font-size: 2.2rem; font-weight: 400; margin-bottom: 1rem; color: var(--color-text-main); font-family: var(--font-serif);">Sei pronta a posare quel peso?</h3>
+                <p style="color: var(--color-text-main); margin-bottom: 3rem; font-weight: 300; font-size: 1.1rem;">Prenota il tuo spazio. Raccontami cosa ti sta togliendo il fiato in questo momento. Ti aspetto qui.</p>
+                
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
                     
                     <div class="form-group-row">
                         <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
+                            <input type="text" id="nome" name="nome" required placeholder="Nome" style="background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 1rem 0; color: var(--color-text-main); font-family: var(--font-sans);">
                         </div>
                         <div class="form-group">
-                            <label for="cognome">Cognome</label>
-                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+                            <input type="text" id="cognome" name="cognome" required placeholder="Cognome" style="background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 1rem 0; color: var(--color-text-main); font-family: var(--font-sans);">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">La tua migliore email</label>
-                        <input type="email" id="email" name="email" required placeholder="La tua migliore email">
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <input type="email" id="email" name="email" required placeholder="Email" style="background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 1rem 0; color: var(--color-text-main); width: 100%; font-family: var(--font-sans);">
                     </div>
 
-                    <div class="form-group">
-                        <label for="messaggio">Come posso aiutarti?</label>
-                        <textarea id="messaggio" name="messaggio" rows="5" required placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <textarea id="messaggio" name="messaggio" rows="4" required placeholder="Raccontami di te..." style="background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 1rem 0; color: var(--color-text-main); width: 100%; font-family: var(--font-sans);"></textarea>
                     </div>
                     <input type="hidden" name="subject" value="Nuova richiesta dal sito web!">
                     <input type="hidden" name="from_name" value="Francesca Coaching Website">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    <button type="submit" class="btn btn-primary btn-block">INVIA MESSAGGIO</button>
+                    <button type="submit" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 2rem; width: 100%;">Invia Messaggio</button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. CTA FINALE -->
-    <section class="final-cta section-light text-center fade-in" style="padding: 6rem 0;">
-        <div class="container">
-            <h2 class="section-title" style="color: var(--color-dark); font-size: 2.5rem; margin-bottom: 1.5rem;">Se senti che è arrivato il momento di fermarti e fare chiarezza, possiamo iniziare da qui.</h2>
-            <p class="section-text mx-auto mb-l" style="color: var(--color-text-dark); font-size: 1.2rem; max-width: 800px;">Non devi avere già tutte le risposte. Devi solo decidere che non vuoi più continuare a correre a vuoto.</p>
-            <div class="cta-group" style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;">
-                <a href="#contatti" class="btn btn-primary">Contattami</a>
             </div>
         </div>
     </section>

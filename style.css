@@ -1,25 +1,33 @@
 :root {
-    --color-navy: #111111;
-    --color-blue: #1a1a1a;
-    --color-sky: #222222;
-    --color-cyan: #E2Cda6;
-    --color-ice: #111111;
+    /* Brand Colors - Soft, Editorial, Spiritual */
+    --color-base: #F9F7F3; /* Panna/Alabastro */
+    --color-text-main: #3A3532; /* Grigio Antracite / Espresso */
+    --color-accent-soft: #D4C3B3; /* Taupe scuro / Sabbia */
+    --color-accent-warm: #B89B8B; /* Cipria spento / Terracotta */
+    --color-white: #FFFFFF;
+    
+    /* Mapping old variables to new to avoid breaking everything at once, but overriding their values */
+    --color-navy: var(--color-base);
+    --color-blue: var(--color-text-main);
+    --color-sky: var(--color-base);
+    --color-cyan: var(--color-accent-warm);
+    --color-ice: var(--color-base);
 
-    --color-dark: #ffffff;
-    --color-gold: #E2Cda6;
-    --color-light: #111111;
-    --color-text-dark: rgba(255, 255, 255, 0.85);
-    --color-text-light: #ffffff;
+    --color-dark: var(--color-text-main);
+    --color-gold: var(--color-accent-warm);
+    --color-light: var(--color-base);
+    --color-text-dark: var(--color-text-main);
+    --color-text-light: var(--color-base);
     
     --font-sans: 'Inter', sans-serif;
-    --font-serif: var(--font-sans);
+    --font-serif: 'Playfair Display', serif;
     
-    --spacing-s: 2rem;
-    --spacing-m: 4rem;
-    --spacing-l: 6rem;
-    --spacing-xl: 10rem;
+    --spacing-s: 2.5rem;
+    --spacing-m: 5rem;
+    --spacing-l: 8rem;
+    --spacing-xl: 12rem;
     
-    --transition: all 0.3s ease;
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -48,9 +56,10 @@ h1, h2, h3, .logo, .list-title {
 }
 
 .main-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
     margin-bottom: var(--spacing-s);
+    font-weight: 400;
 }
 
 .section-title {
@@ -84,13 +93,13 @@ p {
 }
 
 .section-dark {
-    background-color: #111111;
-    color: var(--color-text-dark);
+    background-color: var(--color-accent-soft);
+    color: var(--color-text-main);
 }
 
 .section-light {
-    background-color: #1a1a1a;
-    color: var(--color-text-dark);
+    background-color: var(--color-base);
+    color: var(--color-text-main);
 }
 
 section {
@@ -132,9 +141,9 @@ section {
 }
 
 .navbar.scrolled {
-    background-color: rgba(17, 17, 17, 0.85);
+    background-color: rgba(249, 247, 243, 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(58, 53, 50, 0.05);
     padding: 1rem 2rem;
 }
 
@@ -147,7 +156,7 @@ section {
 }
 
 .navbar:not(.scrolled) .logo {
-    color: #ffffff !important;
+    color: var(--color-text-main) !important;
 }
 
 .nav-links a {
@@ -162,7 +171,7 @@ section {
 }
 
 .navbar:not(.scrolled) .nav-links a {
-    color: #ffffff !important;
+    color: var(--color-text-main) !important;
     opacity: 0.9 !important;
 }
 
@@ -273,14 +282,14 @@ section {
 }
 
 .hero .main-title {
-    color: #ffffff !important;
+    color: var(--color-text-main);
 }
 
 .hero .description {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+    color: var(--color-text-main);
+    font-weight: 300;
 }
 
 .hero-image-wrapper {
