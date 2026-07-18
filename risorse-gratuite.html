@@ -93,22 +93,25 @@
 
                             <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
                                 <div style="flex: 1; min-width: 150px;">
-                                    <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Nome</label>
+                                    <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Nome *</label>
                                     <input type="text" id="nome" name="nome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
                                 </div>
                                 <div style="flex: 1; min-width: 150px;">
-                                    <label for="cognome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Cognome</label>
+                                    <label for="cognome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Cognome *</label>
                                     <input type="text" id="cognome" name="cognome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
                                 </div>
                             </div>
                             <div style="margin-bottom: 2rem;">
-                                <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Email</label>
+                                <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Email *</label>
                                 <input type="email" id="email" name="email" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
                             </div>
                             <button type="submit" id="submit-btn" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem; letter-spacing: 1px; text-transform: uppercase; width: 100%; border: none; cursor: pointer; transition: background-color 0.3s ease;">
                                 Scarica la guida
                             </button>
-                            <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-main); opacity: 0.7; margin-top: 1rem;">
+                            <div style="text-align: center; margin-top: 1rem;">
+                                <span style="font-size: 0.8rem; color: var(--color-text-main); font-weight: 500;">* Campi obbligatori</span>
+                            </div>
+                            <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-main); opacity: 0.7; margin-top: 0.5rem;">
                                 Riceverai subito la guida "Ritrova la tua direzione" e potrai iniziare gli esercizi quando vuoi.
                             </p>
                         </form>
