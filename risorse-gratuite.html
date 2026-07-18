@@ -37,48 +37,91 @@
         </div>
     </nav>
 
-    <section id="risorse-gratuite" class="section-light" style="padding: 12rem 0 8rem 0; min-height: 80vh; display: flex; align-items: center;">
-        <div class="container" style="max-width: 800px; margin: 0 auto;">
-            <div class="text-center mb-l">
-                <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--color-text-main); margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">
-                    La tua guida gratuita
-                </h1>
-                <p style="font-size: 1.1rem; color: var(--color-text-main); font-weight: 300; line-height: 1.8; margin-bottom: 2rem;">
-                    Questa guida è pensata per te: donna, professionista, stanca di doverti fare carico di tutto e di tutti. Scoprirai come riconoscere le trappole dell'iper-controllo, smettere di sentirti indispensabile per gli altri e iniziare a ricostruire uno spazio mentale finalmente tuo.
-                </p>
-                <p style="font-size: 1rem; color: var(--color-accent-warm); font-weight: 400; text-transform: uppercase; letter-spacing: 1px;">
-                    Compila i campi qui sotto per ricevere l'accesso immediato:
-                </p>
-            </div>
+    <section id="risorse-gratuite" class="section-light" style="padding: 10rem 0 6rem 0; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem; align-items: start;">
+                
+                <!-- Left Column: Image -->
+                <div style="border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(58,53,50,0.1);">
+                    <img src="guida_cover.jpg" alt="Francesca Grandi - Ritrova la tua direzione" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                </div>
 
-            <div style="background-color: transparent; border: 1px solid rgba(58,53,50,0.1); padding: 4rem; border-radius: 4px;">
-                <form id="optin-form" onsubmit="unlockGuide(event)">
-                    <div style="display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 250px;">
-                            <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Nome</label>
-                            <input type="text" id="nome" name="nome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
-                        </div>
-                        <div style="flex: 1; min-width: 250px;">
-                            <label for="cognome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Cognome</label>
-                            <input type="text" id="cognome" name="cognome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
-                        </div>
-                    </div>
-                    <div style="margin-bottom: 3rem;">
-                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Email</label>
-                        <input type="email" id="email" name="email" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; width: 100%; border: none; cursor: pointer; transition: background-color 0.3s ease;">
-                        Scarica la guida
-                    </button>
-                </form>
+                <!-- Right Column: Text & Form -->
+                <div>
+                    <h1 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.5rem); color: var(--color-text-main); margin-bottom: 1rem; font-weight: 400; line-height: 1.2;">
+                        Senti che la vita che stai portando avanti non ti rappresenta più?
+                    </h1>
+                    <p style="font-size: 1.1rem; color: var(--color-text-main); font-weight: 300; line-height: 1.6; margin-bottom: 2rem; font-style: italic;">
+                        Scarica gratuitamente "Ritrova la tua direzione", la guida con 5 domande pratiche per uscire dal pilota automatico, capire cosa desideri davvero e tornare ad ascoltarti.
+                    </p>
 
-                <div id="success-message" style="display: none; text-align: center; margin-top: 2rem;">
-                    <div style="color: var(--color-accent-warm); font-size: 1.2rem; margin-bottom: 1.5rem; font-family: var(--font-serif); font-style: italic;">
-                        Grazie! Clicca sul pulsante qui sotto per accedere alla tua guida.
+                    <div style="font-size: 1rem; color: var(--color-text-main); font-weight: 300; line-height: 1.7; margin-bottom: 2rem;">
+                        <p style="margin-bottom: 1rem;">Puoi continuare a fare tutto ciò che devi fare e, allo stesso tempo, sentirti distante da te stessa.</p>
+                        <p style="margin-bottom: 1rem;">Lavori, rispetti gli impegni, ti occupi degli altri e porti avanti le tue responsabilità. Da fuori può sembrare che vada tutto bene, ma dentro senti che qualcosa non ti appartiene più.</p>
+                        <p style="margin-bottom: 1.5rem; font-weight: 400;">Questa guida ti aiuterà a fare un primo passo verso maggiore chiarezza.</p>
+                        
+                        <p style="margin-bottom: 1rem;">Attraverso esercizi semplici e domande guidate potrai iniziare a:</p>
+                        <ul style="list-style-type: none; padding-left: 0; margin-bottom: 2rem;">
+                            <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--color-accent-warm);">✦</span> riconoscere ciò che continui a fare solo per dovere;
+                            </li>
+                            <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--color-accent-warm);">✦</span> capire quale parte della tua vita oggi senti meno tua;
+                            </li>
+                            <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--color-accent-warm);">✦</span> riscoprire chi sei oltre i ruoli che ricopri;
+                            </li>
+                            <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--color-accent-warm);">✦</span> ascoltare bisogni e desideri messi da parte;
+                            </li>
+                            <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.5rem;">
+                                <span style="position: absolute; left: 0; color: var(--color-accent-warm);">✦</span> scegliere una prima azione concreta per sentirti più vicina a te stessa.
+                            </li>
+                        </ul>
+                        
+                        <p style="margin-bottom: 1rem;">Non devi avere già tutte le risposte.<br>Devi solo concederti il tempo di iniziare a porti le domande giuste.</p>
                     </div>
-                    <a href="https://drive.google.com/file/d/179WR-gvnZdnOh7Vz4Kdaw_0fh9DvLZJo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: transparent; border: 1px solid var(--color-text-main); color: var(--color-text-main); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; display: inline-block;">
-                        Apri la Guida su Google Drive
-                    </a>
+
+                    <!-- FORM -->
+                    <div style="background-color: transparent; border: 1px solid rgba(58,53,50,0.1); padding: 2rem; border-radius: 4px; margin-top: 3rem;">
+                        <form id="optin-form" onsubmit="unlockGuide(event)">
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 150px;">
+                                    <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Nome</label>
+                                    <input type="text" id="nome" name="nome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                                </div>
+                                <div style="flex: 1; min-width: 150px;">
+                                    <label for="cognome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Cognome</label>
+                                    <input type="text" id="cognome" name="cognome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 2rem;">
+                                <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Email</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                            </div>
+                            <button type="submit" id="submit-btn" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem; letter-spacing: 1px; text-transform: uppercase; width: 100%; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                                Scarica la guida
+                            </button>
+                            <p style="text-align: center; font-size: 0.85rem; color: var(--color-text-main); opacity: 0.7; margin-top: 1rem;">
+                                Riceverai subito la guida "Ritrova la tua direzione" e potrai iniziare gli esercizi quando vuoi.
+                            </p>
+                        </form>
+
+                        <div id="success-message" style="display: none; text-align: center; margin-top: 1rem;">
+                            <div style="color: var(--color-accent-warm); font-size: 1.1rem; margin-bottom: 1.5rem; font-family: var(--font-serif); font-style: italic;">
+                                Grazie! Clicca sul pulsante qui sotto per accedere alla tua guida.
+                            </div>
+                            <a href="https://drive.google.com/file/d/179WR-gvnZdnOh7Vz4Kdaw_0fh9DvLZJo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: transparent; border: 1px solid var(--color-text-main); color: var(--color-text-main); border-radius: 2px; font-weight: 400; padding: 1.2rem; letter-spacing: 1px; text-transform: uppercase; display: block; width: 100%; text-align: center;">
+                                Apri la Guida
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 3rem; font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--color-accent-warm); text-align: center;">
+                        La direzione non si trova tutta in una volta. Inizia da una domanda autentica.
+                    </p>
+
                 </div>
             </div>
         </div>
