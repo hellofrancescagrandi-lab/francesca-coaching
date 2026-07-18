@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VEPES2CTFW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VEPES2CTFW');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risorse Gratuite | Francesca Grandi Mental Coach</title>
+    <meta name="description" content="Scarica la guida gratuita per smettere di sostenere il mondo intero e iniziare a sostenere te stessa.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=13">
+</head>
+<body style="background-color: var(--color-base);">
+
+    <nav class="navbar scrolled" style="background: rgba(247, 243, 238, 0.95); border-bottom: 1px solid rgba(58, 53, 50, 0.05);">
+        <div class="logo">Francesca Grandi</div>
+        <div class="nav-links">
+            <a href="index.html#about" style="color: var(--color-dark);">Chi Sono</a>
+            <a href="index.html#servizi" style="color: var(--color-dark);">I Miei Servizi</a>
+            <a href="index.html#contatti" style="color: var(--color-dark);">Contatti</a>
+            <a href="index.html#faq" style="color: var(--color-dark);">FAQ</a>
+            <a href="risorse-gratuite.html" style="color: var(--color-accent-warm);">Risorse Gratuite</a>
+        </div>
+        <div class="hamburger">
+            <span style="background-color: var(--color-dark);"></span>
+            <span style="background-color: var(--color-dark);"></span>
+            <span style="background-color: var(--color-dark);"></span>
+        </div>
+    </nav>
+
+    <section id="risorse-gratuite" class="section-light" style="padding: 12rem 0 8rem 0; min-height: 80vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div class="text-center mb-l">
+                <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--color-text-main); margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">
+                    La tua guida gratuita
+                </h1>
+                <p style="font-size: 1.1rem; color: var(--color-text-main); font-weight: 300; line-height: 1.8; margin-bottom: 2rem;">
+                    Questa guida è pensata per te: donna, professionista, stanca di doverti fare carico di tutto e di tutti. Scoprirai come riconoscere le trappole dell'iper-controllo, smettere di sentirti indispensabile per gli altri e iniziare a ricostruire uno spazio mentale finalmente tuo.
+                </p>
+                <p style="font-size: 1rem; color: var(--color-accent-warm); font-weight: 400; text-transform: uppercase; letter-spacing: 1px;">
+                    Compila i campi qui sotto per ricevere l'accesso immediato:
+                </p>
+            </div>
+
+            <div style="background-color: transparent; border: 1px solid rgba(58,53,50,0.1); padding: 4rem; border-radius: 4px;">
+                <form id="optin-form" onsubmit="unlockGuide(event)">
+                    <div style="display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Nome</label>
+                            <input type="text" id="nome" name="nome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <label for="cognome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Cognome</label>
+                            <input type="text" id="cognome" name="cognome" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 3rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Email</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.8rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; width: 100%; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                        Scarica la guida
+                    </button>
+                </form>
+
+                <div id="success-message" style="display: none; text-align: center; margin-top: 2rem;">
+                    <div style="color: var(--color-accent-warm); font-size: 1.2rem; margin-bottom: 1.5rem; font-family: var(--font-serif); font-style: italic;">
+                        Grazie! Clicca sul pulsante qui sotto per accedere alla tua guida.
+                    </div>
+                    <a href="https://drive.google.com/file/d/179WR-gvnZdnOh7Vz4Kdaw_0fh9DvLZJo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: transparent; border: 1px solid var(--color-text-main); color: var(--color-text-main); border-radius: 2px; font-weight: 400; padding: 1.2rem 3rem; letter-spacing: 1px; text-transform: uppercase; display: inline-block;">
+                        Apri la Guida su Google Drive
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer section-dark">
+        <div class="container footer-content">
+            <div class="footer-logo">Francesca Grandi | Mental Coach</div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/grandifrancescaa/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/@grandifrancesca/videos" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.facebook.com/profile.php?id=61576594836147" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function unlockGuide(e) {
+            e.preventDefault();
+            // Nasconde il form e mostra il messaggio di successo con il link
+            document.getElementById('optin-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        }
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
