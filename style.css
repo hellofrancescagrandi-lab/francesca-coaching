@@ -1,9 +1,9 @@
 :root {
     /* Brand Colors - Soft, Editorial, Spiritual */
     --color-base: #F9F7F3; /* Panna/Alabastro */
-    --color-text-main: #3A3532; /* Grigio Antracite / Espresso */
-    --color-accent-soft: #D4C3B3; /* Taupe scuro / Sabbia */
-    --color-accent-warm: #B89B8B; /* Cipria spento / Terracotta */
+    --color-text-main: #191B1A; /* Nero morbido / Ardesia scura dal blazer e sfondo */
+    --color-accent-soft: #E0C4CA; /* Rosa peonia chiaro */
+    --color-accent-warm: #C87586; /* Rosa peonia intenso / Magenta morbido */
     --color-white: #FFFFFF;
     
     /* Mapping old variables to new to avoid breaking everything at once, but overriding their values */
