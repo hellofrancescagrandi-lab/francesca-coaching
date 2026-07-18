@@ -85,7 +85,12 @@
 
                     <!-- FORM -->
                     <div style="background-color: transparent; border: 1px solid rgba(58,53,50,0.1); padding: 2rem; border-radius: 4px; margin-top: 3rem;">
-                        <form id="optin-form" onsubmit="unlockGuide(event)">
+                        <form id="optin-form">
+                            <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
+                            <input type="hidden" name="subject" value="Nuovo download: Guida Ritrova la tua direzione">
+                            <input type="hidden" name="from_name" value="Francesca Coaching Website">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                             <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
                                 <div style="flex: 1; min-width: 150px;">
                                     <label for="nome" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Nome</label>
@@ -139,12 +144,40 @@
     </footer>
 
     <script>
-        function unlockGuide(e) {
+        const form = document.getElementById('optin-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Nasconde il form e mostra il messaggio di successo con il link
-            document.getElementById('optin-form').style.display = 'none';
-            document.getElementById('success-message').style.display = 'block';
-        }
+            
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Invio in corso...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    form.style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    console.log(response);
+                    alert("C'è stato un errore, per favore riprova.");
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("C'è stato un errore, per favore riprova.");
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
