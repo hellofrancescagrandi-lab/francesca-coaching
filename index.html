@@ -477,7 +477,7 @@
                         <input type="email" id="contact-email" name="email" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none;">
                     </div>
                     
-                    <div style="margin-bottom: 2rem; position: relative;">
+                    <div style="margin-bottom: 1.5rem; position: relative;">
                         <label for="contact-servizio" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Servizio a cui sei interessata *</label>
                         <select id="contact-servizio" name="servizio" required style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(58,53,50,0.2); padding: 0.5rem 0; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none; appearance: none; border-radius: 0;">
                             <option value="" disabled selected>Seleziona un'opzione...</option>
@@ -486,6 +486,11 @@
                             <option value="Percorso Metodo CUORE">Percorso Metodo CUORE</option>
                         </select>
                         <div style="position: absolute; right: 0; bottom: 0.5rem; pointer-events: none; color: var(--color-text-main);">▼</div>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <label for="contact-info" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Inserisci qui tutte le info utili</label>
+                        <textarea id="contact-info" name="info_utili" rows="4" style="width: 100%; background: transparent; border: 1px solid rgba(58,53,50,0.2); border-radius: 2px; padding: 0.8rem; color: var(--color-text-main); font-family: var(--font-sans); font-size: 1rem; outline: none; resize: vertical;"></textarea>
                     </div>
 
                     <button type="submit" id="main-submit-btn" class="btn" style="background-color: var(--color-text-main); color: var(--color-base); border-radius: 2px; font-weight: 400; padding: 1.2rem; letter-spacing: 1px; text-transform: uppercase; width: 100%; border: none; cursor: pointer; transition: background-color 0.3s ease;">
