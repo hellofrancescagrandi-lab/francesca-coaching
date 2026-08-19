@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NEW ERA ACADEMY - Smetti di lasciare che siano le tue paure a decidere chi puoi diventare. Entra nella lista d'attesa.">
+    <title>Lista d'Attesa - NEW ERA ACADEMY</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Francesca Grandi | <span>Mental Coach</span></a>
+        <div class="nav-links">
+            <a href="index.html#cose">Cos'è NEW ERA</a>
+            <a href="index.html#come-funziona">Come funziona</a>
+            <a href="index.html#chi-sono">Chi sono</a>
+            <a href="#form-waitlist" class="btn btn-primary" style="padding: 0.6rem 1.5rem; margin-left: 2rem;">Lista d'attesa</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- 1. HERO (DESIDERIO) -->
+    <header class="hero">
+        <div class="container hero-content fade-in">
+            <span class="subtitle-accent">NEW ERA ACADEMY</span>
+            <h1 class="title-massive">Smetti di lasciare che siano le tue paure a decidere chi puoi diventare.</h1>
+            <p class="lead" style="max-width: 600px; margin-bottom: 3rem;">Un percorso interattivo per riconoscere gli automatismi che guidano le tue scelte, lavorare sui tuoi blocchi e iniziare a costruire consapevolmente la persona che vuoi diventare.</p>
+            
+            <a href="#form-waitlist" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.5rem 3rem;">ENTRA NELLA LISTA D'ATTESA</a>
+            <span class="microcopy">Le iscrizioni non sono ancora aperte. Sarai tra le prime a sapere quando NEW ERA aprirà.</span>
+        </div>
+    </header>
+
+    <!-- 3. PROBLEMA & 4. POSSIBILITÀ (Cos'è NEW ERA) -->
+    <section id="cose" style="background-color: #0b0b0e;">
+        <div class="container fade-in">
+            <div class="grid-2">
+                <div>
+                    <span class="subtitle-accent">Il punto di partenza</span>
+                    <h2 class="title-large">Ciò che ti frena è invisibile.</h2>
+                    <p>Gran parte delle tue decisioni quotidiane non sono veramente tue. Sono il risultato di automatismi, del bisogno di approvazione, della paura di fallire e di schemi mentali che ripeti senza accorgertene.</p>
+                    <p>Continui a portare avanti la tua vita con dedizione, ma senti che qualcosa è stonato. Senti di vivere col pilota automatico.</p>
+                </div>
+                <div>
+                    <span class="subtitle-accent">La possibilità</span>
+                    <h2 class="title-large">Riprendi il <span class="text-fuchsia">controllo</span>.</h2>
+                    <p><strong>NEW ERA ACADEMY</strong> non è solo teoria. È lo spazio in cui impari a fermarti, a osservare dall'esterno quei meccanismi e a smontarli pezzo per pezzo.</p>
+                    <p>Non per diventare qualcun'altra, ma per togliere il rumore di fondo e capire finalmente cosa desideri davvero tu.</p>
+                    <a href="#form-waitlist" class="btn btn-secondary mt-m">Voglio iniziare la mia NEW ERA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MICRO-MOMENT -->
+    <section class="statement-section">
+        <div class="container fade-in">
+            <h2 class="statement-text">
+                Quante decisioni hai <span class="text-fuchsia">rimandato</span> perché aspettavi di sentirti pronta?
+            </h2>
+        </div>
+    </section>
+
+    <!-- 10. LISTA D'ATTESA -->
+    <section id="form-waitlist" style="padding-bottom: 6rem; padding-top: 6rem;">
+        <div class="container fade-in">
+            <div class="waitlist-wrapper">
+                <h2 class="title-large" style="margin-bottom: 0.5rem;">La tua NEW ERA sta per iniziare</h2>
+                <p class="lead" style="margin-bottom: 3rem;">Le iscrizioni non sono ancora aperte. Lascia i tuoi dati e sarai tra le prime persone a sapere quando NEW ERA aprirà.</p>
+                
+                <form id="waitlist-form">
+                    <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
+                    <input type="hidden" name="subject" value="Iscrizione Waitlist NEW ERA ACADEMY">
+                    <input type="hidden" name="from_name" value="NEW ERA ACADEMY">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blocco">Qual è la cosa che oggi ti blocca di più? (Opzionale)</label>
+                        <input type="text" id="blocco" name="blocco">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="messaggio">Eventuale messaggio (Opzionale)</label>
+                        <textarea id="messaggio" name="messaggio" rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" id="waitlist-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">VOGLIO ENTRARE NELLA LISTA D'ATTESA</button>
+                    
+                    <span class="microcopy" style="margin-top: 1.5rem;">Niente spam. Solo aggiornamenti relativi a NEW ERA e ai miei contenuti.</span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 0;">&copy; 2026 Francesca Grandi. Tutti i diritti riservati.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/grandiefrancesca/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@grandifrancesca" target="_blank">YouTube</a>
+                <a href="#" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
