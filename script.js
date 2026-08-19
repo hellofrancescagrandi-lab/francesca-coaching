@@ -165,12 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'pdf-grazie.html?v=' + new Date().getTime();
     });
 
-    // Handle Main Contact Form
-    handleWeb3Form('main-contact-form', (btn, originalText) => {
-        btn.innerHTML = 'MESSAGGIO INVIATO! ✓';
+    // Handle Main Waitlist Form
+    handleWeb3Form('waitlist-form', (btn, originalText) => {
+        btn.innerHTML = 'ISCRITTA CON SUCCESSO! ✓';
         btn.style.backgroundColor = '#28a745';
         btn.style.color = '#fff';
-        document.getElementById('main-contact-form').reset();
+        document.getElementById('waitlist-form').reset();
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.style.backgroundColor = '';
