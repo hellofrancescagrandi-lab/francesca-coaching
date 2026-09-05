@@ -193,6 +193,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     });
 
+    // Handle Individual Coaching Form (Mid Page)
+    handleWeb3Form('individual-form-mid', (btn, originalText) => {
+        btn.innerHTML = 'RICHIESTA INVIATA! ✓';
+        btn.style.backgroundColor = '#FF1678';
+        btn.style.color = '#fff';
+        document.getElementById('individual-form-mid').reset();
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+        }, 5000);
+    });
+
     // Testimonials Slider Logic
     const track = document.querySelector('.slider-track');
     const slides = document.querySelectorAll('.slide');
