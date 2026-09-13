@@ -159,24 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Lead Magnet Form
-    handleWeb3Form('lead-magnet-form', (btn, originalText) => {
+    // Handle Video Training Form (Hero)
+    handleWeb3Form('video-training-form', (btn, originalText) => {
         btn.innerHTML = 'REINDIRIZZAMENTO...';
-        window.location.href = 'pdf-grazie.html?v=' + new Date().getTime();
+        window.location.href = 'training.html?v=' + new Date().getTime();
     });
 
-    // Handle Main Waitlist Form
-    handleWeb3Form('waitlist-form', (btn, originalText) => {
-        btn.innerHTML = 'ISCRITTA CON SUCCESSO! ✓';
-        btn.style.backgroundColor = '#28a745';
-        btn.style.color = '#fff';
-        document.getElementById('waitlist-form').reset();
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.backgroundColor = '';
-            btn.style.color = '';
-            btn.disabled = false;
-        }, 5000);
+    // Handle Video Training Form (Bottom)
+    handleWeb3Form('video-training-form-bottom', (btn, originalText) => {
+        btn.innerHTML = 'REINDIRIZZAMENTO...';
+        window.location.href = 'training.html?v=' + new Date().getTime();
     });
 
     // Handle Individual Coaching Form
@@ -185,20 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.style.backgroundColor = '#FF1678';
         btn.style.color = '#fff';
         document.getElementById('individual-form').reset();
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.backgroundColor = '';
-            btn.style.color = '';
-            btn.disabled = false;
-        }, 5000);
-    });
-
-    // Handle Individual Coaching Form (Mid Page)
-    handleWeb3Form('individual-form-mid', (btn, originalText) => {
-        btn.innerHTML = 'RICHIESTA INVIATA! ✓';
-        btn.style.backgroundColor = '#FF1678';
-        btn.style.color = '#fff';
-        document.getElementById('individual-form-mid').reset();
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.style.backgroundColor = '';

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NEW ERA ACADEMY - Smetti di lasciare che siano le tue paure a decidere chi puoi diventare. Entra nella lista d'attesa.">
-    <title>NEW ERA ACADEMY | Francesca Grandi</title>
+    <meta name="description" content="Francesca Grandi | Mental Coach - Hai passato un periodo difficile e non sai da dove ripartire?">
+    <title>Francesca Grandi | Mental Coach</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon (placeholder) -->
@@ -14,12 +14,12 @@
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="#" class="logo">Francesca Grandi | <span>Mental Coach</span></a>
+        <a href="index.html" class="logo">Francesca Grandi | <span>Mental Coach</span></a>
         <div class="nav-links">
-            <a href="#cose">Cos'è NEW ERA</a>
-            <a href="#come-funziona">Come funziona</a>
+            <a href="index.html">Home</a>
+            <a href="#video-training">Video Training Gratuito</a>
             <a href="#chi-sono">Chi sono</a>
-            <a href="https://corsi.francescagrandi.it/neweraacademy" target="_blank" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; margin-left: 2rem; border-color: var(--color-fuchsia-main); color: var(--color-fuchsia-main);">ENTRA NELLA COMMUNITY</a>
+            <a href="#percorsi-individuali">Contatti</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -28,300 +28,143 @@
         </div>
     </nav>
 
-    <!-- 1. HERO (DESIDERIO) -->
-    <header class="hero">
+    <!-- SEZIONE 1 — HERO -->
+    <header class="hero" id="video-training">
         <div class="container fade-in">
             <div class="grid-2" style="align-items: center;">
                 <div class="hero-content" style="text-align: left;">
-                    <h1 class="title-massive" style="margin-top: 0;">Esci dal loop del dipendente insoddisfatto.<br>Smetti di vivere col pilota automatico.</h1>
-                    <p class="lead" style="max-width: 600px; margin-bottom: 3rem;">Un percorso interattivo per riconoscere gli automatismi che guidano le tue scelte, lavorare sui tuoi blocchi e iniziare a costruire consapevolmente la persona che vuoi diventare.</p>
+                    <span class="subtitle-accent" style="margin-bottom: 1rem; display: block; font-size: 0.9rem; letter-spacing: 2px;">MENTAL COACH • FRANCESCA GRANDI</span>
+                    <h1 class="title-massive" style="margin-top: 0;">Hai passato un periodo difficile e non sai da dove ripartire?</h1>
+                    <p class="lead" style="max-width: 600px; margin-bottom: 2rem;">Ho creato un videotraining gratuito per aiutarti a mettere ordine in quello che stai vivendo, capire cosa vuoi adesso e iniziare a ritrovare la tua direzione.</p>
                     
-                    <a href="https://corsi.francescagrandi.it/neweraacademy" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.5rem 3rem;">ENTRA IN NEW ERA ACADEMY</a>
-                    <span class="microcopy">Inizia da dove sei. Un’azione alla volta. ✨</span>
+                    <form id="video-training-form" class="waitlist-wrapper" style="margin: 0; padding: 2rem; background: rgba(255, 255, 255, 0.02); text-align: left;">
+                        <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
+                        <input type="hidden" name="subject" value="Iscrizione Video Training Gratuito">
+                        <input type="hidden" name="from_name" value="Francesca Grandi - Coaching">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label for="vt-nome">Nome</label>
+                            <input type="text" id="vt-nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vt-email">Email</label>
+                            <input type="email" id="vt-email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1.2rem;">GUARDA IL TRAINING GRATUITO</button>
+                        <p class="microcopy" style="margin-top: 1rem; text-align: center; color: var(--color-silver);">È gratuito. Puoi iniziare a guardarlo subito.</p>
+                    </form>
                 </div>
                 <div class="hero-image" style="display: flex; justify-content: center;">
-                    <img src="francesca_hero.jpg" alt="Francesca Grandi - NEW ERA" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 40px rgba(255,22,120,0.2);">
+                    <img src="francesca_hero.jpg" alt="Francesca Grandi - Mental Coach" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 0 40px rgba(255,22,120,0.15);">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- 2. IDENTIFICAZIONE -->
-    <section class="statement-section">
-        <div class="container fade-in">
-            <h2 class="statement-text">
-                <span class="text-fuchsia">Forse non ti manca la motivazione.</span><br>
-                Forse hai semplicemente imparato a dubitare di te prima ancora di provare.
-            </h2>
-        </div>
-    </section>
-
-    <!-- 3. PROBLEMA & 4. POSSIBILITÀ -->
-    <section id="cose" style="background-color: #0b0b0e;">
-        <div class="container fade-in">
-            <div class="grid-2">
-                <div>
-                    <span class="subtitle-accent">Il punto di partenza</span>
-                    <h2 class="title-large">Ciò che ti frena è invisibile.</h2>
-                    <p>Gran parte delle tue decisioni quotidiane non sono veramente tue. Sono il risultato di automatismi, del bisogno di approvazione, della paura di fallire e di schemi mentali che ripeti senza accorgertene.</p>
-                    <p>Continui a portare avanti la tua vita con dedizione, ma senti che qualcosa è stonato. Senti di vivere col pilota automatico.</p>
-                </div>
-                <div>
-                    <span class="subtitle-accent">La possibilità</span>
-                    <h2 class="title-large">Riprendi il <span class="text-fuchsia">controllo</span>.</h2>
-                    <p><strong>NEW ERA ACADEMY</strong> non è solo teoria. È lo spazio in cui impari a fermarti, a osservare dall'esterno quei meccanismi e a smontarli pezzo per pezzo.</p>
-                    <p>Non per diventare qualcun altro, ma per togliere il rumore di fondo e capire finalmente cosa desideri davvero tu.</p>
-                    <a href="https://corsi.francescagrandi.it/neweraacademy" target="_blank" class="btn btn-secondary mt-m">ENTRA IN NEW ERA ACADEMY</a>
-                </div>
+    <!-- SEZIONE 2 — IDENTIFICAZIONE DEL PROBLEMA -->
+    <section class="statement-section" style="padding-top: 8rem; padding-bottom: 8rem;">
+        <div class="container fade-in text-center" style="max-width: 800px;">
+            <h2 class="title-large text-fuchsia" style="margin-bottom: 2rem;">Forse fuori sembra che tu stia gestendo tutto.</h2>
+            <div style="font-size: 1.2rem; line-height: 1.8; color: var(--color-silver);">
+                <p>Ma dentro senti che qualcosa è cambiato.</p>
+                <p>Hai attraversato un periodo che ti ha messa alla prova e adesso continui a chiederti cosa dovresti fare, quale sia la scelta giusta e come tornare a sentirti di nuovo tu.</p>
+                <p>Magari sei sempre stata quella forte.<br>Quella che trova una soluzione.<br>Quella che c'è per tutti.</p>
+                <p>Ma quando arriva il momento di pensare a te stessa non sai più nemmeno da dove cominciare.</p>
+                <p style="margin-top: 2rem; color: white;"><strong>Non hai bisogno di sistemare tutta la tua vita oggi.<br>Hai bisogno di capire qual è il primo pezzo da cui ripartire.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- MICRO-MOMENT -->
-    <section class="statement-section">
+    <!-- SEZIONE 3 — COSA IMPARERAI NEL TRAINING -->
+    <section style="background-color: #0b0b0e; padding: 6rem 0;">
         <div class="container fade-in">
-            <h2 class="statement-text">
-                Quante decisioni hai <span class="text-fuchsia">rimandato</span> perché aspettavi di sentirti pronto?
-            </h2>
-        </div>
-    </section>
-
-    <!-- 5. COME FUNZIONA -->
-    <section id="come-funziona">
-        <div class="container fade-in">
-            <div class="text-center mb-l">
-                <span class="subtitle-accent">Il Processo</span>
-                <h2 class="title-large">Come funziona la tua trasformazione</h2>
-            </div>
+            <h2 class="title-large text-center" style="margin-bottom: 4rem;">Da dove si riparte quando ti senti persa?</h2>
             
-            <div class="flow-container">
-                <div class="flow-step">
-                    <h4>1. OSSERVA</h4>
-                    <p class="mb-0">Impara a riconoscere gli automatismi e le credenze limitanti che agiscono in background ogni giorno.</p>
+            <div class="grid-2" style="gap: 3rem;">
+                <div class="card" style="background: rgba(255, 255, 255, 0.02); padding: 2.5rem; border: none;">
+                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">01</span>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Separare ciò che puoi controllare da ciò che non dipende più da te.</p>
                 </div>
-                <div class="flow-step">
-                    <h4>2. COMPRENDI</h4>
-                    <p class="mb-0">Capisci da dove nascono le tue paure e il bisogno di assecondare sempre le aspettative altrui.</p>
-                </div>
-                <div class="flow-step">
-                    <h4>3. RIPROGRAMMA</h4>
-                    <p class="mb-0">Disinnesca i vecchi schemi per fare spazio a nuove scelte, più allineate ai tuoi veri valori.</p>
-                </div>
-                <div class="flow-step">
-                    <h4>4. AGISCI</h4>
-                    <p class="mb-0">Fai il primo passo nel mondo reale, supportato da esercizi pratici, challenge e il confronto con gli altri.</p>
-                </div>
-                <div class="flow-step">
-                    <h4>5. DIVENTA</h4>
-                    <p class="mb-0">Costruisci la vita che senti profondamente tua, senza farti bloccare dal giudizio o dalla paura.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. COSA TROVERAI -->
-    <section style="background-color: #0b0b0e;">
-        <div class="container fade-in">
-            <div class="text-center mb-l">
-                <span class="subtitle-accent">Gli Strumenti</span>
-                <h2 class="title-large">Cosa troverai dentro l'Academy</h2>
-            </div>
-            
-            <div class="card-grid">
-                <div class="card">
-                    <h3 class="text-fuchsia">Academy</h3>
-                    <p>Lezioni strategiche e moduli video per comprendere la tua mente e i tuoi blocchi.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-fuchsia">NEW ERA Journal</h3>
-                    <p>Il tuo strumento quotidiano di auto-osservazione e crescita.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-fuchsia">Esercizi</h3>
-                    <p>Pratiche concrete per applicare subito la teoria alla tua quotidianità.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-fuchsia">Challenge</h3>
-                    <p>Sfide periodiche per spingerti dolcemente fuori dalla zona di comfort.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-fuchsia">Community</h3>
-                    <p>Uno spazio sicuro per confrontarti con persone che stanno vivendo la tua stessa evoluzione.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-fuchsia">Coaching 1:1</h3>
-                    <p>La possibilità di accedere a sessioni individuali (opzionali) per un supporto mirato.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIANZE -->
-    <section id="testimonianza" style="padding: 6rem 0; background-color: var(--color-bg-deep);">
-        <div class="container fade-in" style="text-align: center;">
-            <h2 class="title-large text-center" style="margin-bottom: 3rem;">Dicono di NEW ERA</h2>
-            <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
-                <img src="recensione-1.png" alt="Testimonianza NEW ERA" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                <img src="recensione-2.png" alt="Testimonianza NEW ERA" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                <img src="recensione-3.png" alt="Testimonianza NEW ERA" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. NEW ERA JOURNAL MOCKUP -->
-    <section>
-        <div class="container fade-in">
-            <div class="grid-2">
-                <div class="glow-image">
-                    <img src="new_era_journal.jpg" alt="NEW ERA JOURNAL" class="img-responsive">
-                </div>
-                <div>
-                    <h2 class="title-massive">Non limitarti a guardare.<br><span class="text-fuchsia">Inizia a osservarti.</span></h2>
-                    <p class="lead">Ogni lezione dell'Academy è accompagnata dal <strong>NEW ERA JOURNAL</strong>: esercizi mirati, riflessioni e strumenti pratici da compilare.</p>
-                    <p>Perché la consapevolezza senza azione è solo teoria. Questo è un vero e proprio percorso di trasformazione, non una semplice raccolta di video.</p>
-                    <a href="https://corsi.francescagrandi.it/neweraacademy" target="_blank" class="btn btn-primary mt-m">ENTRA IN NEW ERA ACADEMY</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MICRO-MOMENT -->
-    <section class="statement-section">
-        <div class="container fade-in">
-            <h2 class="statement-text">
-                Non tutto ciò che pensi su di te è <span class="text-fuchsia">necessariamente vero</span>.
-            </h2>
-        </div>
-    </section>
-
-    <!-- PERCORSI INDIVIDUALI (Form Mid) -->
-    <section style="padding: 6rem 0;">
-        <div class="container fade-in">
-            <div class="waitlist-wrapper">
-                <h2 class="title-large" style="margin-bottom: 1rem; font-size: 2.2rem;">Vuoi saperne di più sui percorsi individuali?</h2>
-                <p class="lead" style="margin-bottom: 3rem;">Se preferisci un accompagnamento personalizzato con il Metodo CUORE, scrivimi qualche riga: ti risponderò personalmente per capire come posso aiutarti.</p>
                 
-                <form id="individual-form-mid">
+                <div class="card" style="background: rgba(255, 255, 255, 0.02); padding: 2.5rem; border: none;">
+                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">02</span>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Evitare che quello che hai attraversato diventi la definizione di chi sei.</p>
+                </div>
+                
+                <div class="card" style="background: rgba(255, 255, 255, 0.02); padding: 2.5rem; border: none;">
+                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">03</span>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Capire cosa non vuoi più e iniziare a fare chiarezza su ciò che vuoi adesso.</p>
+                </div>
+                
+                <div class="card" style="background: rgba(255, 255, 255, 0.02); padding: 2.5rem; border: none;">
+                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">04</span>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Individuare un primo passo concreto senza aspettare di avere già tutte le risposte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE 4 — FRASE MANIFESTO -->
+    <section class="statement-section">
+        <div class="container fade-in">
+            <h2 class="statement-text">
+                Ripartire non significa sapere già dove stai andando.<br>
+                <span class="text-fuchsia">Significa decidere che non vuoi più rimanere ferma nello stesso punto.</span>
+            </h2>
+        </div>
+    </section>
+
+    <!-- SEZIONE 5 — CHI È FRANCESCA -->
+    <section id="chi-sono" style="background-color: var(--color-bg-deep); padding: 6rem 0;">
+        <div class="container fade-in">
+            <div class="grid-2" style="align-items: center;">
+                <div style="order: 2;">
+                    <!-- Using existing photo for "Chi sono" section -->
+                    <img src="francesca_chi_sono.jpg" alt="Francesca Grandi - Chi Sono" class="img-responsive dark-filter" style="border-radius: 16px;">
+                </div>
+                <div style="order: 1;">
+                    <h2 class="title-large">Ciao, sono Francesca.</h2>
+                    <p class="lead text-fuchsia" style="margin-bottom: 2rem;">Francesca Grandi, Mental Coach.</p>
+                    
+                    <p>Il mio lavoro nasce da una convinzione molto semplice: non sempre abbiamo bisogno di qualcuno che ci dica cosa fare.</p>
+                    <p>A volte abbiamo bisogno di fermarci, mettere ordine in tutto il rumore che abbiamo nella testa e tornare ad ascoltare noi stesse.</p>
+                    <p>Oggi aiuto donne che stanno attraversando un momento di cambiamento o che sentono di essersi perse a ritrovare chiarezza, fiducia nelle proprie capacità e una direzione da cui ripartire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE 6 — CTA FINALE -->
+    <section style="padding: 6rem 0; background-color: #0b0b0e;">
+        <div class="container fade-in text-center">
+            <div class="waitlist-wrapper" style="max-width: 600px; margin: 0 auto; background: transparent; padding: 0;">
+                <h2 class="title-large" style="margin-bottom: 1rem;">Non devi avere già tutte le risposte.</h2>
+                <p class="lead" style="margin-bottom: 3rem;">Puoi iniziare semplicemente dal capire dove sei oggi e quale potrebbe essere il tuo prossimo passo.</p>
+                
+                <form id="video-training-form-bottom" class="waitlist-wrapper" style="margin: 0; padding: 2.5rem; text-align: left; background: rgba(255, 255, 255, 0.03);">
                     <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
-                    <input type="hidden" name="subject" value="Richiesta Percorsi Individuali">
+                    <input type="hidden" name="subject" value="Iscrizione Video Training Gratuito">
                     <input type="hidden" name="from_name" value="Francesca Grandi - Coaching">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="form-group">
-                        <label for="ind-nome-mid">Nome</label>
-                        <input type="text" id="ind-nome-mid" name="nome" required>
+                        <label for="vt-nome-bottom">Nome</label>
+                        <input type="text" id="vt-nome-bottom" name="nome" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="ind-email-mid">La tua email</label>
-                        <input type="email" id="ind-email-mid" name="email" required>
+                        <label for="vt-email-bottom">Email</label>
+                        <input type="email" id="vt-email-bottom" name="email" required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="ind-situazione-mid">Raccontami brevemente la tua situazione</label>
-                        <textarea id="ind-situazione-mid" name="situazione" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" id="individual-submit-btn-mid" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Invia la richiesta</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1.2rem;">VOGLIO INIZIARE DA QUI</button>
+                    <p class="microcopy" style="margin-top: 1rem; text-align: center; color: var(--color-silver);">Accedi gratuitamente al videotraining.</p>
                 </form>
             </div>
         </div>
     </section>
 
-
-    <!-- 8. PER CHI È / NON È -->
-    <section style="background-color: #0b0b0e;">
-        <div class="container fade-in">
-            <div class="grid-2">
-                <div style="background: rgba(255, 255, 255, 0.02); padding: 3rem; border-radius: 16px;">
-                    <h3 class="title-medium text-white">NEW ERA è per te se:</h3>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span class="text-fuchsia">✦</span> Senti di vivere col pilota automatico e vuoi riscoprire cosa desideri davvero.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span class="text-fuchsia">✦</span> Sei stanco di farti frenare dalla paura del giudizio e di deludere gli altri.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span class="text-fuchsia">✦</span> Rispetti tutti i tuoi impegni, ma alla fine della giornata ti senti distante da te stesso.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span class="text-fuchsia">✦</span> Sei disposto a metterti in gioco e fare gli esercizi per cambiare.</li>
-                    </ul>
-                </div>
-                
-                <div style="background: rgba(255, 255, 255, 0.01); padding: 3rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 class="title-medium text-gray">NON fa per te se:</h3>
-                    <ul style="list-style: none; padding-left: 0; color: var(--color-gray);">
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✕</span> Cerchi la "pillola magica" per cambiare vita in un weekend senza alcuno sforzo.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✕</span> Non sei disposta a ritagliarti del tempo per guardarti dentro con onestà.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✕</span> Preferisci continuare a lamentarti piuttosto che prenderti la responsabilità del tuo cambiamento.</li>
-                        <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✕</span> Cerchi una terapia clinica o psicologica (questo è un percorso di coaching).</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. CHI SONO -->
-    <section id="chi-sono">
-        <div class="container fade-in">
-            <div class="grid-2">
-                <div>
-                    <span class="subtitle-accent">Chi sono</span>
-                    <h2 class="title-large">Francesca Grandi</h2>
-                    <h3 class="title-medium text-fuchsia" style="font-size: 1.5rem; margin-bottom: 2rem;">Mental Coach e fondatrice di NEW ERA Academy</h3>
-                    
-                    <p>Lavoro con persone che si sentono bloccate da overthinking, paura del giudizio, bisogno di approvazione, perfezionismo e difficoltà nel mettere confini.</p>
-                    <p>Persone che spesso sanno perfettamente cosa vorrebbero fare, ma continuano a rimandare, dubitare di sé o scegliere in funzione di ciò che potrebbero pensare gli altri.</p>
-                    <p>Il mio lavoro parte da una domanda molto semplice:<br>
-                    <strong>Quanto della vita che stai vivendo oggi lo stai scegliendo davvero tu?</strong></p>
-                    
-                    <p>Ti aiuto a riconoscere pensieri, convinzioni e automatismi che influenzano il modo in cui reagisci, prendi decisioni e ti rapporti agli altri, per iniziare a costruire comportamenti più consapevoli.</p>
-                    
-                    <p>Da questa visione nasce <strong>NEW ERA Academy</strong>.</p>
-                    
-                    <p>NEW ERA significa entrare in una nuova fase della tua vita: lasciare andare ciò che continua a tenerti fermo e costruire una versione di te più sicura, autonoma e coerente con ciò che vuole davvero.</p>
-                    
-                    <p>Non si tratta di aspettare di sentirti pronto.<br>
-                    <strong>Si tratta di iniziare a diventare, scelta dopo scelta, la persona che vuoi essere.</strong></p>
-                </div>
-                <div>
-                    <!-- Using a dark filter class on the existing image to fit the new vibe -->
-                    <img src="francesca_chi_sono.jpg" alt="Francesca Grandi" class="img-responsive dark-filter">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MICRO-MOMENT -->
-    <section class="statement-section">
-        <div class="container fade-in">
-            <h2 class="statement-text">
-                La vecchia versione di te ti ha portata fin qui.<br>
-                Non deve necessariamente accompagnarti anche <span class="text-fuchsia">dove vuoi andare</span>.
-            </h2>
-        </div>
-    </section>
-
-    <!-- 10. COMMUNITY -->
-    <section id="community" style="padding-bottom: 6rem;">
-        <div class="container fade-in">
-            <div class="waitlist-wrapper">
-                <h2 class="title-large" style="margin-bottom: 0.5rem;">NEW ERA Academy</h2>
-                <p class="lead" style="margin-bottom: 2rem;">NEW ERA Academy è il percorso per chi vuole smettere di lasciare che paura del giudizio, perfezionismo, overthinking e vecchi schemi continuino a decidere al proprio posto.</p>
-                <p style="color: var(--color-silver); margin-bottom: 1.5rem; text-align: left;">
-                    Attraverso lezioni brevi, esercizi pratici, NEW ERA Journal, Road Map e la challenge NEW ERA 90, imparerai a riconoscere ciò che oggi ti blocca e a trasformarlo in nuove scelte, abitudini e azioni concrete.
-                </p>
-                <p style="color: var(--color-silver); margin-bottom: 2rem; text-align: left;">
-                    Non devi diventare un’altra persona.<br>
-                    <strong>Devi iniziare a comportarti come la persona che vuoi diventare.</strong>
-                </p>
-                
-
-
-                <a href="https://corsi.francescagrandi.it/neweraacademy" target="_blank" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1.5rem;">ENTRA IN NEW ERA ACADEMY</a>
-                
-                <span class="microcopy" style="margin-top: 1.5rem;">Inizia da dove sei. Un’azione alla volta. ✨</span>
-            </div>
-        </div>
-    </section>
-
     <!-- 11. PERCORSI INDIVIDUALI (Form) -->
-    <section id="percorsi-individuali" style="padding-bottom: 6rem;">
+    <section id="percorsi-individuali" style="padding-bottom: 6rem; padding-top: 6rem;">
         <div class="container fade-in">
             <div class="waitlist-wrapper">
                 <h2 class="title-large" style="margin-bottom: 1rem; font-size: 2.2rem;">Vuoi saperne di più sui percorsi individuali?</h2>
