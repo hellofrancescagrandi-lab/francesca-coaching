@@ -4,8 +4,8 @@
     --color-surface: rgba(28, 28, 30, 0.5); /* Apple Elevated Dark, slightly translucent */
     --color-border: rgba(255, 255, 255, 0.1);
     
-    --color-fuchsia-main: #FF1678;
-    --color-fuchsia-dark: #B50055;
+    --color-gold-main: #C5A059;
+    --color-gold-dark: #A38042;
     
     --color-white: #f5f5f7; /* Apple off-white for headers */
     --color-silver: #a1a1a6; /* Primary body text */
@@ -96,7 +96,7 @@ p.lead {
     letter-spacing: -0.01em;
 }
 
-.text-fuchsia { color: var(--color-fuchsia-main); }
+.text-gold { color: var(--color-gold-main); }
 .text-white { color: var(--color-white); }
 .text-gray { color: var(--color-gray); }
 
@@ -167,7 +167,7 @@ section {
 }
 
 .logo span {
-    color: var(--color-fuchsia-main);
+    color: var(--color-gold-main);
 }
 
 .nav-links {
@@ -186,7 +186,7 @@ section {
 }
 
 .nav-links a:hover {
-    color: var(--color-white);
+    color: var(--color-gold-main);
 }
 
 .hamburger {
@@ -229,13 +229,13 @@ section {
 }
 
 .btn-primary {
-    background-color: var(--color-fuchsia-main);
-    color: var(--color-white);
+    background-color: var(--color-gold-main);
+    color: var(--color-bg-deep);
 }
 
 .btn-primary:hover {
     transform: scale(0.98);
-    background-color: #ff2b85;
+    background-color: var(--color-gold-dark);
 }
 
 .btn-secondary {
@@ -354,13 +354,13 @@ section {
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-fuchsia-main);
-    box-shadow: 0 0 0 2px rgba(255, 22, 120, 0.2);
+    border-color: var(--color-gold-main);
+    background: rgba(28, 28, 30, 0.8);
 }
 
 /* Custom Checkbox */
 input[type="checkbox"] {
-    accent-color: var(--color-fuchsia-main);
+    accent-color: var(--color-gold-main);
     width: 1.2rem;
     height: 1.2rem;
     cursor: pointer;
@@ -427,5 +427,5 @@ footer {
 }
 
 .social-links a:hover {
-    color: var(--color-fuchsia-main);
+    color: var(--color-gold-main);
 }

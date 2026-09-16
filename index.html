@@ -3,23 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Francesca Grandi | Mental Coach - Hai passato un periodo difficile e non sai da dove ripartire?">
+    <meta name="description" content="Francesca Grandi | Mental Coach e formatrice in mental coaching">
     <title>Francesca Grandi | Mental Coach</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- Favicon (placeholder) -->
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+    
+    <style>
+        /* Aggiunte CSS specifiche per i nuovi blocchi */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .digital-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        @media (min-width: 768px) {
+            .digital-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .price-badge {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-gold-main);
+            margin: 1rem 0;
+        }
+        .price-subtitle {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+            display: block;
+        }
+        /* Mobile fixes */
+        @media (max-width: 768px) {
+            .hero-content {
+                text-align: center;
+            }
+            .hero .container {
+                gap: 2rem !important;
+            }
+            .title-massive {
+                font-size: 3rem !important;
+                word-wrap: break-word;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 15, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--color-border);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
     <nav class="navbar">
-        <a href="index.html" class="logo">Francesca Grandi | <span>Mental Coach</span></a>
+        <a href="index.html" class="logo">Francesca Grandi</a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#video-training">Video Training Gratuito</a>
-            <a href="#chi-sono">Chi sono</a>
-            <a href="#percorsi-individuali">Contatti</a>
+            <a href="#aiuto">Come posso aiutarti</a>
+            <a href="#coaching">Coaching individuale</a>
+            <a href="#percorsi">Percorsi digitali</a>
+            <a href="#contatti">Contatti</a>
         </div>
         <div class="hamburger">
             <span></span>
@@ -28,141 +98,185 @@
         </div>
     </nav>
 
-    <!-- SEZIONE 1 — HERO -->
-    <header class="hero" id="video-training">
-        <div class="container fade-in">
-            <div class="grid-2" style="align-items: center;">
-                <div class="hero-content" style="text-align: left;">
-                    <span class="subtitle-accent" style="margin-bottom: 1rem; display: block; font-size: 0.9rem; letter-spacing: 2px;">MENTAL COACH • FRANCESCA GRANDI</span>
-                    <h1 class="title-massive" style="margin-top: 0;">Hai passato un periodo difficile e non sai da dove ripartire?</h1>
-                    <p class="lead" style="max-width: 600px; margin-bottom: 2rem;">Ho creato un videotraining gratuito per aiutarti a mettere ordine in quello che stai vivendo, capire cosa vuoi adesso e iniziare a ritrovare la tua direzione.</p>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="training.html" class="btn btn-primary" style="padding: 1.2rem 2.5rem; display: inline-block;">GUARDA IL TRAINING GRATUITO</a>
-                        <p class="microcopy" style="margin-top: 1rem; color: var(--color-silver);">È gratuito. Puoi iniziare a guardarlo subito.</p>
-                    </div>
-                </div>
-                <div class="hero-image" style="display: flex; justify-content: center;">
-                    <img src="francesca_hero.jpg" alt="Francesca Grandi - Mental Coach" style="max-width: 100%; height: auto; border-radius: 20px;">
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- SEZIONE 2 — IDENTIFICAZIONE DEL PROBLEMA -->
-    <section class="statement-section" style="padding-top: 8rem; padding-bottom: 8rem;">
-        <div class="container fade-in text-center" style="max-width: 800px;">
-            <h2 class="title-large text-fuchsia" style="margin-bottom: 2rem;">Forse fuori sembra che tu stia gestendo tutto.</h2>
-            <div style="font-size: 1.2rem; line-height: 1.8; color: var(--color-silver);">
-                <p>Ma dentro senti che qualcosa è cambiato.</p>
-                <p>Hai attraversato un periodo che ti ha messa alla prova e adesso continui a chiederti cosa dovresti fare, quale sia la scelta giusta e come tornare a sentirti di nuovo tu.</p>
-                <p>Magari sei sempre stata quella forte.<br>Quella che trova una soluzione.<br>Quella che c'è per tutti.</p>
-                <p>Ma quando arriva il momento di pensare a te stessa non sai più nemmeno da dove cominciare.</p>
-                <p style="margin-top: 2rem; color: white;"><strong>Non hai bisogno di sistemare tutta la tua vita oggi.<br>Hai bisogno di capire qual è il primo pezzo da cui ripartire.</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE 3 — COSA IMPARERAI NEL TRAINING -->
-    <section style="padding: 6rem 0;">
-        <div class="container fade-in">
-            <h2 class="title-large text-center" style="margin-bottom: 4rem;">Da dove si riparte quando ti senti persa?</h2>
-            
-            <div class="grid-2" style="gap: 3rem;">
-                <div class="card">
-                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">01</span>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Separare ciò che puoi controllare da ciò che non dipende più da te.</p>
-                </div>
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="hero fade-in">
+        <div class="container" style="display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;">
+            <div class="hero-content">
+                <h1 class="title-massive" style="margin-top: 0; line-height: 1;">Francesca Grandi</h1>
+                <h2 style="color: var(--color-gold-main); font-size: 1.5rem; font-weight: 500; margin-bottom: 2rem;">Mental coach e formatrice in mental coaching</h2>
                 
-                <div class="card">
-                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">02</span>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Evitare che quello che hai attraversato diventi la definizione di chi sei.</p>
-                </div>
-                
-                <div class="card">
-                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">03</span>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Capire cosa non vuoi più e iniziare a fare chiarezza su ciò che vuoi adesso.</p>
-                </div>
-                
-                <div class="card">
-                    <span class="text-fuchsia" style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem; display: block;">04</span>
-                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 0;">Individuare un primo passo concreto senza aspettare di avere già tutte le risposte.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE 4 — FRASE MANIFESTO -->
-    <section class="statement-section">
-        <div class="container fade-in">
-            <h2 class="statement-text">
-                Ripartire non significa sapere già dove stai andando.<br>
-                <span class="text-fuchsia">Significa decidere che non vuoi più rimanere ferma nello stesso punto.</span>
-            </h2>
-        </div>
-    </section>
-
-    <!-- SEZIONE 5 — CHI È FRANCESCA -->
-    <section id="chi-sono" style="background-color: var(--color-bg-deep); padding: 6rem 0;">
-        <div class="container fade-in">
-            <div class="grid-2" style="align-items: center;">
-                <div style="order: 2;">
-                    <!-- Using existing photo for "Chi sono" section -->
-                    <img src="francesca_chi_sono.jpg" alt="Francesca Grandi - Chi Sono" class="img-responsive dark-filter" style="border-radius: 16px;">
-                </div>
-                <div style="order: 1;">
-                    <h2 class="title-large">Ciao, sono Francesca.</h2>
-                    <p class="lead text-fuchsia" style="margin-bottom: 2rem;">Francesca Grandi, Mental Coach.</p>
-                    
-                    <p>Il mio lavoro nasce da una convinzione molto semplice: non sempre abbiamo bisogno di qualcuno che ci dica cosa fare.</p>
-                    <p>A volte abbiamo bisogno di fermarci, mettere ordine in tutto il rumore che abbiamo nella testa e tornare ad ascoltare noi stesse.</p>
-                    <p>Oggi aiuto donne che stanno attraversando un momento di cambiamento o che sentono di essersi perse a ritrovare chiarezza, fiducia nelle proprie capacità e una direzione da cui ripartire.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE 6 — CTA FINALE -->
-    <section style="padding: 6rem 0;">
-        <div class="container fade-in text-center">
-            <div class="waitlist-wrapper" style="max-width: 600px; margin: 0 auto; background: transparent; padding: 0;">
-                <h2 class="title-large" style="margin-bottom: 1rem;">Non devi avere già tutte le risposte.</h2>
-                <p class="lead" style="margin-bottom: 3rem;">Puoi iniziare semplicemente dal capire dove sei oggi e quale potrebbe essere il tuo prossimo passo.</p>
+                <p class="lead" style="max-width: 600px; margin-bottom: 2rem;">Non ti soddisfa il lavoro che fai? Senti che nella tua vita manca qualcosa, ma non sai da dove iniziare?<br><br>Ti aiuto a fare chiarezza su quello che vuoi, affrontare le decisioni che rimandi e scegliere con maggiore consapevolezza.</p>
                 
                 <div style="margin-top: 2rem;">
-                    <a href="training.html" class="btn btn-primary" style="padding: 1.2rem 2.5rem; display: inline-block;">VOGLIO INIZIARE DA QUI</a>
-                    <p class="microcopy" style="margin-top: 1rem; color: var(--color-silver);">Accedi gratuitamente al videotraining.</p>
+                    <a href="#aiuto" class="btn btn-primary" style="padding: 1.2rem 2.5rem; display: inline-block;">Scopri come posso aiutarti</a>
+                </div>
+            </div>
+            <div class="hero-image glow-image" style="display: flex; justify-content: center;">
+                <img src="francesca_hero.jpg" alt="Francesca Grandi - Mental Coach" style="max-width: 100%; height: auto; border-radius: 24px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. COME POSSO AIUTARTI -->
+    <section id="aiuto" style="padding: 8rem 0; background-color: var(--color-surface);">
+        <div class="container fade-in">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="title-large">Da dove vuoi iniziare?</h2>
+                <p class="lead" style="margin-top: 1.5rem;">Non serve avere già tutte le risposte. Possiamo partire dalla situazione che stai vivendo e dalle scelte che oggi fai fatica ad affrontare.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="card">
+                    <h3 style="color: var(--color-gold-main); margin-bottom: 1rem; font-size: 1.4rem;">Il tuo lavoro non ti soddisfa</h3>
+                    <p style="color: var(--color-silver);">Continui a chiederti se restare o cambiare. Vuoi capire cosa desideri davvero e valutare il prossimo passo senza scegliere soltanto per paura o per accontentare gli altri.</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--color-gold-main); margin-bottom: 1rem; font-size: 1.4rem;">Lavori nel network marketing</h3>
+                    <p style="color: var(--color-silver);">Il giudizio degli altri, il confronto o un rifiuto ti fanno mettere in dubbio quello che stai facendo. Vuoi affrontare il tuo lavoro con maggiore consapevolezza e una mentalità più solida.</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--color-gold-main); margin-bottom: 1rem; font-size: 1.4rem;">Non sai quale direzione prendere</h3>
+                    <p style="color: var(--color-silver);">Senti il bisogno di cambiare qualcosa, ma non sai cosa. Vuoi mettere ordine tra desideri, aspettative e priorità per iniziare a decidere.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 11. PERCORSI INDIVIDUALI (Form) -->
-    <section id="percorsi-individuali" style="padding-bottom: 6rem; padding-top: 6rem;">
+    <!-- 3. COACHING INDIVIDUALE -->
+    <section id="coaching" style="padding: 8rem 0;">
+        <div class="container fade-in">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="title-large">Uno spazio per fare chiarezza e iniziare a scegliere</h2>
+                <p class="lead" style="margin-top: 1.5rem;">Scegli una sessione dedicata a una questione precisa oppure un percorso per lavorarci insieme nel tempo. Le call si svolgono online.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- BASIC -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">BASIC</h3>
+                    <p style="color: var(--color-white); font-weight: 500;">Una decisione da affrontare</p>
+                    <div class="price-badge">147 €</div>
+                    <span class="price-subtitle">1 call intensiva online di 60 minuti</span>
+                    <p style="color: var(--color-silver); margin-bottom: 2rem; flex-grow: 1;">Per chi vuole concentrarsi su una situazione specifica: una scelta che rimanda, un dubbio sul lavoro o un punto da cui non riesce a partire. Una sessione dedicata a mettere ordine e individuare un prossimo passo concreto.</p>
+                    <a href="#contatti" class="btn btn-primary" style="text-align: center; width: 100%;">Acquista</a>
+                </div>
+
+                <!-- PRO -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">PRO</h3>
+                    <p style="color: var(--color-white); font-weight: 500;">Un mese per lavorarci insieme</p>
+                    <div class="price-badge">497 €</div>
+                    <span class="price-subtitle">1 mese di percorso &middot; 4 call online da 60 minuti</span>
+                    <p style="color: var(--color-silver); margin-bottom: 2rem; flex-grow: 1;">Per chi desidera continuità e uno spazio di confronto durante il mese. Lavoriamo sulle difficoltà che ostacolano le tue decisioni, sulle tue priorità e sui passi che vuoi iniziare a compiere.</p>
+                    <a href="#contatti" class="btn btn-primary" style="text-align: center; width: 100%;">Acquista</a>
+                </div>
+
+                <!-- ELITE -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">ELITE</h3>
+                    <p style="color: var(--color-white); font-weight: 500;">Un percorso costruito sulle tue esigenze</p>
+                    <div class="price-badge" style="font-size: 1.4rem; padding: 0.35rem 0;">Prezzo da definire</div>
+                    <span class="price-subtitle">Percorso personalizzato, previo questionario e call conoscitiva</span>
+                    <p style="color: var(--color-silver); margin-bottom: 2rem; flex-grow: 1;">Per chi cerca un accompagnamento da definire in base alla propria situazione e ai propri obiettivi. Il primo passo è compilare il questionario; la call conoscitiva servirà a valutare insieme il percorso, la durata e il prezzo.</p>
+                    <a href="#contatti" class="btn btn-primary" style="text-align: center; width: 100%;">Compila il questionario</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PERCORSI DIGITALI -->
+    <section id="percorsi" style="padding: 8rem 0; background-color: var(--color-surface);">
+        <div class="container fade-in">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="title-large">Preferisci iniziare con un percorso digitale?</h2>
+                <p class="lead" style="margin-top: 1.5rem;">Scopri i percorsi da seguire online in autonomia.</p>
+            </div>
+
+            <div class="digital-grid">
+                <!-- NEW ERA -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <h3 style="color: var(--color-gold-main); font-size: 1.8rem; margin-bottom: 1rem;">NEW ERA</h3>
+                    <p style="color: var(--color-silver); margin-bottom: 2rem; flex-grow: 1;">Il mio videocorso per iniziare a osservare gli automatismi che guidano le tue giornate, fare chiarezza sulle tue priorità e scegliere con maggiore consapevolezza.</p>
+                    
+                    <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                            <span style="color: var(--color-white); font-weight: 600;">Mensile: 16,99 € al mese</span>
+                            <a href="#contatti" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">Scegli il mensile</a>
+                        </div>
+                        <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1); margin: 1rem 0;"></div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <span style="color: var(--color-white); font-weight: 600;">Annuale: 169,99 € all'anno</span>
+                            <a href="#contatti" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">Scegli l'annuale</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MENTALITÀ DA NETWORKER -->
+                <div class="card" style="display: flex; flex-direction: column;">
+                    <h3 style="color: var(--color-gold-main); font-size: 1.8rem; margin-bottom: 1rem;">MENTALITÀ DA NETWORKER</h3>
+                    <p style="color: var(--color-silver); margin-bottom: 2rem; flex-grow: 1;">Un percorso digitale dedicato a chi lavora nel network marketing e vuole lavorare sul proprio modo di affrontare giudizio, confronto e difficoltà.</p>
+                    
+                    <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                        <span style="color: var(--color-white); font-weight: 600; font-size: 1.2rem; display: block; margin-bottom: 0.2rem;">157 €</span>
+                        <span style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1.5rem; display: block;">Pagamento unico</span>
+                        <a href="#contatti" class="btn btn-primary" style="text-align: center;">Acquista il percorso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BOX DOMANDE E CONTATTI -->
+    <section id="contatti" style="padding: 8rem 0;">
         <div class="container fade-in">
             <div class="waitlist-wrapper">
-                <h2 class="title-large" style="margin-bottom: 1rem; font-size: 2.2rem;">Vuoi saperne di più sui percorsi individuali?</h2>
-                <p class="lead" style="margin-bottom: 3rem;">Se preferisci un accompagnamento personalizzato con il Metodo CUORE, scrivimi qualche riga: ti risponderò personalmente per capire come posso aiutarti.</p>
+                <h2 class="title-large" style="margin-bottom: 1rem; font-size: 2.2rem;">Hai una domanda?</h2>
+                <p class="lead" style="margin-bottom: 3rem;">Se vuoi un'informazione o non sai quale servizio scegliere, scrivimi qui.</p>
                 
                 <form id="individual-form">
                     <input type="hidden" name="access_key" value="ab894fa2-b613-4630-860a-3ef183ba9eaa">
-                    <input type="hidden" name="subject" value="Richiesta Percorsi Individuali">
+                    <input type="hidden" name="subject" value="Richiesta Informazioni / Servizi">
                     <input type="hidden" name="from_name" value="Francesca Grandi - Coaching">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                    <div class="form-group">
-                        <label for="ind-nome">Nome</label>
-                        <input type="text" id="ind-nome" name="nome" required>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="cont-nome">Nome</label>
+                            <input type="text" id="cont-nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cont-cognome">Cognome</label>
+                            <input type="text" id="cont-cognome" name="cognome" required>
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="ind-email">La tua email</label>
-                        <input type="email" id="ind-email" name="email" required>
+                        <label for="cont-email">Email</label>
+                        <input type="email" id="cont-email" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="ind-situazione">Raccontami brevemente la tua situazione</label>
-                        <textarea id="ind-situazione" name="situazione" rows="5" required></textarea>
+                        <label for="cont-servizio">Servizio richiesto</label>
+                        <select id="cont-servizio" name="servizio" required style="width: 100%; padding: 1.2rem 1.5rem; background-color: rgba(28, 28, 30, 0.5); border: 1px solid var(--color-border); border-radius: 12px; color: var(--color-white); font-family: inherit; font-size: 1rem;">
+                            <option value="" disabled selected>Seleziona un'opzione...</option>
+                            <option value="BASIC">BASIC</option>
+                            <option value="PRO">PRO</option>
+                            <option value="ELITE">ELITE</option>
+                            <option value="NEW ERA">NEW ERA</option>
+                            <option value="MENTALITA_NETWORKER">MENTALITÀ DA NETWORKER</option>
+                            <option value="NON_SO">Non so quale scegliere</option>
+                            <option value="ALTRO">Altro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cont-domanda">La tua domanda</label>
+                        <textarea id="cont-domanda" name="domanda" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 1rem;">
+                        <input type="checkbox" id="cont-privacy" name="privacy" required style="margin-top: 0.25rem;">
+                        <label for="cont-privacy" style="font-size: 0.85rem; font-weight: normal; color: var(--color-silver); text-transform: none;">Dichiaro di aver letto l'<a href="#" style="color: var(--color-gold-main);">Informativa Privacy</a> e acconsento al trattamento dei miei dati personali.</label>
                     </div>
 
                     <button type="submit" id="individual-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Invia la richiesta</button>
