@@ -159,17 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Video Training Form (Hero)
-    handleWeb3Form('video-training-form', (btn, originalText) => {
-        btn.innerHTML = 'REINDIRIZZAMENTO...';
-        window.location.href = 'training.html?v=' + new Date().getTime();
-    });
-
-    // Handle Video Training Form (Bottom)
-    handleWeb3Form('video-training-form-bottom', (btn, originalText) => {
-        btn.innerHTML = 'REINDIRIZZAMENTO...';
-        window.location.href = 'training.html?v=' + new Date().getTime();
-    });
+    // Note: Video Training forms have been replaced with direct links to training.html
 
     // Handle Individual Coaching Form
     handleWeb3Form('individual-form', (btn, originalText) => {
