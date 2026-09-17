@@ -175,6 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     });
 
+    // Handle Networker Waitlist Form
+    handleWeb3Form('networker-waitlist-form', (btn, originalText) => {
+        btn.innerHTML = 'ISCRITTO ALLA LISTA! ✓';
+        btn.style.backgroundColor = 'var(--color-gold-main)';
+        btn.style.color = '#fff';
+        document.getElementById('networker-waitlist-form').reset();
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+        }, 5000);
+    });
+
     // Testimonials Slider Logic
     const track = document.querySelector('.slider-track');
     const slides = document.querySelectorAll('.slide');
