@@ -430,38 +430,4 @@ footer {
     color: var(--color-gold-main);
 }
 
-/* Floating Google Profile Button */
-#floating-google-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-white);
-    color: var(--color-bg);
-    padding: 12px 20px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    z-index: 9999;
-    transition: all 0.3s ease;
-    border: 2px solid var(--color-white);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-#floating-google-btn:hover {
-    background-color: var(--color-gold-main);
-    color: var(--color-white);
-    border-color: var(--color-gold-main);
-}
-@media (max-width: 768px) {
-    #floating-google-btn {
-        bottom: 15px;
-        right: 15px;
-        padding: 10px 15px;
-        font-size: 0.75rem;
-    }
-}
+
