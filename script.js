@@ -171,9 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         resultDiv.style.borderColor = '#FF1678';
                         resultDiv.querySelector('h3').innerText = 'Errore';
                         resultDiv.querySelector('h3').style.color = '#FF1678';
-                        resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l'invio. Riprova tra qualche momento.';
+                        resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l\'invio. Riprova tra qualche momento.';
                     } else {
-                        alert('Si è verificato un problema durante l'invio. Riprova tra qualche momento.');
+                        alert('Si è verificato un problema durante l\'invio. Riprova tra qualche momento.');
                     }
                     btn.innerHTML = originalText;
                     btn.disabled = false;
@@ -186,9 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultDiv.style.borderColor = '#FF1678';
                     resultDiv.querySelector('h3').innerText = 'Errore di connessione';
                     resultDiv.querySelector('h3').style.color = '#FF1678';
-                    resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l'invio. Riprova tra qualche momento.';
+                    resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l\'invio. Riprova tra qualche momento.';
                 } else {
-                    alert('Si è verificato un problema durante l'invio. Riprova tra qualche momento.');
+                    alert('Si è verificato un problema durante l\'invio. Riprova tra qualche momento.');
                 }
                 btn.innerHTML = originalText;
                 btn.disabled = false;
