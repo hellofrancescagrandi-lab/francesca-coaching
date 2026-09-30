@@ -1,0 +1,10 @@
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 0;">&copy; 2026 Francesca Grandi. Tutti i diritti riservati.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/grandiefrancesca/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/channel/UCCeq55lGv98rXe3TZwWAmkA" target="_blank">YouTube</a>
+                <a href="#" target="_blank">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>

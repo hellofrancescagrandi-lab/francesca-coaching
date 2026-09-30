@@ -115,13 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    
     // 6. Web3Forms AJAX Submission Logic
-    function handleWeb3Form(formId, onSuccess) {
+    function handleWeb3Form(formId) {
         const form = document.getElementById(formId);
         if (!form) return;
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Basic validation check
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
             const formData = new FormData(form);
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
@@ -130,6 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = btn.innerHTML;
             btn.innerHTML = 'INVIO IN CORSO...';
             btn.disabled = true;
+
+            const resultDiv = form.nextElementSibling && form.nextElementSibling.id === 'form-result-message' 
+                              ? form.nextElementSibling 
+                              : document.getElementById('form-result-message');
 
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
@@ -141,102 +153,49 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(async (response) => {
                 let resJson = await response.json();
-                if (response.status == 200) {
-                    onSuccess(btn, originalText);
+                if (response.status == 200 && resJson.success === true) {
+                    form.style.display = 'none';
+                    if (resultDiv) {
+                        resultDiv.style.display = 'block';
+                        resultDiv.style.borderColor = 'var(--color-gold-main)';
+                        resultDiv.querySelector('h3').innerText = 'Inviato!';
+                        resultDiv.querySelector('h3').style.color = 'var(--color-gold-main)';
+                        resultDiv.querySelector('p').innerText = 'Grazie! La tua richiesta è stata inviata correttamente. Ti risponderò il prima possibile.';
+                    } else {
+                        alert('Grazie! La tua richiesta è stata inviata correttamente. Ti risponderò il prima possibile.');
+                    }
                 } else {
                     console.log(response);
-                    alert('Si è verificato un errore. Riprova più tardi.');
+                    if (resultDiv) {
+                        resultDiv.style.display = 'block';
+                        resultDiv.style.borderColor = '#FF1678';
+                        resultDiv.querySelector('h3').innerText = 'Errore';
+                        resultDiv.querySelector('h3').style.color = '#FF1678';
+                        resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l'invio. Riprova tra qualche momento.';
+                    } else {
+                        alert('Si è verificato un problema durante l'invio. Riprova tra qualche momento.');
+                    }
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }
             })
             .catch(error => {
                 console.log(error);
-                alert('Si è verificato un errore. Riprova più tardi.');
+                if (resultDiv) {
+                    resultDiv.style.display = 'block';
+                    resultDiv.style.borderColor = '#FF1678';
+                    resultDiv.querySelector('h3').innerText = 'Errore di connessione';
+                    resultDiv.querySelector('h3').style.color = '#FF1678';
+                    resultDiv.querySelector('p').innerText = 'Si è verificato un problema durante l'invio. Riprova tra qualche momento.';
+                } else {
+                    alert('Si è verificato un problema durante l'invio. Riprova tra qualche momento.');
+                }
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             });
         });
     }
 
-    // Note: Video Training forms have been replaced with direct links to training.html
+    handleWeb3Form('individual-form');
 
-    // Handle Individual Coaching Form
-    handleWeb3Form('individual-form', (btn, originalText) => {
-        btn.innerHTML = 'RICHIESTA INVIATA! ✓';
-        btn.style.backgroundColor = '#FF1678';
-        btn.style.color = '#fff';
-        document.getElementById('individual-form').reset();
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.backgroundColor = '';
-            btn.style.color = '';
-            btn.disabled = false;
-        }, 5000);
-    });
-
-    // Handle Networker Waitlist Form
-    handleWeb3Form('networker-waitlist-form', (btn, originalText) => {
-        btn.innerHTML = 'ISCRITTO ALLA LISTA! ✓';
-        btn.style.backgroundColor = 'var(--color-gold-main)';
-        btn.style.color = '#fff';
-        document.getElementById('networker-waitlist-form').reset();
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.backgroundColor = '';
-            btn.style.color = '';
-            btn.disabled = false;
-        }, 5000);
-    });
-
-    // Testimonials Slider Logic
-    const track = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slider-btn.prev');
-    const nextBtn = document.querySelector('.slider-btn.next');
-
-    if (track && slides.length > 0) {
-        let currentIndex = 0;
-        let autoSlideInterval;
-
-        function updateSlider() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateSlider();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextSlide, 4000); // Scorre ogni 4 secondi
-        }
-
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetAutoSlide();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoSlide();
-            });
-        }
-
-        // Avvia lo scorrimento automatico
-        startAutoSlide();
-    }
 });
