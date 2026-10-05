@@ -1,0 +1,84 @@
+import re
+
+with open('new-era-academy/index.html', 'r') as f:
+    html = f.read()
+
+# 1. ADD FAQ SECTION
+faq_html = """
+    <!-- FAQ SECTION -->
+    <section style="padding: 6rem 0 2rem 0; background-color: var(--color-bg);">
+        <div class="container fade-in">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto; margin-bottom: 3rem;">
+                <h3 style="color: var(--color-gold-main); font-size: 1.8rem;">Hai ancora qualche dubbio?</h3>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="card" style="padding: 2rem; background-color: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 style="color: var(--color-gold-main); font-size: 1.2rem; margin-bottom: 0.8rem;">E se ho poco tempo per seguire?</h3>
+                    <p style="color: var(--color-silver); margin: 0; line-height: 1.6;">Tutti i moduli sono accessibili fin da subito e disponibili sulla piattaforma 24 ore su 24. Potrai seguire le lezioni secondo i tuoi ritmi, senza scadenze. Le strategie che imparerai sono studiate proprio per farti recuperare tempo ed energie, non per appesantire le tue giornate.</p>
+                </div>
+                <div class="card" style="padding: 2rem; background-color: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 style="color: var(--color-gold-main); font-size: 1.2rem; margin-bottom: 0.8rem;">Come ricevo gli accessi?</h3>
+                    <p style="color: var(--color-silver); margin: 0; line-height: 1.6;">Subito dopo aver completato l'iscrizione, riceverai un'email automatica con le tue credenziali personali. Potrai accedere istantaneamente alla tua area riservata e iniziare il percorso immediatamente, oppure quando ti è più comodo.</p>
+                </div>
+                <div class="card" style="padding: 2rem; background-color: var(--color-surface); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px;">
+                    <h3 style="color: var(--color-gold-main); font-size: 1.2rem; margin-bottom: 0.8rem;">Posso pagare a rate?</h3>
+                    <p style="color: var(--color-silver); margin: 0; line-height: 1.6;">Sì, assolutamente. Abbiamo integrato la possibilità di utilizzare Klarna: questo ti permette di dilazionare l'investimento comodamente in 3 rate a tasso zero, abbattendo ogni ostacolo per iniziare subito il tuo cambiamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+"""
+
+# Find the start of the CALL TO ACTION section and insert FAQ right before it.
+cta_start = html.find('<!-- CALL TO ACTION -->')
+if cta_start != -1:
+    html = html[:cta_start] + faq_html + html[cta_start:]
+
+# 2. UPDATE CTA TEXT
+html = html.replace(
+    "L'accesso completo a NEW ERA Academy richiede un investimento di",
+    "Puoi sbloccare l'accesso all'intero percorso con un singolo investimento di"
+)
+
+# 3. UPDATE BUTTON TEXT & ADD LOGOS
+old_btn = '<a href="https://corsi.francescagrandi.it/neweraacademy" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem; display: inline-block; box-shadow: 0 10px 30px rgba(201,167,93,0.3);">ACCEDI SUBITO A NEW ERA</a>'
+
+new_btn_and_logos = """
+<a href="https://corsi.francescagrandi.it/neweraacademy" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem; display: inline-block; box-shadow: 0 10px 30px rgba(201,167,93,0.3); font-weight: bold;">VOGLIO SBLOCCARE IL MIO POTENZIALE</a>
+
+<div style="margin-top: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; opacity: 0.7;">
+    <!-- Visa -->
+    <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: white; border-radius: 4px; padding: 2px;">
+        <path d="M15.4 7.6L13.8 17.5H11.2L12.8 7.6H15.4ZM23 7.8C22.4 7.6 21.6 7.4 20.6 7.4C18.1 7.4 16.3 8.7 16.3 11C16.3 12.7 17.8 13.6 19 14.2C20.2 14.8 20.6 15.2 20.6 15.8C20.6 16.7 19.5 17.1 18.5 17.1C17.3 17.1 16.3 16.8 15.6 16.4L15.1 16.2L14.7 18.6C15.5 19 16.5 19.3 17.7 19.3C20.4 19.3 22.2 18.1 22.2 15.7C22.2 13.1 18.4 12.9 18.4 11.1C18.4 10.4 19 9.6 20.4 9.6C21.4 9.6 22.2 9.8 22.8 10L23.2 10.2L23.6 7.8H23ZM31.1 17.5H33.4L30.9 7.6C30.6 7.1 30.1 6.9 29.5 6.9H25.3L25.1 7.4C24.4 9.2 22.5 13 22.5 13L24.8 13L25.3 11.5H28.7L29.1 13H31.1V17.5ZM26 9.8L27.9 14.9H24.3L26 9.8ZM10.5 7.6H8C7.5 7.6 7.1 7.8 6.9 8.3L3.9 15.5L3 7.6H0.4L1.7 17.5H4.5L8.7 7.6H10.5Z" fill="#1434CB"/>
+    </svg>
+    <!-- Mastercard -->
+    <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: white; border-radius: 4px; padding: 2px;">
+        <circle cx="16" cy="12" r="7" fill="#EB001B"/>
+        <circle cx="24" cy="12" r="7" fill="#F79E1B"/>
+        <path d="M20 17.5C18.7 16.1 18 14.1 18 12C18 9.9 18.7 7.9 20 6.5C21.3 7.9 22 9.9 22 12C22 14.1 21.3 16.1 20 17.5Z" fill="#FF5F00"/>
+    </svg>
+    <!-- Apple Pay -->
+    <svg width="45" height="24" viewBox="0 0 45 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: white; border-radius: 4px; padding: 2px;">
+        <path d="M12.9 11.4C12.9 8.7 15.2 7.4 15.3 7.3C14.1 5.5 12.1 5.2 11.5 5.1C9.8 4.9 8.2 6.1 7.3 6.1C6.4 6.1 5.1 5.1 3.7 5.2C2 5.2 0.4 6.2 0 7.8C-1 10.5 1.5 14.7 3.3 17.3C4.2 18.5 5.2 19.8 6.5 19.7C7.8 19.6 8.3 18.9 9.9 18.9C11.5 18.9 11.9 19.7 13.3 19.7C14.7 19.7 15.5 18.5 16.3 17.3C17.3 15.9 17.7 14.5 17.7 14.4C17.6 14.4 12.9 12.6 12.9 11.4Z" fill="black"/>
+        <path d="M10.8 3.5C11.5 2.6 12 1.3 11.8 0C10.7 0.1 9.3 0.8 8.6 1.7C8 2.5 7.4 3.8 7.6 5C8.8 5.1 10.1 4.4 10.8 3.5Z" fill="black"/>
+        <path d="M25 6H28.7C30.4 6 31.7 6.4 32.5 7.3C33.3 8.1 33.7 9.4 33.7 10.9C33.7 12.5 33.3 13.7 32.5 14.6C31.7 15.5 30.4 15.9 28.7 15.9H26.8V21.5H25V6ZM26.8 14.2H28.5C29.6 14.2 30.4 13.9 31 13.4C31.5 12.8 31.8 12 31.8 10.9C31.8 9.9 31.5 9 30.9 8.5C30.4 7.9 29.5 7.7 28.4 7.7H26.8V14.2Z" fill="black"/>
+        <path d="M37.6 21.5C37.2 21.5 36.8 21.4 36.4 21.1C36 20.9 35.7 20.6 35.6 20.2L35.4 19.3L34.1 19.4L33.7 19.4C32.7 19.4 31.8 19 31.1 18.3C30.4 17.6 30.1 16.7 30.1 15.7C30.1 14.5 30.5 13.5 31.3 12.8C32.1 12 33.2 11.7 34.6 11.7C35.2 11.7 35.8 11.7 36.2 11.8C36.6 11.9 36.9 12.1 37.1 12.2V11.6C37.1 10.5 36.8 9.7 36.2 9.2C35.5 8.7 34.7 8.4 33.5 8.4C32.9 8.4 32.2 8.6 31.5 8.9C30.8 9.2 30.4 9.6 30.1 10.1L28.9 9.1C29.4 8.3 30.1 7.6 31.1 7.1C32 6.6 33.1 6.3 34.4 6.3C36 6.3 37.3 6.8 38 7.7C38.8 8.6 39.1 9.9 39.1 11.6V18.1C39.1 19 39.4 19.5 39.8 19.5C39.9 19.5 40.1 19.5 40.3 19.3L40.7 20.9C40.4 21.2 40 21.3 39.5 21.4C39 21.5 38.6 21.5 38.2 21.5L37.6 21.5ZM34.7 17.9C35.3 17.9 35.9 17.8 36.4 17.5C36.9 17.2 37.1 16.9 37.1 16.4V13.8C36.8 13.7 36.5 13.5 36.1 13.4C35.7 13.3 35.2 13.2 34.7 13.2C33.8 13.2 33.2 13.4 32.7 13.8C32.2 14.3 32 14.8 32 15.5C32 16.2 32.2 16.8 32.6 17.2C33.1 17.6 33.8 17.9 34.7 17.9Z" fill="black"/>
+        <path d="M46.7 6.6L43.8 13.6L40.7 6.6H38.7L42.9 15.6L41.3 19H39.2L45 6.6H46.7Z" fill="black"/>
+    </svg>
+    <!-- Klarna -->
+    <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: #FFB3C7; border-radius: 4px; padding: 2px;">
+        <path d="M7.7 17H5.6V7H7.7V17Z" fill="black"/>
+        <path d="M12.9 17H10.8V7H12.9V17Z" fill="black"/>
+        <path d="M22.8 17H20.7V13.5C20.7 12 19.8 11.2 18.5 11.2C17.2 11.2 16.3 12 16.3 13.5V17H14.2V11C14.2 8.7 16 7 18.5 7C21 7 22.8 8.7 22.8 11V17Z" fill="black"/>
+        <path d="M31.1 17H29V15.7C28.4 16.6 27.2 17.2 25.8 17.2C23.6 17.2 21.8 15.4 21.8 13.1C21.8 10.9 23.6 9 25.8 9C27.2 9 28.4 9.6 29 10.6V9.2H31.1V17ZM29 13.1C29 11.8 27.9 10.8 26.5 10.8C25.1 10.8 24 11.8 24 13.1C24 14.5 25.1 15.5 26.5 15.5C27.9 15.5 29 14.5 29 13.1Z" fill="black"/>
+        <circle cx="35" cy="15" r="2" fill="black"/>
+    </svg>
+</div>
+"""
+
+html = html.replace(old_btn, new_btn_and_logos)
+
+with open('new-era-academy/index.html', 'w') as f:
+    f.write(html)
+
