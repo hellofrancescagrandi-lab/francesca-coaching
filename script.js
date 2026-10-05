@@ -123,6 +123,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+        // --- SECURITY HARDENING: Rate Limiting ---
+        const lastSubmit = localStorage.getItem('lastFormSubmit');
+        const now = Date.now();
+        if (lastSubmit && now - parseInt(lastSubmit) < 60000) { // 60 seconds cooldown
+            e.preventDefault();
+            formMessage.innerHTML = 'Stai inviando troppe richieste. Riprova tra un minuto.';
+            formMessage.className = 'form-message error';
+            formMessage.style.display = 'block';
+            return;
+        }
+        localStorage.setItem('lastFormSubmit', now.toString());
+        // -----------------------------------------
+
             
             // Basic validation check
             if(!form.checkValidity()) {
