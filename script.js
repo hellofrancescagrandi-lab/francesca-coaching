@@ -21,13 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Sticky Navbar Background on Scroll
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
     // 3. FAQ Accordion Logic
     const faqItems = document.querySelectorAll('.faq-item');
