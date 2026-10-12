@@ -44,7 +44,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261012-1118">
+    <link rel="stylesheet" href="style.css?v=20261012-1125">
     
     <!-- Favicon (placeholder) -->
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
@@ -398,6 +398,111 @@
                 margin-bottom: 2.2rem;
             }
         }
+        /* Box Finale Conosciamoci Formato Ispirato alla Foto */
+        .final-box-section {
+            padding: 8.5rem 0;
+            background-color: var(--color-bg-deep);
+            border-top: 1px solid var(--color-border);
+            position: relative;
+            scroll-margin-top: 40px;
+        }
+        .final-box-container {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .final-box-kicker {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--color-gold-main);
+            display: block;
+            margin-bottom: 1.4rem;
+        }
+        .final-box-title {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+            font-weight: 700;
+            font-style: italic;
+            color: var(--color-white);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin: 0 0 2.2rem 0;
+        }
+        .final-box-title span {
+            display: block;
+            color: var(--color-gold-main);
+            font-style: italic;
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+        .final-box-paragraphs {
+            margin-bottom: 2.5rem;
+        }
+        .final-box-paragraphs p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #a1a1a6;
+            margin-bottom: 1.4rem;
+            font-weight: 400;
+        }
+        .final-box-paragraphs p strong {
+            color: var(--color-white);
+            font-weight: 600;
+        }
+        .final-box-paragraphs p em {
+            color: var(--color-gold-main);
+            font-style: italic;
+        }
+        .final-box-paragraphs p:last-child {
+            margin-bottom: 0;
+        }
+        .final-box-action {
+            display: flex;
+            align-items: center;
+        }
+        .final-box-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.05rem 2.9rem;
+            background-color: var(--color-gold-main);
+            color: #000000;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-radius: 980px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(163, 128, 66, 0.28);
+            transition: var(--transition-fast);
+        }
+        .final-box-btn:hover {
+            background-color: var(--color-gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px rgba(163, 128, 66, 0.4);
+            color: #000000;
+        }
+        @media (max-width: 680px) {
+            .final-box-section {
+                padding: 5.5rem 0;
+            }
+            .final-box-title {
+                font-size: 2.2rem;
+                margin-bottom: 1.8rem;
+            }
+            .final-box-paragraphs p {
+                font-size: 1rem;
+            }
+            .final-box-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -417,7 +522,7 @@
                 <h1 class="hero-main-title">RITORNA IL PROTAGONISTA</h1>
                 <p class="hero-subtitle">Mental coaching per professionisti ambiziosi.</p>
                 <div class="hero-cta-wrapper">
-                    <a href="#chi-sono" class="btn btn-primary hero-btn">SCOPRI DA DOVE PARTIRE</a>
+                    <a href="#contatti" class="btn btn-primary hero-btn">SCOPRI DA DOVE PARTIRE</a>
                 </div>
             </div>
         </div>
@@ -643,61 +748,23 @@
         </div>
     </section>
 
-    <!-- 6. BOX DOMANDE E CONTATTI -->
-    <section id="contatti" style="padding: 8rem 0;">
+    <!-- 6. BOX FINALE - CONOSCIAMOCI (Formato da foto, stile brand) -->
+    <section id="contatti" class="final-box-section">
         <div class="container fade-in">
-            <div class="waitlist-wrapper">
-                <h2 class="title-large" style="margin-bottom: 1rem; font-size: 2.2rem;">Hai ancora dei dubbi?</h2>
-                <p class="lead" style="margin-bottom: 1rem;">Scrivimi raccontandomi brevemente cosa stai vivendo e capiremo insieme se FOCUS 60 fa al caso tuo.</p>
-                <p style="color: var(--color-silver); margin-bottom: 3rem;">Se in questo momento non credo che possa esserti utile, te lo dirò con assoluta sincerità.</p>
+            <div class="final-box-container">
+                <span class="final-box-kicker">CONOSCIAMOCI</span>
+                <h2 class="final-box-title">
+                    Senti di essere nel posto giusto?
+                    <span>Iniziamo da qui.</span>
+                </h2>
                 
-                <form id="individual-form" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="eafc21eb-6115-41ca-b86d-e1d693fabb91">
-                    <input type="hidden" name="subject" value="Nuova richiesta dal sito Francesca Grandi">
-                    <input type="hidden" name="from_name" value="Francesca Grandi - Coaching">
-                    <input type="checkbox" name="botcheck" style="display:none">
+                <div class="final-box-paragraphs">
+                    <p>Un percorso di mental coaching richiede dedizione, trasparenza e la reale volontà di mettersi in gioco. Cerco <strong>cuore</strong>, <strong>visione</strong>, <strong>ambizione</strong> e costanza nel trasformare i propri blocchi in azioni concrete. Ma soprattutto, la giusta <em>"sintonia"</em> a livello umano.</p>
+                    <p>Se senti che questo approccio risuona con te e sei pronto a scrivere insieme <strong>il tuo prossimo capitolo da protagonista</strong>...</p>
+                </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="form-group">
-                            <label for="cont-nome">Nome</label>
-                            <input type="text" id="cont-nome" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cont-cognome">Cognome</label>
-                            <input type="text" id="cont-cognome" name="surname" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="cont-email">Email</label>
-                        <input type="email" id="cont-email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cont-servizio">Servizio richiesto</label>
-                        <select id="cont-servizio" name="service" required style="width: 100%; padding: 1.2rem 1.5rem; background-color: rgba(28, 28, 30, 0.5); border: 1px solid var(--color-border); border-radius: 12px; color: var(--color-white); font-family: inherit; font-size: 1rem;">
-                            <option value="" disabled selected>Seleziona un'opzione...</option>
-                            <option value="Consulenza 1:1">Consulenza 1:1</option>
-                            <option value="Percorso personalizzato">Percorso personalizzato</option>
-                            <option value="Altro">Altro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cont-domanda">La tua domanda</label>
-                        <textarea id="cont-domanda" name="message" rows="5" required></textarea>
-                    </div>
-                    
-                    <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.5rem; margin-top: 1rem;">
-                        <input type="checkbox" id="cont-privacy" name="privacy" required style="margin-top: 0.25rem;">
-                        <label for="cont-privacy" style="font-size: 0.85rem; font-weight: normal; color: var(--color-silver); text-transform: none;">Dichiaro di aver letto l'<a href="#" style="color: var(--color-gold-main);">Informativa Privacy</a> e acconsento al trattamento dei miei dati personali.</label>
-                    </div>
-
-                    <button type="submit" id="individual-submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Invia la richiesta</button>
-                                </form>
-                <div id="form-result-message" style="display: none; padding: 2rem; background-color: rgba(197, 160, 89, 0.1); border: 1px solid var(--color-gold-main); border-radius: 12px; text-align: center; margin-top: 2rem;">
-                    <h3 style="color: var(--color-gold-main); font-size: 1.5rem; margin-bottom: 1rem;"></h3>
-                    <p style="color: var(--color-white); font-size: 1.1rem; line-height: 1.6;"></p>
+                <div class="final-box-action">
+                    <a href="https://form.jotform.com/262596026954366" target="_blank" rel="noopener noreferrer" class="btn btn-primary final-box-btn">INIZIA DA QUI</a>
                 </div>
             </div>
         </div>
