@@ -343,6 +343,128 @@ section {
     letter-spacing: -0.03em;
 }
 
+/* =========================================================
+   CUORE - 5 PASSI (Ispirato al layout di riferimento)
+   ========================================================= */
+.cuore-section {
+    padding: 8rem 0;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cuore-headline {
+    text-align: center;
+    max-width: 950px;
+    margin: 0 auto 5rem auto;
+}
+
+.cuore-headline h2 {
+    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+.cuore-headline h2 span {
+    color: var(--color-gold-main);
+}
+
+.cuore-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cuore-col {
+    padding: 3.5rem 1.8rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: background-color 0.25s ease;
+}
+
+.cuore-col:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cuore-col:last-child {
+    border-right: none;
+}
+
+.cuore-letter {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-gold-main);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    display: block;
+    letter-spacing: 0.05em;
+}
+
+.cuore-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.2rem;
+    line-height: 1.25;
+}
+
+.cuore-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-silver);
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .cuore-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cuore-col {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .cuore-col:nth-child(2n) {
+        border-right: none;
+    }
+    .cuore-col:last-child {
+        grid-column: span 2;
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .cuore-section {
+        padding: 5rem 0;
+    }
+    .cuore-headline {
+        margin-bottom: 3rem;
+    }
+    .cuore-grid {
+        grid-template-columns: 1fr;
+    }
+    .cuore-col {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 2.2rem 1.2rem;
+    }
+    .cuore-col:last-child {
+        border-bottom: none;
+    }
+    .cuore-letter {
+        font-size: 2.2rem;
+    }
+    .cuore-title {
+        font-size: 1.1rem;
+    }
+}
+
 /* Cards */
 .card-grid {
     display: grid;
