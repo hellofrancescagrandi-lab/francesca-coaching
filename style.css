@@ -1291,12 +1291,12 @@ footer {
 }
 
 .chi-aiuto-card {
-    background: rgba(22, 22, 26, 0.7);
+    background: rgba(22, 22, 26, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(197, 160, 89, 0.22);
     border-radius: 20px;
-    padding: 2.5rem 2.2rem;
+    padding: 2.2rem 2rem 2.4rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
