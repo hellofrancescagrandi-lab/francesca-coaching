@@ -63,11 +63,54 @@
       ]
     }
     </script>
+
+    <!-- JSON-LD Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Che differenza c’è tra coaching e psicoterapia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La psicoterapia si focalizza prevalentemente sul passato e sulla cura di disturbi clinici o sofferenze profonde. Il mental coaching è un percorso strategico orientato al presente e al futuro: non è una terapia, ma un lavoro pratico per fare chiarezza, superare i blocchi mentali, gestire il perfezionismo e trasformare gli obiettivi in azioni concrete."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Si può fare online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, assolutamente. Tutti i percorsi si svolgono comodamente online tramite videochiamata (Google Meet o Zoom), garantendo flessibilità, riservatezza e la massima efficacia ovunque ti trovi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto dura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non esiste una durata standard: il percorso è personalizzato al 100% in base alla tua situazione di partenza, ai tuoi bisogni e ai traguardi che vogliamo raggiungere insieme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come si paga?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puoi scegliere liberamente tra il pagamento in soluzione unica oppure comodamente suddiviso a rate mensili."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Google Fonts: Playfair Display per il titolo editoriale Be the Protagonist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261012-seo-opt">
+    <link rel="stylesheet" href="style.css?v=20261012-faq">
     
     <!-- Favicon (placeholder) -->
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
@@ -312,6 +355,69 @@
                 <div class="protagonist-action">
                     <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary protagonist-btn">PRENDIAMOCI UN CAFFÈ</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ SECTION (Domande Frequenti in fondo al sito) -->
+    <section id="faq" class="faq-section">
+        <div class="container fade-in">
+            <div class="faq-header">
+                <span class="faq-kicker">— DOMANDE FREQUENTI</span>
+                <h2 class="faq-title">Tutto quello che desideri sapere</h2>
+                <p class="faq-subtitle">Le risposte chiare ai dubbi più comuni prima di iniziare il tuo percorso.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- 1. Coaching vs Psicoterapia -->
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <span>Che differenza c’è tra coaching e psicoterapia?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>La psicoterapia si focalizza prevalentemente sul passato, sulla cura di traumi, disturbi clinici o sofferenze emotive profonde. Il <strong>mental coaching</strong> è invece un percorso strategico e orientato al <strong>presente e al futuro</strong>: non è una terapia, ma un lavoro pratico rivolto a persone che vogliono fare chiarezza, superare i blocchi mentali, gestire il perfezionismo, ritrovare fiducia e trasformare i propri obiettivi in azioni concrete.</p>
+                    </div>
+                </details>
+
+                <!-- 2. Si può fare online? -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Si può fare online?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p><strong>Sì, assolutamente.</strong> Tutti i percorsi si svolgono comodamente online tramite videochiamata (Google Meet o Zoom). Questo ti permette di seguire le sessioni ovunque tu sia, con la massima flessibilità di orari e la stessa efficacia, riservatezza e vicinanza di un incontro dal vivo.</p>
+                    </div>
+                </details>
+
+                <!-- 3. Quanto dura? -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Quanto dura?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Non esiste una durata standard uguale per tutti: <strong>il percorso è personalizzato al 100%</strong> in base alla tua situazione di partenza, ai tuoi bisogni e ai traguardi che vogliamo raggiungere insieme. Durante la prima chiacchierata conoscitiva valuteremo insieme i tuoi obiettivi e definiremo la durata e il piano di lavoro ideale per te.</p>
+                    </div>
+                </details>
+
+                <!-- 4. Come si paga? -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Come si paga?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Per garantirti la massima serenità nell'investire su di te, puoi scegliere liberamente tra il pagamento in <strong>soluzione unica</strong> oppure comodamente <strong>suddiviso a rate mensili</strong>, senza costi nascosti o complicazioni.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- FAQ Bottom CTA -->
+            <div class="faq-cta-box">
+                <p class="faq-cta-text">Hai altre domande o desideri capire se questo percorso è adatto a te?</p>
+                <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary faq-cta-btn">PRENDIAMOCI UN CAFFÈ</a>
             </div>
         </div>
     </section>
