@@ -1158,4 +1158,176 @@ footer {
     }
 }
 
+/* =========================================================
+   CHI AIUTO - 5 Categorie (Layout ispirato al riferimento)
+   ========================================================= */
+.chi-aiuto-section {
+    padding: 7.5rem 0;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+.chi-aiuto-header {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 4.5rem auto;
+}
+
+.chi-aiuto-kicker {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold-main);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.chi-aiuto-header h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0 0 1.2rem 0;
+}
+
+.chi-aiuto-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-silver);
+    margin: 0;
+}
+
+.chi-aiuto-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    border-radius: 16px;
+    background: rgba(22, 22, 24, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.chi-aiuto-col {
+    padding: 3rem 1.8rem;
+    border-right: 1px solid rgba(197, 160, 89, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: background-color 0.25s ease;
+}
+
+.chi-aiuto-col:hover {
+    background-color: rgba(197, 160, 89, 0.04);
+}
+
+.chi-aiuto-col:last-child {
+    border-right: none;
+}
+
+.chi-aiuto-col-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+}
+
+.chi-aiuto-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(197, 160, 89, 0.1);
+    color: var(--color-gold-main);
+    margin-bottom: 1rem;
+}
+
+.chi-aiuto-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.chi-aiuto-title span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--color-silver);
+    margin-top: 0.35rem;
+}
+
+.chi-aiuto-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.chi-aiuto-list li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-silver);
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.chi-aiuto-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-gold-main);
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .chi-aiuto-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .chi-aiuto-col {
+        border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+        padding: 2.8rem 1.8rem;
+    }
+    .chi-aiuto-col:nth-child(2n) {
+        border-right: none;
+    }
+    .chi-aiuto-col:last-child {
+        grid-column: span 2;
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .chi-aiuto-section {
+        padding: 5rem 0;
+    }
+    .chi-aiuto-header {
+        margin-bottom: 3rem;
+    }
+    .chi-aiuto-grid {
+        grid-template-columns: 1fr;
+    }
+    .chi-aiuto-col {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+        padding: 2.2rem 1.5rem;
+    }
+    .chi-aiuto-col:last-child {
+        border-bottom: none;
+    }
+    .chi-aiuto-title {
+        font-size: 1.15rem;
+    }
+}
+
 
