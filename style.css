@@ -474,6 +474,175 @@ section {
     }
 }
 
+/* =========================================================
+   BIO / CHI SONO - Layout ispirato al riferimento
+   ========================================================= */
+.bio-section {
+    padding: 8rem 0;
+    position: relative;
+    background-color: var(--color-bg-deep);
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 5.5rem;
+    align-items: center;
+}
+
+.bio-image-col {
+    display: flex;
+    justify-content: center;
+}
+
+.bio-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(197, 160, 89, 0.25);
+    background: rgba(22, 22, 24, 0.6);
+}
+
+.bio-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1103 / 1426;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bio-image-wrapper:hover .bio-img {
+    transform: scale(1.02);
+}
+
+.bio-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-kicker {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-silver);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.bio-title {
+    font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+    margin: 0 0 2.2rem 0;
+}
+
+.bio-title span {
+    color: var(--color-gold-main);
+    font-style: italic;
+    font-weight: 600;
+}
+
+.bio-paragraphs p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-silver);
+    margin: 0 0 1.5rem 0;
+    font-weight: 400;
+}
+
+.bio-paragraphs p:last-child {
+    margin-bottom: 2.2rem;
+}
+
+.bio-action {
+    display: flex;
+    align-items: center;
+}
+
+.bio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.05rem 2.8rem;
+    background-color: var(--color-gold-main);
+    color: #000000;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 980px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(197, 160, 89, 0.25);
+    transition: var(--transition-fast);
+}
+
+.bio-btn:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+    color: #000000;
+}
+
+@media (max-width: 992px) {
+    .bio-section {
+        padding: 6rem 0;
+    }
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    .bio-image-col {
+        order: 1;
+    }
+    .bio-text-col {
+        order: 2;
+    }
+    .bio-image-wrapper {
+        max-width: 420px;
+    }
+    .bio-title {
+        font-size: clamp(2.2rem, 6vw, 3rem);
+        margin-bottom: 1.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .bio-section {
+        padding: 4.5rem 0;
+    }
+    .bio-grid {
+        gap: 2.5rem;
+    }
+    .bio-image-wrapper {
+        max-width: 100%;
+        border-radius: 16px;
+    }
+    .bio-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 1rem;
+    }
+    .bio-paragraphs p {
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 1.2rem;
+    }
+    .bio-action {
+        justify-content: flex-start;
+    }
+    .bio-btn {
+        width: 100%;
+        padding: 1.1rem 2rem;
+    }
+}
+
 /* Cards */
 .card-grid {
     display: grid;
