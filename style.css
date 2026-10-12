@@ -360,12 +360,12 @@ section {
 }
 
 .cuore-headline h2 {
-    font-size: clamp(2rem, 4.2vw, 3.4rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     line-height: 1.25;
     letter-spacing: -0.02em;
     font-weight: 700;
     color: var(--color-white);
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .cuore-headline h2 span {
@@ -375,21 +375,29 @@ section {
 .cuore-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    border-radius: 16px;
+    background: rgba(22, 22, 24, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 }
 
 .cuore-col {
-    padding: 3.5rem 1.8rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 3.5rem 2rem;
+    border-right: 1px solid rgba(197, 160, 89, 0.35);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    min-height: 290px;
     transition: background-color 0.25s ease;
 }
 
 .cuore-col:hover {
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgba(197, 160, 89, 0.05);
 }
 
 .cuore-col:last-child {
@@ -397,17 +405,17 @@ section {
 }
 
 .cuore-letter {
-    font-size: 2.8rem;
+    font-size: 3.6rem;
     font-weight: 800;
     color: var(--color-gold-main);
     line-height: 1;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     display: block;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
 }
 
 .cuore-title {
-    font-size: 1.15rem;
+    font-size: 1.22rem;
     font-weight: 700;
     color: var(--color-white);
     text-transform: uppercase;
@@ -418,7 +426,7 @@ section {
 
 .cuore-desc {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--color-silver);
     margin: 0;
 }
@@ -428,7 +436,7 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
     .cuore-col {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid rgba(197, 160, 89, 0.35);
     }
     .cuore-col:nth-child(2n) {
         border-right: none;
@@ -451,17 +459,18 @@ section {
     }
     .cuore-col {
         border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 2.2rem 1.2rem;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+        padding: 2.5rem 1.6rem;
+        min-height: auto;
     }
     .cuore-col:last-child {
         border-bottom: none;
     }
     .cuore-letter {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
     .cuore-title {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
 }
 
