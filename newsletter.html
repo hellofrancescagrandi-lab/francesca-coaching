@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=20261012-1145">
+    <link rel="stylesheet" href="style.css?v=20261012-mobile-opt">
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
 
     <style>
@@ -207,21 +207,30 @@
         /* Mobile Adjustments */
         @media (max-width: 680px) {
             .newsletter-layout {
-                padding: 1.6rem 1.2rem;
+                padding: max(1.2rem, env(safe-area-inset-top)) 1.2rem max(1.4rem, env(safe-area-inset-bottom)) 1.2rem;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+            .newsletter-hero-section {
+                padding: 1.5rem 0;
             }
             .newsletter-title {
-                font-size: 2.6rem;
-                margin-bottom: 1.4rem;
+                font-size: clamp(2.2rem, 9.2vw, 3.3rem);
+                margin-bottom: 1.2rem;
+                word-break: break-word;
             }
             .newsletter-subtitle {
-                font-size: 0.74rem;
-                letter-spacing: 0.14em;
-                margin-bottom: 2.4rem;
+                font-size: clamp(0.72rem, 3.2vw, 0.82rem);
+                letter-spacing: 0.12em;
+                line-height: 1.65;
+                margin-bottom: 2.2rem;
+                padding: 0 0.4rem;
+                word-break: break-word;
             }
             .newsletter-hero-btn {
                 width: 100%;
-                max-width: 340px;
-                padding: 1.1rem 2rem;
+                max-width: 320px;
+                padding: 1.05rem 2rem;
             }
         }
     </style>
