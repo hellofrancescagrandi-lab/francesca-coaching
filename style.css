@@ -1399,4 +1399,90 @@ footer {
     }
 }
 
+/* =========================================================
+   BE THE PROTAGONIST - Sezione Editoriale Sfondo Chiaro
+   ========================================================= */
+.protagonist-section {
+    padding: 8.5rem 0;
+    background-color: #F7F5F0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    text-align: center;
+}
+
+.protagonist-content {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.protagonist-title {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: clamp(2.9rem, 6.8vw, 5.5rem);
+    font-weight: 700;
+    font-style: italic;
+    color: #111113;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 0 auto 1.8rem auto;
+}
+
+.protagonist-subtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    line-height: 1.65;
+    color: #48484a;
+    max-width: 720px;
+    margin: 0 auto 2.8rem auto;
+    font-weight: 400;
+}
+
+.protagonist-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.protagonist-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2.8rem;
+    background-color: var(--color-gold-main);
+    color: #000000;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 980px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(163, 128, 66, 0.28);
+    transition: var(--transition-fast);
+}
+
+.protagonist-btn:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(163, 128, 66, 0.38);
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .protagonist-section {
+        padding: 5.5rem 0;
+    }
+    .protagonist-title {
+        font-size: 2.8rem;
+        margin-bottom: 1.4rem;
+    }
+    .protagonist-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.2rem;
+    }
+}
+
+
 
