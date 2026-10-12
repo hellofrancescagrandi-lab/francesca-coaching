@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Reset | Newsletter di Francesca Grandi</title>
+    <meta name="description" content="Iscriviti a Mental Reset, la newsletter di Francesca Grandi per fare chiarezza, smettere di sabotarti e iniziare ad agire.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.francescagrandi.it/newsletter.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.francescagrandi.it/newsletter.html" />
+    <meta property="og:title" content="Mental Reset | Newsletter di Francesca Grandi" />
+    <meta property="og:description" content="Pensieri e strategie per fare chiarezza, smettere di sabotarti e iniziare ad agire." />
+
+    <!-- Google Fonts: Playfair Display per il titolo editoriale -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=20261012-1145">
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+
+    <style>
+        /* =========================================================
+           NEWSLETTER LANDING - SINGLE VIEWPORT SECTION (Light Theme)
+           ========================================================= */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F5F0;
+            color: #111113;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .newsletter-layout {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.2rem 1.8rem;
+            box-sizing: border-box;
+            position: relative;
+            background-color: #F7F5F0;
+            background-image: radial-gradient(circle at 50% 45%, rgba(197, 160, 89, 0.05) 0%, transparent 65%);
+        }
+
+        /* Top Bar with back link */
+        .newsletter-topbar {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .newsletter-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #66666e;
+            text-decoration: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: 980px;
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+        }
+
+        .newsletter-back-btn svg {
+            transition: transform 0.2s ease;
+        }
+
+        .newsletter-back-btn:hover {
+            color: #111113;
+            background: rgba(0, 0, 0, 0.07);
+            border-color: rgba(0, 0, 0, 0.15);
+            transform: translateX(-2px);
+        }
+
+        .newsletter-back-btn:hover svg {
+            transform: translateX(-3px);
+        }
+
+        /* Hero Center Container (Single Viewport Section) */
+        .newsletter-hero-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            padding: 3rem 1rem;
+        }
+
+        .newsletter-hero-inner {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Titolo Principale Editoriale Italic */
+        .newsletter-title {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 700;
+            font-style: italic;
+            color: #111113;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            margin: 0 0 1.8rem 0;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Sottotitolo elegante con tracking e separatori */
+        .newsletter-subtitle {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+            font-size: clamp(0.76rem, 1.4vw, 0.9rem);
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #48484d;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .newsletter-subtitle .sep-dash {
+            color: var(--color-gold-dark);
+            margin-right: 0.35rem;
+        }
+
+        .newsletter-subtitle .sep-dot {
+            color: var(--color-gold-dark);
+            margin: 0 0.4rem;
+            font-size: 1.1em;
+            vertical-align: middle;
+        }
+
+        /* Pulsante Azione Pill Shape ad alto contrasto */
+        .newsletter-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .newsletter-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 3.4rem;
+            background-color: var(--color-gold-dark);
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 980px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(163, 128, 66, 0.32);
+            transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .newsletter-hero-btn:hover {
+            background-color: #111113;
+            color: #F7F5F0;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .newsletter-hero-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mini Footer minimale */
+        .newsletter-footer {
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            z-index: 10;
+            padding-top: 1rem;
+        }
+
+        .newsletter-footer p {
+            font-size: 0.78rem;
+            color: #8E8E93;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 680px) {
+            .newsletter-layout {
+                padding: 1.6rem 1.2rem;
+            }
+            .newsletter-title {
+                font-size: 2.6rem;
+                margin-bottom: 1.4rem;
+            }
+            .newsletter-subtitle {
+                font-size: 0.74rem;
+                letter-spacing: 0.14em;
+                margin-bottom: 2.4rem;
+            }
+            .newsletter-hero-btn {
+                width: 100%;
+                max-width: 340px;
+                padding: 1.1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="newsletter-layout">
+        <!-- Barra Superiore con Link di Ritorno -->
+        <header class="newsletter-topbar">
+            <a href="index.html" class="newsletter-back-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>TORNA AL SITO</span>
+            </a>
+        </header>
+
+        <!-- Unica Sezione a Schermo Intero Centrata -->
+        <main class="newsletter-hero-section">
+            <div class="newsletter-hero-inner">
+                <h1 class="newsletter-title">Mental Reset.</h1>
+                <p class="newsletter-subtitle">
+                    <span class="sep-dash">—</span> PENSIERI E STRATEGIE PER FARE CHIAREZZA <span class="sep-dot">·</span> SMETTERE DI SABOTARTI E INIZIARE AD AGIRE.
+                </p>
+                <div class="newsletter-cta">
+                    <button type="button" id="open-mr-btn" class="newsletter-hero-btn">
+                        ISCRIVITI ORA
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Minimale -->
+        <footer class="newsletter-footer">
+            <p>&copy; 2026 Francesca Grandi &middot; Mental Coach</p>
+        </footer>
+    </div>
+
+    <!-- MENTAL RESET POPUP MODAL (Stile Brand con Web3Forms) -->
+    <div id="mental-reset-modal" class="mental-reset-modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="modal-mr-title">
+        <div class="mental-reset-modal-box">
+            <button type="button" id="close-mental-reset-btn" class="mental-reset-modal-close" aria-label="Chiudi popup">&times;</button>
+            
+            <div class="mental-reset-modal-header">
+                <span class="mental-reset-modal-tag">— NEWSLETTER &middot; ISCRIZIONE —</span>
+                <h3 id="modal-mr-title" class="mental-reset-modal-title">Mental Reset</h3>
+                <p class="mental-reset-modal-intro">
+                    Iscriviti ora a <strong>Mental Reset</strong> per ricevere riflessioni, domande ed esercizi pratici per lavorare su perfezionismo, procrastinazione, fiducia in te stesso e confini personali. Una mail alla volta. Un passo alla volta.
+                </p>
+            </div>
+
+            <form id="mental-reset-form" class="mental-reset-form">
+                <input type="hidden" name="access_key" value="eafc21eb-6115-41ca-b86d-e1d693fabb91">
+                <input type="hidden" name="subject" value="Nuova iscrizione alla newsletter Mental Reset">
+                <input type="hidden" name="from_name" value="Francesca Grandi - Mental Reset">
+                <input type="checkbox" name="botcheck" style="display:none">
+
+                <div class="mr-form-group">
+                    <label for="mr-name" class="mr-label">IL TUO NOME</label>
+                    <input type="text" id="mr-name" name="name" class="mr-input" placeholder="Il tuo nome" required autocomplete="given-name">
+                </div>
+
+                <div class="mr-form-group">
+                    <label for="mr-email" class="mr-label">LA TUA EMAIL</label>
+                    <input type="email" id="mr-email" name="email" class="mr-input" placeholder="latua@email.com" required autocomplete="email">
+                </div>
+
+                <div class="mr-checkbox-group">
+                    <label class="mr-checkbox-label">
+                        <input type="checkbox" id="mr-privacy" name="privacy" required class="mr-checkbox">
+                        <span>Ho letto e accetto la <a href="#" target="_blank" class="mr-link">privacy policy</a>.</span>
+                    </label>
+                    <label class="mr-checkbox-label">
+                        <input type="checkbox" id="mr-consent" name="consent" checked class="mr-checkbox">
+                        <span>Accetto di ricevere riflessioni, strategie ed esercizi.</span>
+                    </label>
+                </div>
+
+                <button type="submit" id="mr-submit-btn" class="mr-submit-btn">
+                    ISCRIVITI ALLA NEWSLETTER
+                </button>
+
+                <p class="mr-disclaimer">
+                    Trattiamo i tuoi dati personali come indicato nella nostra <a href="#" class="mr-link">informativa sulla privacy</a>. Puoi revocare il tuo consenso in qualsiasi momento cliccando sul link di cancellazione presente in fondo a tutte le nostre email.
+                </p>
+            </form>
+
+            <!-- Success State Box -->
+            <div id="mr-success-box" class="mr-success-box" style="display: none;">
+                <div class="mr-success-icon">&#10003;</div>
+                <h3 class="mr-success-title">Ti diamo il benvenuto in Mental Reset</h3>
+                <p class="mr-success-text">
+                    Grazie per esserti iscritto. Controlla la tua casella di posta per ricevere le prime riflessioni ed iniziare a fare chiarezza.
+                </p>
+                <button type="button" id="mr-success-close-btn" class="mr-submit-btn" style="margin-top: 1.5rem; max-width: 200px; margin-left: auto; margin-right: auto;">
+                    CHIUDI
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script dedicato per l'apertura popup e l'invio form AJAX -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mrOpenBtn = document.getElementById('open-mr-btn');
+            const mrModal = document.getElementById('mental-reset-modal');
+            const mrCloseBtn = document.getElementById('close-mental-reset-btn');
+            const mrForm = document.getElementById('mental-reset-form');
+            const mrSuccessBox = document.getElementById('mr-success-box');
+            const mrSuccessCloseBtn = document.getElementById('mr-success-close-btn');
+
+            function openMrModal() {
+                if (mrModal) {
+                    mrModal.classList.add('active');
+                    mrModal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMrModal() {
+                if (mrModal) {
+                    mrModal.classList.remove('active');
+                    mrModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mrOpenBtn) {
+                mrOpenBtn.addEventListener('click', openMrModal);
+            }
+
+            if (mrCloseBtn) {
+                mrCloseBtn.addEventListener('click', closeMrModal);
+            }
+
+            if (mrSuccessCloseBtn) {
+                mrSuccessCloseBtn.addEventListener('click', closeMrModal);
+            }
+
+            if (mrModal) {
+                mrModal.addEventListener('click', (e) => {
+                    if (e.target === mrModal) {
+                        closeMrModal();
+                    }
+                });
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mrModal.classList.contains('active')) {
+                        closeMrModal();
+                    }
+                });
+            }
+
+            if (mrForm) {
+                mrForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (!mrForm.checkValidity()) {
+                        mrForm.reportValidity();
+                        return;
+                    }
+
+                    const submitBtn = document.getElementById('mr-submit-btn');
+                    const originalText = submitBtn ? submitBtn.innerText : 'ISCRIVITI ALLA NEWSLETTER';
+                    if (submitBtn) {
+                        submitBtn.innerText = 'ISCRIZIONE IN CORSO...';
+                        submitBtn.disabled = true;
+                    }
+
+                    const formData = new FormData(mrForm);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        const resJson = await response.json();
+                        if (response.status === 200 && resJson.success === true) {
+                            mrForm.style.display = 'none';
+                            if (mrSuccessBox) {
+                                mrSuccessBox.style.display = 'block';
+                            }
+                        } else {
+                            alert('Si è verificato un errore durante l\'iscrizione. Riprova tra qualche momento.');
+                            if (submitBtn) {
+                                submitBtn.innerText = originalText;
+                                submitBtn.disabled = false;
+                            }
+                        }
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        alert('Si è verificato un problema di connessione. Riprova tra qualche momento.');
+                        if (submitBtn) {
+                            submitBtn.innerText = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

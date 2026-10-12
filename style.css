@@ -189,10 +189,15 @@ section {
     cursor: pointer;
     transition: var(--transition-fast);
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .top-banner-btn:hover {
     background-color: var(--color-gold-dark);
+    color: #000000;
     transform: scale(1.02);
 }
 
