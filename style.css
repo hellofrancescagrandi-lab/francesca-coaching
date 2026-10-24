@@ -2008,3 +2008,6 @@ footer {
 
 
 
+
+/* Hover scheda Google Business (sostituisce gli handler inline, richiesto dalla CSP) */
+.google-card-link:hover { transform: scale(1.02); }

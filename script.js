@@ -83,12 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!urlOrId) return null;
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
         const match = urlOrId.match(regExp);
-        return (match && match[2].length === 11) ? match[2] : urlOrId;
+        const id = (match && match[2].length === 11) ? match[2] : urlOrId;
+        return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
     }
 
-    if (savedVid1) document.getElementById('yt-iframe-1').src = `https://www.youtube.com/embed/${savedVid1}`;
-    if (savedVid2) document.getElementById('yt-iframe-2').src = `https://www.youtube.com/embed/${savedVid2}`;
-    if (savedVid3) document.getElementById('yt-iframe-3').src = `https://www.youtube.com/embed/${savedVid3}`;
+    const ytFrame1 = document.getElementById('yt-iframe-1');
+    if (ytFrame1 && /^[A-Za-z0-9_-]{11}$/.test(savedVid1 || '')) ytFrame1.src = `https://www.youtube.com/embed/${savedVid1}`;
+    const ytFrame2 = document.getElementById('yt-iframe-2');
+    if (ytFrame2 && /^[A-Za-z0-9_-]{11}$/.test(savedVid2 || '')) ytFrame2.src = `https://www.youtube.com/embed/${savedVid2}`;
+    const ytFrame3 = document.getElementById('yt-iframe-3');
+    if (ytFrame3 && /^[A-Za-z0-9_-]{11}$/.test(savedVid3 || '')) ytFrame3.src = `https://www.youtube.com/embed/${savedVid3}`;
 
     // Show modal if ?admin=true
     if (urlParams.get('admin') === 'true' && adminModal) {
@@ -132,9 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = Date.now();
         if (lastSubmit && now - parseInt(lastSubmit) < 60000) { // 60 seconds cooldown
             e.preventDefault();
-            formMessage.innerHTML = 'Stai inviando troppe richieste. Riprova tra un minuto.';
-            formMessage.className = 'form-message error';
-            formMessage.style.display = 'block';
+            alert('Stai inviando troppe richieste. Riprova tra un minuto.');
             return;
         }
         localStorage.setItem('lastFormSubmit', now.toString());
