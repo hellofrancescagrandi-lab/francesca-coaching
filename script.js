@@ -131,6 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            // Basic validation check
+            if(!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
         // --- SECURITY HARDENING: Rate Limiting ---
         const lastSubmit = localStorage.getItem('lastFormSubmit');
         const now = Date.now();
@@ -143,11 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // -----------------------------------------
 
             
-            // Basic validation check
-            if(!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
 
             const formData = new FormData(form);
             const object = Object.fromEntries(formData);

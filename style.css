@@ -2011,3 +2011,32 @@ footer {
 
 /* Hover scheda Google Business (sostituisce gli handler inline, richiesto dalla CSP) */
 .google-card-link:hover { transform: scale(1.02); }
+
+/* =========================================================
+   FORM RICHIEDI INFO
+   ========================================================= */
+html { scroll-behavior: smooth; }
+.contact-section { padding: 7rem 0; background-color: #0c0c0e; border-top: 1px solid var(--color-border); scroll-margin-top: 1rem; }
+.contact-header { text-align: center; margin-bottom: 2.8rem; }
+.contact-kicker { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; color: var(--color-gold-main); margin-bottom: 0.8rem; }
+.contact-title { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 700; color: var(--color-white); letter-spacing: -0.03em; }
+.contact-form, .contact-result { max-width: 680px; margin: 0 auto; background: rgba(22,22,26,0.75); border: 1px solid rgba(197,160,89,0.25); border-radius: 20px; padding: 2.4rem 2.2rem; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.contact-field { display: flex; flex-direction: column; margin-bottom: 1.3rem; }
+.contact-field label { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 0.5rem; }
+.contact-field input, .contact-field textarea { width: 100%; padding: 0.95rem 1rem; font: inherit; font-size: 1rem; color: var(--color-white); background: #000; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; }
+.contact-field textarea { resize: vertical; min-height: 130px; }
+.contact-field input:focus, .contact-field textarea:focus { outline: none; border-color: var(--color-gold-main); box-shadow: 0 0 0 3px rgba(197,160,89,0.2); }
+.contact-privacy { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.9rem; color: var(--color-silver); margin-bottom: 1.6rem; }
+.contact-privacy input { margin-top: 0.25rem; accent-color: #C5A059; }
+.contact-privacy a { color: var(--color-gold-main); }
+.contact-submit { width: 100%; padding: 1.1rem 2rem; border: 0; border-radius: 980px; cursor: pointer; font-weight: 700; letter-spacing: 0.1em; }
+.contact-submit:disabled { opacity: 0.6; cursor: wait; }
+.contact-result { text-align: center; }
+.contact-result h3 { color: var(--color-white); margin-bottom: 0.6rem; }
+.contact-result p { color: var(--color-silver); margin: 0; }
+@media (max-width: 640px) {
+    .contact-section { padding: 4.5rem 0; }
+    .contact-form, .contact-result { padding: 1.7rem 1.3rem; }
+    .contact-row { grid-template-columns: 1fr; gap: 0; }
+}

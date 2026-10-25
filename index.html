@@ -112,7 +112,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261015-homepage-v2">
+    <link rel="stylesheet" href="style.css?v=20261025-contact">
     
     <!-- Favicon (placeholder) -->
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
@@ -135,8 +135,8 @@
                 <h1 class="hero-main-title">Sai cosa vorresti fare, ma continui a rimandare?</h1>
                 <p class="hero-subtitle">Aiuto i professionisti a passare dai dubbi all’azione, lavorando su perfezionismo, paura di sbagliare e timore del giudizio, attraverso percorsi individuali di mental coaching online.</p>
                 <div class="hero-cta-wrapper">
-                    <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn">PRENDIAMOCI UN CAFFÈ</a>
-                    <span class="hero-cta-note">Un incontro conoscitivo per parlare del tuo obiettivo e capire se possiamo lavorare insieme.</span>
+                    <a href="#contatti" class="btn btn-primary hero-btn">RICHIEDI INFO</a>
+                    <span class="hero-cta-note">Scrivimi per parlare del tuo obiettivo e capire se possiamo lavorare insieme.</span>
                 </div>
             </div>
         </div>
@@ -226,7 +226,7 @@
                     </div>
                     
                     <div class="bio-action">
-                        <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary bio-btn">PRENDIAMOCI UN CAFFÈ</a>
+                        <a href="#contatti" class="btn btn-primary bio-btn">RICHIEDI INFO</a>
                     </div>
                 </div>
             </div>
@@ -299,8 +299,8 @@
 
                 <!-- CTA del percorso -->
                 <div class="protagonist-cta-wrapper">
-                    <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary protagonist-btn">PRENDIAMOCI UN CAFFÈ</a>
-                    <span class="protagonist-cta-note">Un incontro conoscitivo per parlare del tuo obiettivo e capire se possiamo lavorare insieme.</span>
+                    <a href="#contatti" class="btn btn-primary protagonist-btn">RICHIEDI INFO</a>
+                    <span class="protagonist-cta-note">Scrivimi per parlare del tuo obiettivo e capire se possiamo lavorare insieme.</span>
                 </div>
             </div>
         </div>
@@ -384,7 +384,50 @@
             <!-- FAQ Bottom CTA -->
             <div class="faq-cta-box">
                 <p class="faq-cta-text">Hai altre domande o desideri capire se questo percorso è adatto a te?</p>
-                <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer" class="btn btn-primary faq-cta-btn">PRENDIAMOCI UN CAFFÈ</a>
+                <a href="#contatti" class="btn btn-primary faq-cta-btn">RICHIEDI INFO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FORM RICHIEDI INFO -->
+    <section id="contatti" class="contact-section">
+        <div class="container fade-in">
+            <div class="contact-header">
+                <span class="contact-kicker">— RICHIEDI INFO —</span>
+                <h2 class="contact-title">Scrivimi</h2>
+            </div>
+            <form id="individual-form" class="contact-form" novalidate>
+                <input type="hidden" name="access_key" value="eafc21eb-6115-41ca-b86d-e1d693fabb91">
+                <input type="hidden" name="subject" value="Nuova richiesta di informazioni dal sito">
+                <input type="hidden" name="from_name" value="Francesca Grandi - Sito web">
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+                <div class="contact-row">
+                    <div class="contact-field">
+                        <label for="ct-nome">Nome</label>
+                        <input type="text" id="ct-nome" name="nome" required autocomplete="given-name" maxlength="80">
+                    </div>
+                    <div class="contact-field">
+                        <label for="ct-cognome">Cognome</label>
+                        <input type="text" id="ct-cognome" name="cognome" required autocomplete="family-name" maxlength="80">
+                    </div>
+                </div>
+                <div class="contact-field">
+                    <label for="ct-email">Email</label>
+                    <input type="email" id="ct-email" name="email" required autocomplete="email" maxlength="120">
+                </div>
+                <div class="contact-field">
+                    <label for="ct-richiesta">Descrivimi la tua richiesta</label>
+                    <textarea id="ct-richiesta" name="richiesta" rows="5" required maxlength="2000"></textarea>
+                </div>
+                <label class="contact-privacy">
+                    <input type="checkbox" name="privacy" required>
+                    <span>Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener noreferrer">privacy policy</a>.</span>
+                </label>
+                <button type="submit" class="btn btn-primary contact-submit">RICHIEDI INFO</button>
+            </form>
+            <div id="form-result-message" class="contact-result" style="display:none;" role="status">
+                <h3></h3>
+                <p></p>
             </div>
         </div>
     </section>
@@ -409,7 +452,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=10052202"></script>
+    <script src="script.js?v=20261025"></script>
     
 
     <!-- WhatsApp Floating Button -->
