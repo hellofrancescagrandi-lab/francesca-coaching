@@ -5,6 +5,7 @@
     var ADMIN_EMAIL = (CFG.ADMIN_EMAIL || 'info@francescagrandi.it').toLowerCase();
     var STORAGE_KEY = 'fg_academy_db_v1';
     var SESSION_KEY = 'fg_academy_session_v1';
+    var CLOUD_SYNC_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a197d36e9e00b3';
 
     var CATEGORIES = [
         'Consapevolezza personale',
@@ -152,6 +153,7 @@
         var now = new Date().toISOString();
         return {
             users: [],
+            approvedEmails: [ADMIN_EMAIL],
             weeklyPrompt: {
                 text: 'Qual è una cosa che continui a rimandare, anche se sai quanto sia importante per te?',
                 updatedAt: now
@@ -215,8 +217,106 @@
         }
     }
 
+    function mergeByKey(listA, listB, keyFn) {
+        var map = {};
+        (listA || []).forEach(function (item) {
+            if (!item) return;
+            map[keyFn(item)] = item;
+        });
+        (listB || []).forEach(function (item) {
+            if (!item) return;
+            var k = keyFn(item);
+            var existing = map[k];
+            if (!existing) {
+                map[k] = item;
+            } else {
+                var tA = new Date(existing.updatedAt || existing.createdAt || 0).getTime();
+                var tB = new Date(item.updatedAt || item.createdAt || 0).getTime();
+                var newer = tB >= tA ? Object.assign({}, existing, item) : Object.assign({}, item, existing);
+                // Preserve local sessionToken if present
+                if (existing.sessionToken) newer.sessionToken = existing.sessionToken;
+                // Keep real passwordHash if one is a placeholder from manual admin pre-approval
+                if (existing.passwordHash && !item.passwordHash) {
+                    newer.passwordHash = existing.passwordHash;
+                    newer.passwordSalt = existing.passwordSalt;
+                } else if (item.passwordHash && !existing.passwordHash) {
+                    newer.passwordHash = item.passwordHash;
+                    newer.passwordSalt = item.passwordSalt;
+                }
+                if (existing.approvalStatus === 'approved' || item.approvalStatus === 'approved') {
+                    if (newer.approvalStatus !== 'rejected') newer.approvalStatus = 'approved';
+                }
+                map[k] = newer;
+            }
+        });
+        return Object.keys(map).map(function (k) { return map[k]; });
+    }
+
+    function mergeDB(localDB, remoteDB) {
+        if (!remoteDB || typeof remoteDB !== 'object') return localDB;
+        var merged = Object.assign({}, defaultDB(), localDB);
+        var approvedSet = {};
+        (localDB.approvedEmails || []).concat(remoteDB.approvedEmails || []).forEach(function (em) {
+            if (em) approvedSet[String(em).toLowerCase()] = true;
+        });
+        merged.approvedEmails = Object.keys(approvedSet);
+        merged.users = mergeByKey(localDB.users, remoteDB.users, function (u) { return (u.email || u.id || '').toLowerCase(); });
+        merged.users.forEach(function (u) {
+            if (u.email && approvedSet[u.email.toLowerCase()] && u.approvalStatus !== 'rejected') {
+                u.approvalStatus = 'approved';
+            }
+        });
+        merged.posts = mergeByKey(localDB.posts, remoteDB.posts, function (p) { return p.id; });
+        merged.comments = mergeByKey(localDB.comments, remoteDB.comments, function (c) { return c.id; });
+        merged.events = mergeByKey(localDB.events, remoteDB.events, function (e) { return e.id; });
+        merged.resources = mergeByKey(localDB.resources, remoteDB.resources, function (r) { return r.id; });
+        merged.reports = mergeByKey(localDB.reports, remoteDB.reports, function (r) { return r.id; });
+        merged.notifications = mergeByKey(localDB.notifications, remoteDB.notifications, function (n) { return n.id; });
+        if (remoteDB.weeklyPrompt && localDB.weeklyPrompt) {
+            var twA = new Date(localDB.weeklyPrompt.updatedAt || 0).getTime();
+            var twB = new Date(remoteDB.weeklyPrompt.updatedAt || 0).getTime();
+            merged.weeklyPrompt = twB >= twA ? remoteDB.weeklyPrompt : localDB.weeklyPrompt;
+        }
+        return merged;
+    }
+
+    function stripSensitiveForCloud(db) {
+        var copy = JSON.parse(JSON.stringify(db));
+        copy.users = (copy.users || []).map(function (u) {
+            var c = Object.assign({}, u);
+            delete c.sessionToken;
+            // Non inviamo foto base64 pesanti nel payload di sync per mantenere la risposta istantanea
+            if (c.avatarUrl && c.avatarUrl.length > 500) c.avatarUrl = '';
+            return c;
+        });
+        return copy;
+    }
+
+    async function syncCloudDB(pushAfterMerge) {
+        try {
+            var resp = await fetch(CLOUD_SYNC_URL, { method: 'GET', headers: { 'Accept': 'application/json' } });
+            if (!resp.ok) return loadDB();
+            var payload = await resp.json();
+            var remoteDB = payload && payload.data && payload.data.users ? payload.data : null;
+            var localDB = loadDB();
+            var merged = remoteDB ? mergeDB(localDB, remoteDB) : localDB;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+            if (pushAfterMerge || !remoteDB) {
+                await fetch(CLOUD_SYNC_URL, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ name: 'fg_academy_sync', data: stripSensitiveForCloud(merged) })
+                });
+            }
+            return merged;
+        } catch (e) {
+            return loadDB();
+        }
+    }
+
     function saveDB(db) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+        syncCloudDB(true).catch(function () {});
     }
 
     function getSessionUser() {
@@ -299,20 +399,22 @@
             if (password !== confirmPassword) throw new Error('Le due password non coincidono.');
             if (!privacyAccepted) throw new Error('Devi accettare l\'informativa privacy e i termini per registrarti.');
 
-            var db = loadDB();
-            if (db.users.some(function (u) { return u.email === email; })) {
+            var db = await syncCloudDB(false);
+            var existingIdx = db.users.findIndex(function (u) { return u.email === email; });
+            if (existingIdx !== -1 && db.users[existingIdx].passwordHash) {
                 throw new Error('Esiste già un account registrato con questa email. Effettua il login.');
             }
 
             var secured = await hashPassword(password);
             var role = email === ADMIN_EMAIL ? 'admin' : 'member';
-            var approvalStatus = role === 'admin' ? 'approved' : 'pending';
+            var isPreApproved = (db.approvedEmails || []).indexOf(email) !== -1 || (existingIdx !== -1 && db.users[existingIdx].approvalStatus === 'approved');
+            var approvalStatus = (role === 'admin' || isPreApproved) ? 'approved' : 'pending';
             var verifyToken = uid();
-            var sessionToken = role === 'admin' ? uid() : null;
+            var sessionToken = approvalStatus === 'approved' ? uid() : null;
             var now = new Date().toISOString();
 
             var newUser = {
-                id: uid(),
+                id: existingIdx !== -1 ? db.users[existingIdx].id : uid(),
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -323,7 +425,7 @@
                 role: role,
                 approvalStatus: approvalStatus,
                 suspended: false,
-                emailVerified: role === 'admin',
+                emailVerified: approvalStatus === 'approved',
                 verifyToken: verifyToken,
                 resetToken: null,
                 sessionToken: sessionToken,
@@ -336,15 +438,18 @@
                     resources: true,
                     admin: true
                 },
-                createdAt: now,
+                createdAt: existingIdx !== -1 ? db.users[existingIdx].createdAt : now,
                 updatedAt: now
             };
 
-            db.users.push(newUser);
-            if (role !== 'admin') {
+            if (existingIdx !== -1) db.users[existingIdx] = newUser;
+            else db.users.push(newUser);
+
+            if (role !== 'admin' && approvalStatus !== 'approved') {
                 pushNotification(db, 'admin', 'Nuova richiesta di accesso a F.G. Academy da ' + firstName + ' ' + lastName + ' (' + email + ')', 'admin');
                 if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
                     try {
+                        var directApproveUrl = 'https://www.francescagrandi.it/academy/index.html?import_email=' + encodeURIComponent(email) + '&import_nome=' + encodeURIComponent(firstName) + '&import_cognome=' + encodeURIComponent(lastName);
                         fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -353,14 +458,15 @@
                                 subject: '[F.G. Academy] Nuova richiesta di accesso da ' + firstName + ' ' + lastName,
                                 from_name: firstName + ' ' + lastName,
                                 email: email,
-                                message: 'Nuova richiesta di iscrizione a F.G. Academy.\nNome: ' + firstName + ' ' + lastName + '\nEmail: ' + email + '\nAccedi al Pannello Admin di F.G. Academy per confermare l\'accesso.'
+                                message: 'Nuova richiesta di iscrizione a F.G. Academy.\nNome: ' + firstName + ' ' + lastName + '\nEmail: ' + email + '\n\nL\'utente compare ora automaticamente nella tua Area Admin su F.G. Academy.\nPuoi anche cliccare questo link diretto per aprirlo subito nella tua Area Admin:\n' + directApproveUrl
                             })
                         }).catch(function () {});
                     } catch (e) {}
                 }
             }
-            saveDB(db);
-            if (role === 'admin') {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+            await syncCloudDB(true);
+            if (approvalStatus === 'approved') {
                 localStorage.setItem(SESSION_KEY, JSON.stringify({ userId: newUser.id, token: sessionToken }));
                 return { user: API.getCurrentUser(), verifyToken: verifyToken, pendingApproval: false };
             }
@@ -381,16 +487,16 @@
         login: async function (emailInput, passwordInput) {
             var email = String(emailInput || '').trim().toLowerCase();
             var password = String(passwordInput || '');
-            var db = loadDB();
+            var db = await syncCloudDB(false);
             var u = db.users.find(function (x) { return x.email === email; });
-            if (!u) throw new Error('Credenziali non valide. Verifica email e password.');
+            if (!u || !u.passwordHash) throw new Error('Credenziali non valide. Verifica email e password.');
             if (u.suspended) throw new Error('Questo account è stato sospeso dall\'amministratrice.');
 
             var ok = await verifyPassword(password, u.passwordSalt, u.passwordHash);
             if (!ok) throw new Error('Credenziali non valide. Verifica email e password.');
 
             u.role = u.email === ADMIN_EMAIL ? 'admin' : 'member';
-            if (u.role === 'admin') {
+            if (u.role === 'admin' || (db.approvedEmails || []).indexOf(email) !== -1) {
                 u.approvalStatus = 'approved';
             } else {
                 if (u.approvalStatus === 'rejected') {
@@ -419,8 +525,53 @@
             target.approvalStatus = 'approved';
             target.emailVerified = true;
             target.updatedAt = new Date().toISOString();
+            db.approvedEmails = db.approvedEmails || [];
+            if (target.email && db.approvedEmails.indexOf(target.email.toLowerCase()) === -1) {
+                db.approvedEmails.push(target.email.toLowerCase());
+            }
             saveDB(db);
             return target;
+        },
+
+        authorizeByEmail: function (firstNameInput, lastNameInput, emailInput) {
+            requireAdmin();
+            var email = String(emailInput || '').trim().toLowerCase();
+            var firstName = String(firstNameInput || '').trim() || 'Iscritto/a';
+            var lastName = String(lastNameInput || '').trim() || '';
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+                throw new Error('Inserisci un indirizzo email valido.');
+            }
+            var db = loadDB();
+            db.approvedEmails = db.approvedEmails || [];
+            if (db.approvedEmails.indexOf(email) === -1) {
+                db.approvedEmails.push(email);
+            }
+            var existing = db.users.find(function (x) { return x.email === email; });
+            var now = new Date().toISOString();
+            if (existing) {
+                existing.approvalStatus = 'approved';
+                existing.emailVerified = true;
+                existing.updatedAt = now;
+            } else {
+                db.users.push({
+                    id: uid(),
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    passwordHash: '',
+                    passwordSalt: '',
+                    bio: '',
+                    avatarUrl: '',
+                    role: 'member',
+                    approvalStatus: 'approved',
+                    suspended: false,
+                    emailVerified: true,
+                    createdAt: now,
+                    updatedAt: now
+                });
+            }
+            saveDB(db);
+            return email;
         },
 
         rejectUser: function (userId) {
@@ -1523,10 +1674,13 @@
 
             '<!-- Richieste di accesso in attesa di conferma -->' +
             '<section class="card" id="admin-pending-requests-card">' +
-                '<h2 style="font-size:1.08rem;font-weight:700;margin-bottom:0.8rem;">⏳ Richieste di accesso da confermare (' + pendingUsers.length + ')</h2>' +
+                '<div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.8rem;">' +
+                    '<h2 style="font-size:1.08rem;font-weight:700;">⏳ Richieste di accesso da confermare (' + pendingUsers.length + ')</h2>' +
+                    '<button type="button" class="btn btn-outline btn-sm" id="sync-requests-btn">🔄 Aggiorna richieste</button>' +
+                '</div>' +
                 (pendingUsers.length === 0
-                    ? '<p style="font-size:0.9rem;color:var(--ink-soft);">Nessuna nuova richiesta di accesso in attesa di conferma.</p>'
-                    : pendingUsers.map(function (m) {
+                    ? '<p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:1.2rem;">Nessuna nuova richiesta di accesso in attesa in questo momento.</p>'
+                    : '<div style="margin-bottom:1.2rem;">' + pendingUsers.map(function (m) {
                         return (
                             '<div style="display:flex;align-items:center;justify-content:space-between;padding:0.85rem 0;border-bottom:1px solid var(--line);gap:1rem;flex-wrap:wrap;">' +
                                 '<div style="display:flex;align-items:center;gap:0.75rem;">' +
@@ -1542,8 +1696,18 @@
                                 '</div>' +
                             '</div>'
                         );
-                    }).join('')
+                    }).join('') + '</div>'
                 ) +
+                '<div style="padding-top:1rem;border-top:1px solid var(--line);">' +
+                    '<h3 style="font-size:0.92rem;font-weight:700;margin-bottom:0.35rem;">Hai ricevuto una richiesta via email? Autorizza subito l\'utente:</h3>' +
+                    '<p style="font-size:0.82rem;color:var(--ink-soft);margin-bottom:0.75rem;">Inserisci l\'email della persona che ti ha inviato la richiesta per abilitarle subito l\'accesso da qualsiasi dispositivo.</p>' +
+                    '<form id="admin-manual-approve-form" style="display:grid;grid-template-columns:1fr 1fr 1.4fr auto;gap:0.6rem;align-items:end;">' +
+                        '<div><label style="font-size:0.74rem;font-weight:600;display:block;margin-bottom:0.25rem;">Nome</label><input type="text" id="ama-nome" class="input" placeholder="Nome" style="padding:0.55rem 0.75rem;font-size:0.86rem;"></div>' +
+                        '<div><label style="font-size:0.74rem;font-weight:600;display:block;margin-bottom:0.25rem;">Cognome</label><input type="text" id="ama-cognome" class="input" placeholder="Cognome" style="padding:0.55rem 0.75rem;font-size:0.86rem;"></div>' +
+                        '<div><label style="font-size:0.74rem;font-weight:600;display:block;margin-bottom:0.25rem;">Email utente *</label><input type="email" id="ama-email" class="input" placeholder="email@utente.it" required style="padding:0.55rem 0.75rem;font-size:0.86rem;"></div>' +
+                        '<button type="submit" class="btn btn-primary btn-sm" style="height:38px;">✓ Conferma accesso</button>' +
+                    '</form>' +
+                '</div>' +
             '</section>' +
 
             '<!-- Modifica Domanda del giorno -->' +
@@ -2342,6 +2506,35 @@
             };
         });
 
+        var syncBtn = document.getElementById('sync-requests-btn');
+        if (syncBtn) {
+            syncBtn.onclick = async function () {
+                syncBtn.disabled = true;
+                syncBtn.textContent = 'Sincronizzazione...';
+                await syncCloudDB(true);
+                toast('Elenco richieste sincronizzato!');
+                renderApp();
+            };
+        }
+
+        var manualApproveForm = document.getElementById('admin-manual-approve-form');
+        if (manualApproveForm) {
+            manualApproveForm.onsubmit = function (e) {
+                e.preventDefault();
+                try {
+                    var em = API.authorizeByEmail(
+                        document.getElementById('ama-nome').value,
+                        document.getElementById('ama-cognome').value,
+                        document.getElementById('ama-email').value
+                    );
+                    toast('Accesso confermato e abilitato per ' + em + '!');
+                    renderApp();
+                } catch (err) {
+                    toast(err.message);
+                }
+            };
+        }
+
         document.querySelectorAll('[data-approve-user]').forEach(function (b) {
             b.onclick = function () {
                 try {
@@ -2380,8 +2573,40 @@
         });
     }
 
-    // Avvio applicazione
-    document.addEventListener('DOMContentLoaded', function () {
+    // Avvio applicazione + sincronizzazione Cloud e importazione da link email
+    document.addEventListener('DOMContentLoaded', async function () {
+        renderApp();
+        await syncCloudDB(false);
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var impEmail = params.get('import_email');
+            if (impEmail) {
+                var db = loadDB();
+                var exists = db.users.some(function (x) { return x.email === impEmail.toLowerCase(); });
+                if (!exists) {
+                    var now = new Date().toISOString();
+                    db.users.push({
+                        id: uid(),
+                        firstName: params.get('import_nome') || 'Nuovo',
+                        lastName: params.get('import_cognome') || 'Iscritto',
+                        email: impEmail.toLowerCase(),
+                        passwordHash: '',
+                        passwordSalt: '',
+                        bio: '',
+                        avatarUrl: '',
+                        role: 'member',
+                        approvalStatus: 'pending',
+                        suspended: false,
+                        emailVerified: false,
+                        createdAt: now,
+                        updatedAt: now
+                    });
+                    saveDB(db);
+                }
+                state.view = 'admin';
+                window.history.replaceState({}, '', window.location.pathname);
+            }
+        } catch (e) {}
         renderApp();
     });
 })();
