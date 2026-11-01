@@ -5,7 +5,7 @@
     var ADMIN_EMAIL = (CFG.ADMIN_EMAIL || 'info@francescagrandi.it').toLowerCase();
     var STORAGE_KEY = 'fg_academy_db_v1';
     var SESSION_KEY = 'fg_academy_session_v1';
-    var CLOUD_SYNC_URL = 'https://api.restful-api.dev/objects/ff808181a09d98f701a197d36e9e00b3';
+    var CLOUD_SYNC_URL = 'https://ntfy.sh/fg_academy_live_sync_francesca_2026';
 
     var CATEGORIES = [
         'Consapevolezza personale',
@@ -280,33 +280,75 @@
         return merged;
     }
 
-    function stripSensitiveForCloud(db) {
-        var copy = JSON.parse(JSON.stringify(db));
-        copy.users = (copy.users || []).map(function (u) {
-            var c = Object.assign({}, u);
-            delete c.sessionToken;
-            // Non inviamo foto base64 pesanti nel payload di sync per mantenere la risposta istantanea
-            if (c.avatarUrl && c.avatarUrl.length > 500) c.avatarUrl = '';
-            return c;
-        });
-        return copy;
+    function compactUserForCloud(u) {
+        return {
+            id: u.id,
+            firstName: u.firstName || '',
+            lastName: u.lastName || '',
+            email: (u.email || '').toLowerCase(),
+            passwordHash: u.passwordHash || '',
+            passwordSalt: u.passwordSalt || '',
+            role: u.role || 'member',
+            approvalStatus: u.approvalStatus || 'pending',
+            suspended: Boolean(u.suspended),
+            emailVerified: Boolean(u.emailVerified),
+            marketingConsent: Boolean(u.marketingConsent),
+            createdAt: u.createdAt || new Date().toISOString(),
+            updatedAt: u.updatedAt || new Date().toISOString()
+        };
     }
 
     async function syncCloudDB(pushAfterMerge) {
         try {
-            var resp = await fetch(CLOUD_SYNC_URL, { method: 'GET', headers: { 'Accept': 'application/json' } });
-            if (!resp.ok) return loadDB();
-            var payload = await resp.json();
-            var remoteDB = payload && payload.data && payload.data.users ? payload.data : null;
-            var localDB = loadDB();
-            var merged = remoteDB ? mergeDB(localDB, remoteDB) : localDB;
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-            if (pushAfterMerge || !remoteDB) {
-                await fetch(CLOUD_SYNC_URL, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({ name: 'fg_academy_sync', data: stripSensitiveForCloud(merged) })
+            var resp = await fetch(CLOUD_SYNC_URL + '/json?poll=1&since=all', {
+                method: 'GET',
+                cache: 'no-store'
+            });
+            var merged = loadDB();
+            if (resp.ok) {
+                var text = await resp.text();
+                var lines = text.split('\n').filter(function (l) { return l.trim().length > 0; });
+                lines.forEach(function (line) {
+                    try {
+                        var ev = JSON.parse(line);
+                        if (ev && ev.event === 'message' && ev.message) {
+                            var remoteData = JSON.parse(ev.message);
+                            if (remoteData && (remoteData.users || remoteData.approvedEmails)) {
+                                merged = mergeDB(merged, remoteData);
+                            }
+                        }
+                    } catch (ignore) {}
                 });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+            }
+            if (pushAfterMerge) {
+                var usersCompact = (merged.users || []).map(compactUserForCloud);
+                // Invia in pacchetti <= 6 utenti (< 2.5 KB) per garantire archiviazione inline immediata
+                var chunkSize = 6;
+                if (usersCompact.length === 0) {
+                    await fetch(CLOUD_SYNC_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                        body: JSON.stringify({
+                            users: [],
+                            approvedEmails: merged.approvedEmails || [ADMIN_EMAIL],
+                            weeklyPrompt: merged.weeklyPrompt
+                        })
+                    });
+                } else {
+                    for (var i = 0; i < usersCompact.length; i += chunkSize) {
+                        var chunk = usersCompact.slice(i, i + chunkSize);
+                        await fetch(CLOUD_SYNC_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                            body: JSON.stringify({
+                                users: chunk,
+                                approvedEmails: merged.approvedEmails || [ADMIN_EMAIL],
+                                weeklyPrompt: merged.weeklyPrompt
+                            })
+                        });
+                    }
+                }
             }
             return merged;
         } catch (e) {
@@ -1981,6 +2023,11 @@
                 state.sidebarOpen = false;
                 state.notifOpen = false;
                 renderApp();
+                if (state.view === 'admin') {
+                    syncCloudDB(false).then(function () {
+                        if (state.view === 'admin') renderApp();
+                    });
+                }
             };
         });
 
@@ -2577,10 +2624,12 @@
     document.addEventListener('DOMContentLoaded', async function () {
         renderApp();
         await syncCloudDB(false);
+        var imported = false;
         try {
             var params = new URLSearchParams(window.location.search);
             var impEmail = params.get('import_email');
             if (impEmail) {
+                imported = true;
                 var db = loadDB();
                 var exists = db.users.some(function (x) { return x.email === impEmail.toLowerCase(); });
                 if (!exists) {
@@ -2607,6 +2656,8 @@
                 window.history.replaceState({}, '', window.location.pathname);
             }
         } catch (e) {}
-        renderApp();
+        if (getSessionUser() || imported) {
+            renderApp();
+        }
     });
 })();
