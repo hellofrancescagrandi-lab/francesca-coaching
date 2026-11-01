@@ -25,6 +25,57 @@
         'Video introduttivi'
     ];
 
+    // 31 domande giornaliere di riflessione che ruotano automaticamente ogni giorno a mezzanotte
+    var DAILY_QUESTIONS = [
+        'Qual è una cosa che continui a rimandare, anche se sai quanto sia importante per te?',
+        'Se non avessi paura del giudizio degli altri, quale scelta faresti già oggi?',
+        'Qual è il pensiero ricorrente che più spesso ti frena prima ancora di iniziare?',
+        'In quale area della tua vita senti di accontentarti invece di scegliere ciò che desideri davvero?',
+        'Qual è un piccolo passo concreto che puoi compiere oggi per avvicinarti al tuo obiettivo?',
+        'Quando cerchi di fare tutto in modo perfetto, da quale paura ti stai proteggendo?',
+        'Cosa cambierebbe nelle tue giornate se iniziassi a parlarti con la stessa gentilezza che usi con chi ami?',
+        'Qual è un "no" che avresti bisogno di dire per dare più spazio a te stesso/a?',
+        'Quale abitudine quotidiana ti toglie più energia senza che tu te ne accorga?',
+        'Se tra sei mesi ti guardassi indietro con orgoglio, quale decisione avresti preso oggi?',
+        'Qual è un traguardo che hai già raggiunto in passato e a cui non hai dato il giusto valore?',
+        'Cosa ti racconti ogni volta che decidi di aspettare "il momento giusto"?',
+        'Qual è una paura che, vista da vicino, è più piccola di come la immagini nella tua mente?',
+        'Su cosa stai investendo tempo ed energie che in realtà non dipende dal tuo controllo?',
+        'Quale parte di te stai tenendo nascosta per timore di non essere capito/a?',
+        'Che cosa significa per te, oggi, sentirti davvero realizzato/a e in equilibrio?',
+        'Qual è una vecchia convinzione su te stesso/a che non ti rappresenta più?',
+        'Se un errore fosse solo un\'informazione utile per migliorare, cosa proveresti a fare oggi?',
+        'In quale situazione recente hai lasciato che fossero le aspettative altrui a decidere per te?',
+        'Qual è l\'emozione che fai più fatica ad ascoltare quando ti fermi in silenzio?',
+        'Cosa faresti di diverso questa settimana se ti fidassi davvero delle tue capacità?',
+        'Qual è il prezzo invisibile che paghi ogni giorno rimanendo nella tua zona di comfort?',
+        'Quale obiettivo continui a tenere nel cassetto aspettando di sentirti "pronto/a al 100%"?',
+        'Chi saresti oggi se smettessi di confrontare il tuo percorso con quello degli altri?',
+        'Qual è una promessa fatta a te stesso/a che merita di essere mantenuta a partire da oggi?',
+        'Quando ti senti bloccato/a, di cosa hai davvero bisogno: più chiarezza o più coraggio?',
+        'Qual è un confine importante che vorresti imparare a far rispettare con serenità?',
+        'Quale pensiero positivo e realistico puoi scegliere di portare con te in questa giornata?',
+        'Cosa ti dà davvero entusiasmo quando smetti di pensare a ciò che "dovresti" fare?',
+        'Qual è una situazione che stai rimandando di affrontare e che ti farebbe sentire subito più leggero/a?',
+        'Se oggi potessi scegliere una sola priorità per il tuo benessere, quale sarebbe?'
+    ];
+
+    function getTodayKey() {
+        var d = new Date();
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    function getDailyQuestion(db) {
+        var todayKey = getTodayKey();
+        if (db && db.weeklyPrompt && db.weeklyPrompt.customDate === todayKey && db.weeklyPrompt.text) {
+            return db.weeklyPrompt.text;
+        }
+        var now = new Date();
+        var startOfYear = new Date(now.getFullYear(), 0, 0);
+        var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+        return DAILY_QUESTIONS[dayOfYear % DAILY_QUESTIONS.length];
+    }
+
     // =========================================================================
     // 1. UTILITÀ SICUREZZA E HASHING PASSWORD (PBKDF2-SHA256 via WebCrypto)
     // =========================================================================
@@ -848,7 +899,8 @@
         var pct = computeProfileCompletion(u);
         var publishedPosts = db.posts.filter(function (p) { return p.status === 'published'; });
         var nextEvent = db.events[0] || null;
-        var promptDate = formatDate(db.weeklyPrompt.updatedAt);
+        var promptDate = formatDate(new Date().toISOString());
+        var todayQuestion = getDailyQuestion(db);
 
         var verifyBanner = !u.emailVerified
             ? '<div class="form-msg info" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">' +
@@ -879,15 +931,15 @@
                 '<p>Benvenuto in F.G. Academy, uno spazio dedicato a chi desidera conoscersi meglio, superare i propri blocchi e costruire una vita più in linea con ciò che desidera.</p>' +
             '</div>' +
 
-            '<!-- A. Spunto della settimana -->' +
-            '<section class="card card-prompt" aria-label="Spunto della settimana">' +
+            '<!-- A. Domanda del giorno -->' +
+            '<section class="card card-prompt" aria-label="Domanda di riflessione del giorno">' +
                 '<span class="prompt-quote-mark" aria-hidden="true">&rdquo;</span>' +
                 '<div class="prompt-kicker">' +
-                    '<span>💡 SPUNTO DELLA SETTIMANA</span>' +
+                    '<span>💡 LA DOMANDA DI OGGI</span>' +
                     '<span>&bull; ' + esc(promptDate) + '</span>' +
                     (isAdminUser(u) ? '<button type="button" class="link-btn" id="quick-edit-prompt-btn" style="margin-left:auto;">Modifica</button>' : '') +
                 '</div>' +
-                '<p class="prompt-text">' + esc(db.weeklyPrompt.text) + '</p>' +
+                '<p class="prompt-text">' + esc(todayQuestion) + '</p>' +
             '</section>' +
 
             '<div class="dash-grid-2">' +
@@ -1494,14 +1546,15 @@
                 ) +
             '</section>' +
 
-            '<!-- Modifica Spunto della settimana -->' +
+            '<!-- Modifica Domanda del giorno -->' +
             '<section class="card">' +
-                '<h2 style="font-size:1.08rem;font-weight:700;margin-bottom:0.8rem;">💡 Spunto della settimana</h2>' +
+                '<h2 style="font-size:1.08rem;font-weight:700;margin-bottom:0.35rem;">💡 La domanda di oggi (rotazione automatica giornaliera)</h2>' +
+                '<p style="font-size:0.84rem;color:var(--ink-soft);margin-bottom:0.8rem;">Ogni giorno a mezzanotte la domanda cambia in automatico tra le 31 domande di riflessione. Se desideri personalizzare la domanda di oggi, puoi modificarla qui sotto:</p>' +
                 '<form id="admin-prompt-form">' +
                     '<div class="form-group">' +
-                        '<textarea id="admin-prompt-text" class="textarea" required>' + esc(db.weeklyPrompt.text) + '</textarea>' +
+                        '<textarea id="admin-prompt-text" class="textarea" required>' + esc(getDailyQuestion(db)) + '</textarea>' +
                     '</div>' +
-                    '<button type="submit" class="btn btn-primary btn-sm">Aggiorna spunto in Dashboard</button>' +
+                    '<button type="submit" class="btn btn-primary btn-sm">Salva domanda di oggi</button>' +
                 '</form>' +
             '</section>' +
 
@@ -2262,7 +2315,7 @@
             };
         }
 
-        // Admin: salvataggio Spunto della settimana, segnalazioni, sospensione utenti
+        // Admin: salvataggio Domanda del giorno, segnalazioni, sospensione utenti
         var adminPromptForm = document.getElementById('admin-prompt-form');
         if (adminPromptForm) {
             adminPromptForm.onsubmit = function (e) {
@@ -2270,10 +2323,11 @@
                 requireAdmin();
                 db.weeklyPrompt = {
                     text: document.getElementById('admin-prompt-text').value.trim(),
+                    customDate: getTodayKey(),
                     updatedAt: new Date().toISOString()
                 };
                 saveDB(db);
-                toast('Spunto della settimana aggiornato!');
+                toast('Domanda di oggi aggiornata!');
                 renderApp();
             };
         }
