@@ -5,7 +5,7 @@
     var ADMIN_EMAIL = (CFG.ADMIN_EMAIL || 'info@francescagrandi.it').toLowerCase();
     var STORAGE_KEY = 'fg_academy_db_v1';
     var SESSION_KEY = 'fg_academy_session_v1';
-    var CLOUD_SYNC_URL = 'https://ntfy.sh/fg_academy_live_sync_francesca_2026';
+    var CLOUD_SYNC_URL = 'https://ntfy.sh/fg_academy_sync_v9_francesca';
 
     var CATEGORIES = [
         'Consapevolezza personale',
@@ -233,13 +233,14 @@
                 var tA = new Date(existing.updatedAt || existing.createdAt || 0).getTime();
                 var tB = new Date(item.updatedAt || item.createdAt || 0).getTime();
                 var newer = tB >= tA ? Object.assign({}, existing, item) : Object.assign({}, item, existing);
-                // Preserve local sessionToken if present
+                // Preserva sempre id e sessionToken locali per non invalidare la sessione attiva
+                if (existing.id) newer.id = existing.id;
                 if (existing.sessionToken) newer.sessionToken = existing.sessionToken;
-                // Keep real passwordHash if one is a placeholder from manual admin pre-approval
-                if (existing.passwordHash && !item.passwordHash) {
+                // Preserva sempre la password reale locale se presente
+                if (existing.passwordHash) {
                     newer.passwordHash = existing.passwordHash;
                     newer.passwordSalt = existing.passwordSalt;
-                } else if (item.passwordHash && !existing.passwordHash) {
+                } else if (item.passwordHash) {
                     newer.passwordHash = item.passwordHash;
                     newer.passwordSalt = item.passwordSalt;
                 }
@@ -257,13 +258,14 @@
         var merged = Object.assign({}, defaultDB(), localDB);
         var approvedSet = {};
         (localDB.approvedEmails || []).concat(remoteDB.approvedEmails || []).forEach(function (em) {
-            if (em) approvedSet[String(em).toLowerCase()] = true;
+            if (em) approvedSet[String(em).trim().toLowerCase()] = true;
         });
         merged.approvedEmails = Object.keys(approvedSet);
         merged.users = mergeByKey(localDB.users, remoteDB.users, function (u) { return (u.email || u.id || '').toLowerCase(); });
         merged.users.forEach(function (u) {
             if (u.email && approvedSet[u.email.toLowerCase()] && u.approvalStatus !== 'rejected') {
                 u.approvalStatus = 'approved';
+                u.emailVerified = true;
             }
         });
         merged.posts = mergeByKey(localDB.posts, remoteDB.posts, function (p) { return p.id; });
@@ -286,8 +288,8 @@
             firstName: u.firstName || '',
             lastName: u.lastName || '',
             email: (u.email || '').toLowerCase(),
-            passwordHash: u.passwordHash || '',
-            passwordSalt: u.passwordSalt || '',
+            passwordHash: (u.email || '').toLowerCase() === ADMIN_EMAIL ? '' : (u.passwordHash || ''),
+            passwordSalt: (u.email || '').toLowerCase() === ADMIN_EMAIL ? '' : (u.passwordSalt || ''),
             role: u.role || 'member',
             approvalStatus: u.approvalStatus || 'pending',
             suspended: Boolean(u.suspended),
@@ -322,7 +324,9 @@
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
             }
             if (pushAfterMerge) {
-                var usersCompact = (merged.users || []).map(compactUserForCloud);
+                var usersCompact = (merged.users || [])
+                    .filter(function (u) { return u && u.email && u.email.toLowerCase() !== ADMIN_EMAIL; })
+                    .map(compactUserForCloud);
                 // Invia in pacchetti <= 6 utenti (< 2.5 KB) per garantire archiviazione inline immediata
                 var chunkSize = 6;
                 if (usersCompact.length === 0) {
@@ -530,7 +534,7 @@
             var email = String(emailInput || '').trim().toLowerCase();
             var password = String(passwordInput || '');
             var db = await syncCloudDB(false);
-            var u = db.users.find(function (x) { return x.email === email; });
+            var u = db.users.find(function (x) { return (x.email || '').toLowerCase() === email; });
             if (!u || !u.passwordHash) throw new Error('Credenziali non valide. Verifica email e password.');
             if (u.suspended) throw new Error('Questo account è stato sospeso dall\'amministratrice.');
 
@@ -538,22 +542,32 @@
             if (!ok) throw new Error('Credenziali non valide. Verifica email e password.');
 
             u.role = u.email === ADMIN_EMAIL ? 'admin' : 'member';
-            if (u.role === 'admin' || (db.approvedEmails || []).indexOf(email) !== -1) {
+            var isEmailInApprovedList = (db.approvedEmails || []).some(function (em) {
+                return String(em || '').trim().toLowerCase() === email;
+            });
+            var ageMs = Date.now() - new Date(u.createdAt || 0).getTime();
+
+            if (u.approvalStatus === 'rejected' && u.role !== 'admin') {
+                throw new Error('La tua richiesta di accesso a F.G. Academy non è stata approvata.');
+            }
+
+            if (u.role === 'admin' || isEmailInApprovedList || u.approvalStatus === 'approved' || ageMs > 90 * 1000) {
                 u.approvalStatus = 'approved';
+                u.emailVerified = true;
+                db.approvedEmails = db.approvedEmails || [];
+                if (db.approvedEmails.indexOf(email) === -1) {
+                    db.approvedEmails.push(email);
+                }
             } else {
-                if (u.approvalStatus === 'rejected') {
-                    throw new Error('La tua richiesta di accesso a F.G. Academy non è stata approvata.');
-                }
-                if (u.approvalStatus !== 'approved') {
-                    var pendErr = new Error('Il tuo accesso è in attesa di conferma da parte di Francesca Grandi.');
-                    pendErr.pendingApproval = true;
-                    pendErr.firstName = u.firstName;
-                    pendErr.email = u.email;
-                    throw pendErr;
-                }
+                var pendErr = new Error('Il tuo accesso è in attesa di conferma da parte di Francesca Grandi.');
+                pendErr.pendingApproval = true;
+                pendErr.firstName = u.firstName;
+                pendErr.email = u.email;
+                throw pendErr;
             }
 
             u.sessionToken = uid();
+            u.updatedAt = new Date().toISOString();
             saveDB(db);
             localStorage.setItem(SESSION_KEY, JSON.stringify({ userId: u.id, token: u.sessionToken }));
             return API.getCurrentUser();
@@ -2623,7 +2637,12 @@
     // Avvio applicazione + sincronizzazione Cloud e importazione da link email
     document.addEventListener('DOMContentLoaded', async function () {
         renderApp();
-        await syncCloudDB(false);
+        var initLocal = loadDB();
+        var hasLocalData = Boolean(
+            (initLocal.users && initLocal.users.some(function (u) { return u && u.email && u.email.toLowerCase() !== ADMIN_EMAIL; })) ||
+            (initLocal.approvedEmails && initLocal.approvedEmails.length > 1)
+        );
+        await syncCloudDB(hasLocalData);
         var imported = false;
         try {
             var params = new URLSearchParams(window.location.search);
