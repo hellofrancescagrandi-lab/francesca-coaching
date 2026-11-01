@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La tua esperienza – Francesca Grandi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="consulenza.css?v=5">
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+</head>
+<body>
+    <a href="consulenza-2.html" class="back">&larr; Indietro</a>
+
+    <main class="page">
+        <form id="esperienza-form" class="form" novalidate>
+
+            <p class="step">PASSO 3 DI 4</p>
+            <h1>HAI GIÀ AVUTO ESPERIENZE CON MENTAL COACH O SIMILI?</h1>
+            <p class="sub">Scegli una risposta per proseguire.</p>
+
+            <fieldset class="options" id="options">
+                <legend class="sr">Esperienze precedenti <span aria-hidden="true">*</span></legend>
+                <label class="option">
+                    <input type="radio" name="esperienza" value="No, sarebbe la prima volta" required>
+                    <span class="opt-box"><span class="opt-dot"></span><span class="opt-text">No, sarebbe la prima volta</span></span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="esperienza" value="Sì, ho già avuto esperienza" required>
+                    <span class="opt-box"><span class="opt-dot"></span><span class="opt-text">Sì, ho già avuto esperienza</span></span>
+                </label>
+                <p class="err" id="err-esperienza"></p>
+            </fieldset>
+
+            <div class="field" id="dettagli-wrap" hidden>
+                <label for="dettagli">RACCONTA TUTTO CIÒ CHE PUÒ ESSERE UTILE PER LA CALL <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="dettagli" name="dettagli_esperienza" rows="5" placeholder="Con chi hai lavorato, per quanto tempo, cosa ha funzionato e cosa no..." aria-required="true" minlength="10" maxlength="2000"></textarea>
+                <p class="err" id="err-dettagli"></p>
+            </div>
+
+            <p id="msg" class="msg" role="alert" hidden></p>
+            <button type="submit" id="go" class="cta">CONTINUA &rarr;</button>
+        </form>
+    </main>
+
+    <script src="consulenza-3.js?v=2"></script>
+</body>
+</html>

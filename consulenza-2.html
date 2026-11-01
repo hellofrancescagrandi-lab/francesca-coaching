@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il tuo obiettivo – Francesca Grandi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="consulenza.css?v=5">
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+</head>
+<body>
+    <a href="consulenza.html" class="back">&larr; Indietro</a>
+
+    <main class="page">
+        <form id="obiettivo-form" class="form" novalidate>
+
+            <p class="step">PASSO 2 DI 4</p>
+            <h1>QUAL È IL TUO OBIETTIVO PRINCIPALE?</h1>
+            <p class="sub">Scrivilo con parole tue: Francesca lo leggerà personalmente prima della sessione.</p>
+
+            <div class="field">
+                <label for="obiettivo">IL TUO OBIETTIVO <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="obiettivo" name="obiettivo" rows="5" placeholder="Scrivi qui il tuo obiettivo principale" required aria-required="true" minlength="10" maxlength="2000"></textarea>
+            </div>
+
+            <p id="msg" class="msg" role="alert" hidden></p>
+            <button type="submit" id="go" class="cta">CONTINUA &rarr;</button>
+        </form>
+    </main>
+
+    <script src="consulenza-2.js?v=4"></script>
+</body>
+</html>

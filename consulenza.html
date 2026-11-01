@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulenza gratuita – Francesca Grandi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="consulenza.css?v=5">
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+</head>
+<body>
+    <a href="index.html" class="back">&larr; Torna al sito</a>
+
+    <main class="page">
+        <form id="consulenza-form" class="form" novalidate>
+
+            <p class="step">PASSO 1 DI 4</p>
+            <h1>PRIMA DI TUTTO, PARLIAMO DI TE.</h1>
+            <p class="sub">Francesca leggerà queste informazioni personalmente prima della sessione.</p>
+
+            <div class="field">
+                <label for="nome">NOME <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="nome" name="nome" aria-required="true" placeholder="Nome" required autocomplete="given-name" maxlength="80">
+            </div>
+            <div class="field">
+                <label for="cognome">COGNOME <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="cognome" name="cognome" aria-required="true" placeholder="Cognome" required autocomplete="family-name" maxlength="80">
+            </div>
+            <div class="field">
+                <label for="email">EMAIL <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" aria-required="true" placeholder="Email" required autocomplete="email" maxlength="120">
+            </div>
+            <div class="field">
+                <label for="telefono">NUMERO DI CELLULARE <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="telefono" name="telefono" aria-required="true" placeholder="Numero di cellulare" required autocomplete="tel" inputmode="tel" maxlength="25">
+            </div>
+
+            <label class="privacy">
+                <input type="checkbox" name="privacy" required>
+                <span>Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener noreferrer">privacy policy</a>.</span>
+            </label>
+
+            <p class="note">* Tutti i campi sono obbligatori per proseguire.</p>
+
+            <p id="msg" class="msg" role="alert" hidden></p>
+            <button type="submit" id="go" class="cta">CONTINUA &rarr;</button>
+        </form>
+    </main>
+
+    <script src="consulenza.js?v=4"></script>
+</body>
+</html>

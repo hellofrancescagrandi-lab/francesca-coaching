@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimento – Francesca Grandi</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="consulenza.css?v=6">
+    <link rel="icon" type="image/png" href="mindset-queen-logo.png">
+</head>
+<body>
+    <a href="consulenza-3.html" class="back">&larr; Indietro</a>
+
+    <main class="page">
+        <form id="budget-form" class="form" novalidate>
+            <input type="hidden" name="access_key" value="eafc21eb-6115-41ca-b86d-e1d693fabb91">
+            <input type="hidden" name="subject" value="Nuova richiesta di consulenza gratuita">
+            <input type="hidden" name="from_name" value="Francesca Grandi - Consulenza gratuita">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+            <p class="step">PASSO 4 DI 4</p>
+            <h1 class="h1-long">Il mio percorso individuale di mental coaching prevede 4 sessioni da 60 minuti, con un investimento complessivo di 497 €. Se durante la call conoscitiva valutassimo che questo percorso è adatto alle tue esigenze, saresti disponibile a prendere in considerazione questo investimento?</h1>
+            <p class="sub small">La call conoscitiva di 30 minuti è gratuita e senza alcun obbligo di acquisto.</p>
+
+            <fieldset class="options" id="options">
+                <legend class="sr">Investimento economico <span aria-hidden="true">*</span></legend>
+                <label class="option">
+                    <input type="radio" name="budget" value="Sì, sono disponibile a investire su me stesso/a." data-flow="calendly" required>
+                    <span class="opt-box"><span class="opt-dot"></span><span class="opt-text">Sì, sono disponibile a investire su me stesso/a.</span></span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="budget" value="Vorrei prima conoscere meglio il percorso." data-flow="calendly" required>
+                    <span class="opt-box"><span class="opt-dot"></span><span class="opt-text">Vorrei prima conoscere meglio il percorso.</span></span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="budget" value="Al momento non ho questa disponibilità economica." data-flow="alt" required>
+                    <span class="opt-box"><span class="opt-dot"></span><span class="opt-text">Al momento non ho questa disponibilità economica.</span></span>
+                </label>
+                <p class="err" id="err-budget"></p>
+            </fieldset>
+
+            <p id="msg" class="msg" role="alert" hidden></p>
+            <button type="submit" id="go" class="cta">CONTINUA &rarr;</button>
+        </form>
+    </main>
+
+    <script src="consulenza-4.js?v=3"></script>
+</body>
+</html>
