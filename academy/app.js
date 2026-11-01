@@ -1215,51 +1215,122 @@
     function renderPercorsiView(u, db) {
         var admin = isAdminUser(u);
         var freeCourses = db.courses.filter(function (c) { return c.tier === 'free'; });
-        var premiumCourses = db.courses.filter(function (c) { return c.tier === 'premium'; });
+        var waUrl = 'https://wa.me/message/DOIWIZUOJGNUI1';
+        var activeTab = state.courseTab || 'premium';
+        var level1Open = state.level1Open !== false;
+
+        var premiumTabHTML =
+            '<!-- Dark Hero Banner -->' +
+            '<section class="premium-hero-banner" aria-label="F.G. Academy Premium">' +
+                '<div class="premium-hero-kicker">✦ F.G. ACADEMY PREMIUM</div>' +
+                '<h2>Sblocca il percorso completo — Livello 1</h2>' +
+                '<p>Vuoi sapere come funziona e sbloccare il Livello 1? Scrivi direttamente a Francesca.</p>' +
+                '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-unlock">' +
+                    '<span>💬 Sblocca il Livello 1 su WhatsApp</span>' +
+                '</a>' +
+            '</section>' +
+
+            '<!-- Card Livello 1 -->' +
+            '<section class="level-card">' +
+                '<div class="level-card-head" id="toggle-level1-btn" role="button" tabindex="0" aria-expanded="' + (level1Open ? 'true' : 'false') + '">' +
+                    '<div class="level-card-title-wrap">' +
+                        '<span class="level-icon-circle" aria-hidden="true">🚀</span>' +
+                        '<div>' +
+                            '<h3 style="font-size:1.25rem;font-weight:700;line-height:1.2;">Livello 1</h3>' +
+                            '<span style="font-size:0.84rem;color:var(--ink-soft);">Anteprima gratuita</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<span style="font-size:1.1rem;color:var(--ink-soft);">' + (level1Open ? '&#8963;' : '&#8964;') + '</span>' +
+                '</div>' +
+
+                (level1Open
+                    ? '<div class="level-module-head">' +
+                          '<span class="level-module-num">1</span>' +
+                          '<div>' +
+                              '<h4 style="font-size:1rem;font-weight:700;line-height:1.2;">Modulo 0 - Benvenuto/a nel percorso!</h4>' +
+                              '<span style="font-size:0.78rem;color:var(--ink-soft);">2 lezioni</span>' +
+                          '</div>' +
+                      '</div>' +
+
+                      '<div class="lesson-list-box">' +
+                          '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="lesson-row">' +
+                              '<div class="lesson-row-left">' +
+                                  '<span class="lesson-lock-circle">' + ICONS.lock + '</span>' +
+                                  '<div>' +
+                                      '<div class="lesson-kicker">LEZIONE 1</div>' +
+                                      '<div class="lesson-title">1. Fare chiarezza: capire da dove parti e cosa desideri davvero</div>' +
+                                  '</div>' +
+                              '</div>' +
+                          '</a>' +
+                          '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="lesson-row">' +
+                              '<div class="lesson-row-left">' +
+                                  '<span class="lesson-lock-circle">' + ICONS.lock + '</span>' +
+                                  '<div>' +
+                                      '<div class="lesson-kicker">LEZIONE 2</div>' +
+                                      '<div class="lesson-title">2. Riconoscere i blocchi mentali, il perfezionismo e la paura del giudizio</div>' +
+                                  '</div>' +
+                              '</div>' +
+                          '</a>' +
+                      '</div>' +
+
+                      '<div class="locked-blur-wrap">' +
+                          '<div class="locked-blur-content" aria-hidden="true">' +
+                              '<div class="lesson-row">' +
+                                  '<div class="lesson-row-left">' +
+                                      '<span class="lesson-lock-circle">' + ICONS.lock + '</span>' +
+                                      '<div>' +
+                                          '<div class="lesson-kicker">LEZIONE 3</div>' +
+                                          '<div class="lesson-title">Lezione riservata agli iscritti del percorso completo</div>' +
+                                      '</div>' +
+                                  '</div>' +
+                              '</div>' +
+                              '<div class="lesson-row">' +
+                                  '<div class="lesson-row-left">' +
+                                      '<span class="lesson-lock-circle">' + ICONS.lock + '</span>' +
+                                      '<div>' +
+                                          '<div class="lesson-kicker">LEZIONE 4</div>' +
+                                          '<div class="lesson-title">Contenuto del percorso completo — Piano d\'azione pratico</div>' +
+                                      '</div>' +
+                                  '</div>' +
+                              '</div>' +
+                          '</div>' +
+                          '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="locked-blur-overlay" aria-label="Sblocca il Livello 1 scrivendo su WhatsApp">' +
+                              '<span class="locked-center-badge">' + ICONS.lock + '</span>' +
+                          '</a>' +
+                      '</div>'
+                    : ''
+                ) +
+            '</section>';
+
+        var freeTabHTML = freeCourses.length === 0
+            ? '<div class="card"><p style="color:var(--ink-soft);font-size:0.92rem;">Nuovi mini-percorsi gratuiti saranno disponibili in questa sezione.</p></div>'
+            : '<div class="cards-grid">' + freeCourses.map(function (c) {
+                return (
+                    '<article class="card course-card">' +
+                        '<div>' +
+                            '<span class="badge" style="margin-bottom:0.65rem;">Gratuito</span>' +
+                            '<h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.45rem;">' + esc(c.title) + '</h3>' +
+                            '<p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:1rem;">' + esc(c.description) + '</p>' +
+                        '</div>' +
+                        '<button type="button" class="btn btn-secondary btn-sm" data-open-course="' + esc(c.id) + '">Accedi al percorso</button>' +
+                    '</article>'
+                );
+            }).join('') + '</div>';
 
         return (
             '<div class="page-header">' +
                 '<div>' +
-                    '<h1>Percorsi F.G. Academy</h1>' +
-                    '<p style="color:var(--ink-soft);font-size:0.92rem;">Esplora i contenuti formativi gratuiti e scopri in anteprima i percorsi premium.</p>' +
+                    '<h1>🎓 Percorsi</h1>' +
                 '</div>' +
                 (admin ? '<button type="button" class="btn btn-primary" id="new-course-btn">+ Nuovo percorso</button>' : '') +
             '</div>' +
 
-            '<h2 style="font-size:1.15rem;font-weight:700;margin-bottom:0.9rem;">Contenuti gratuiti</h2>' +
-            (freeCourses.length === 0
-                ? '<div class="card" style="margin-bottom:2rem;"><p style="color:var(--ink-soft);font-size:0.92rem;">Nuovi mini-percorsi gratuiti saranno disponibili in questa sezione.</p></div>'
-                : '<div class="cards-grid" style="margin-bottom:2rem;">' + freeCourses.map(function (c) {
-                    return (
-                        '<article class="card course-card">' +
-                            '<div>' +
-                                '<span class="badge" style="margin-bottom:0.65rem;">Gratuito</span>' +
-                                '<h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.45rem;">' + esc(c.title) + '</h3>' +
-                                '<p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:1rem;">' + esc(c.description) + '</p>' +
-                            '</div>' +
-                            '<button type="button" class="btn btn-secondary btn-sm" data-open-course="' + esc(c.id) + '">Accedi al percorso</button>' +
-                        '</article>'
-                    );
-                }).join('') + '</div>'
-            ) +
+            '<div class="course-tabs" role="tablist">' +
+                '<button type="button" class="course-tab-pill ' + (activeTab === 'premium' ? 'active' : '') + '" data-course-tab="premium">✦ F.G. Academy</button>' +
+                '<button type="button" class="course-tab-pill ' + (activeTab === 'free' ? 'active' : '') + '" data-course-tab="free">🎁 Corsi gratuiti</button>' +
+            '</div>' +
 
-            '<h2 style="font-size:1.15rem;font-weight:700;margin-bottom:0.9rem;">Percorsi premium</h2>' +
-            '<div class="cards-grid">' +
-                premiumCourses.map(function (c) {
-                    return (
-                        '<article class="card course-card locked">' +
-                            '<div>' +
-                                '<div class="lock-pill">' + ICONS.lock + ' <span>Percorso Premium</span></div>' +
-                                '<h3 style="font-size:1.18rem;font-weight:700;margin-bottom:0.5rem;">' + esc(c.title) + '</h3>' +
-                                '<p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:1rem;">' + esc(c.description) + '</p>' +
-                            '</div>' +
-                            '<div style="padding-top:0.85rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">' +
-                                '<span style="font-size:0.84rem;font-weight:600;color:var(--magenta);">🔒 Questo percorso sarà disponibile prossimamente.</span>' +
-                            '</div>' +
-                        '</article>'
-                    );
-                }).join('') +
-            '</div>'
+            (activeTab === 'premium' ? premiumTabHTML : freeTabHTML)
         );
     }
 
@@ -1952,6 +2023,21 @@
         document.querySelectorAll('[data-report-comment]').forEach(function (b) {
             b.onclick = function () { openReportModal('comment', b.getAttribute('data-report-comment')); };
         });
+
+        // Percorsi: cambio scheda (F.G. Academy / Corsi gratuiti) e apertura Livello 1
+        document.querySelectorAll('[data-course-tab]').forEach(function (b) {
+            b.onclick = function () {
+                state.courseTab = b.getAttribute('data-course-tab');
+                renderApp();
+            };
+        });
+        var toggleL1 = document.getElementById('toggle-level1-btn');
+        if (toggleL1) {
+            toggleL1.onclick = function () {
+                state.level1Open = state.level1Open === false;
+                renderApp();
+            };
+        }
 
         // Risorse: filtri e caricamento Admin
         var resCat = document.getElementById('res-cat-filter');
