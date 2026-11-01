@@ -597,11 +597,7 @@
     function renderLogoHTML() {
         return (
             '<div class="fg-logo">' +
-                '<span class="fg-monogram">F<span>.</span>G<span>.</span></span>' +
-                '<span class="fg-brand-text">' +
-                    '<span class="fg-brand-title">F.G. Academy</span>' +
-                    '<span class="fg-brand-sub">Mental Coach</span>' +
-                '</span>' +
+                '<img class="fg-logo-img" src="../fg-academy-logo.png" alt="F.G. Academy — Mental Coach">' +
             '</div>'
         );
     }
