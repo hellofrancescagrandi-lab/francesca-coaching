@@ -1223,10 +1223,10 @@
             '<!-- Dark Hero Banner -->' +
             '<section class="premium-hero-banner" aria-label="F.G. Academy Premium">' +
                 '<div class="premium-hero-kicker">✦ F.G. ACADEMY PREMIUM</div>' +
-                '<h2>Sblocca il percorso completo — Livello 1</h2>' +
-                '<p>Vuoi sapere come funziona e sbloccare il Livello 1? Scrivi direttamente a Francesca.</p>' +
+                '<h2>Sblocca il livello Premium</h2>' +
+                '<p>Vuoi sapere come funziona e sbloccare il livello Premium? Scrivi direttamente a Francesca.</p>' +
                 '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-unlock">' +
-                    '<span>💬 Sblocca il Livello 1 su WhatsApp</span>' +
+                    '<span>💬 Sblocca il livello Premium su WhatsApp</span>' +
                 '</a>' +
             '</section>' +
 
