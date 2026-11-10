@@ -87,6 +87,10 @@ em { font-style: normal; color: var(--pink); }
 .bio-photo img { border-radius: 28px; width: 100%; max-height: 640px; object-fit: cover; }
 .bio-text .kicker { margin-bottom: 0.6rem; }
 .bio-text p { margin-bottom: 1rem; color: var(--ink-soft); font-size: 1.15rem; line-height: 1.5; }
+.bio-socials { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; align-items: center; }
+.social-banner { display: inline-flex; align-items: center; gap: 0.65rem; background: #FE6FA3; color: #1d1d1f; padding: 0.82rem 1.25rem; border-radius: 980px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.01em; text-transform: uppercase; text-decoration: none; white-space: nowrap; box-shadow: 0 6px 20px rgba(254, 111, 163, 0.3); transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
+.social-banner:hover { background: #FF86B2; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(254, 111, 163, 0.45); color: #000; }
+.social-banner svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* Risultati: carosello automatico */
 .carousel { max-width: 720px; margin: 3rem auto 0; }
@@ -148,9 +152,11 @@ em { font-style: normal; color: var(--pink); }
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-photo img { max-height: 520px; }
     .bio-text, .bio-text .title.left { text-align: center; }
+    .bio-socials { justify-content: center; }
 }
 @media (max-width: 520px) {
     .btn:not(.btn-sm) { width: 100%; padding: 1.05rem 1rem; }
+    .social-banner { width: 100%; justify-content: center; }
     .faq summary { font-size: 1.1rem; }
     .faq details p { padding-right: 0; font-size: 1rem; }
     .step { padding: 2.2rem 1.6rem; }
