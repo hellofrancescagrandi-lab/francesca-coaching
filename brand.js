@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. Contact / Info Request Form Handler (info.francescagrandi@gmail.com)
+    // 5. Contact / Info Request Form Handler (hello.francescagrandi@gmail.com)
     const contactForm = document.getElementById('contactForm');
     const successBox = document.getElementById('formSuccessMessage');
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const formData = new FormData(contactForm);
-                const response = await fetch('https://formsubmit.co/ajax/info.francescagrandi@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/hello.francescagrandi@gmail.com', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json'
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--magenta); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">✓</div>
                             <h4 style="color: var(--black); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Messaggio inviato con successo!</h4>
                             <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                                Grazie per avermi contattata. I tuoi dati sono stati recapitati a <strong>info.francescagrandi@gmail.com</strong> e ti risponderò entro 24 ore lavorative.
+                                Grazie per avermi contattata. I tuoi dati sono stati recapitati a <strong>hello.francescagrandi@gmail.com</strong> e ti risponderò entro 24 ore lavorative.
                             </p>
                         `;
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div style="width: 44px; height: 44px; border-radius: 50%; background: #E6A700; color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">!</div>
                             <h4 style="color: #111; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Primo invio: Attivazione richiesta</h4>
                             <p style="color: #444; font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
-                                Per abilitare la ricezione, apri <strong>info.francescagrandi@gmail.com</strong> (controlla anche in <em>Spam / Posta indesiderata</em>) e clicca sul pulsante verde <strong>"Activate Form"</strong> nell'email appena ricevuta da FormSubmit.
+                                Per abilitare la ricezione, apri <strong>hello.francescagrandi@gmail.com</strong> (controlla anche in <em>Spam / Posta indesiderata</em>) e clicca sul pulsante verde <strong>"Activate Form"</strong> nell'email appena ricevuta da FormSubmit.
                             </p>
                             <p style="font-size: 0.85rem; color: #666; margin: 0;">Questa conferma è richiesta una sola volta per sicurezza. Dopo aver cliccato, tutti i messaggi arriveranno istantaneamente.</p>
                         `;
