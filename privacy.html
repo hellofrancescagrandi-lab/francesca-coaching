@@ -2,515 +2,234 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informativa sulla Privacy & Cookie Policy | Francesca Grandi</title>
-    <meta name="description" content="Informativa sulla Privacy e Cookie Policy di Francesca Grandi, Mental Coach a Novara e online. Trattamento dei dati personali conforme al GDPR (Regolamento UE 2016/679).">
+    <title>Informativa sulla Privacy &amp; Cookie Policy | Francesca Grandi</title>
+    <meta name="description" content="Informativa sulla Privacy e Cookie Policy di Francesca Grandi, Mental Coach. Trattamento dei dati personali conforme al GDPR (Regolamento UE 2016/679).">
     <meta name="robots" content="index, follow">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.francescagrandi.it/privacy.html" />
+    <link rel="canonical" href="https://www.francescagrandi.it/privacy.html">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.francescagrandi.it/privacy.html" />
-    <meta property="og:title" content="Informativa sulla Privacy | Francesca Grandi" />
-    <meta property="og:description" content="Informativa sul trattamento dei dati personali ai sensi del GDPR (Regolamento UE 2016/679)." />
-
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="brand.css?v=1">
     <link rel="icon" type="image/png" href="mindset-queen-logo.png">
 
     <style>
-        :root {
-            --color-bg: #0c0c0e;
-            --color-surface: #151518;
-            --color-surface-hover: #1c1c20;
-            --color-border: rgba(255, 255, 255, 0.08);
-            --color-border-focus: rgba(197, 160, 89, 0.4);
-            
-            --color-gold: #C5A059;
-            --color-gold-hover: #d8b26e;
-            
-            --color-text-main: #f5f5f7;
-            --color-text-secondary: #a1a1a6;
-            --color-text-muted: #86868b;
-            
-            --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-            --font-serif: 'Playfair Display', Georgia, serif;
+        .policy-container {
+            max-width: 860px;
+            margin: 4rem auto 7rem;
+            padding: 0 1.5rem;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text-secondary);
-            font-family: var(--font-main);
-            font-size: 16px;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Top Bar */
-        .top-nav {
-            border-bottom: 1px solid var(--color-border);
-            background-color: rgba(12, 12, 14, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-link {
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--color-text-main);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .brand-link:hover {
-            color: var(--color-gold);
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-gold);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: opacity 0.2s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        /* Container */
-        .content-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3.5rem 1.5rem 6rem;
-        }
-
-        /* Header */
-        .header-section {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .header-kicker {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-gold);
-            display: block;
-            margin-bottom: 0.8rem;
-        }
-
-        .header-title {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--color-text-main);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .header-subtitle {
-            font-size: 1.05rem;
-            color: var(--color-text-muted);
-            max-width: 650px;
-        }
-
-        .last-update {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            border: 1px solid var(--color-border);
-        }
-
-        /* Highlight Alert Box */
-        .highlight-box {
-            background: rgba(197, 160, 89, 0.08);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .highlight-box h3 {
-            color: var(--color-gold);
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .highlight-box p {
-            color: var(--color-text-main);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Policy Card Sections */
         .policy-card {
-            background-color: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 14px;
-            padding: 2rem;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            transition: border-color 0.2s ease;
+            box-shadow: var(--shadow-sm);
         }
-
-        .policy-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .policy-num {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--color-gold);
-            letter-spacing: 1px;
-            margin-bottom: 0.4rem;
-        }
-
         .policy-card h2 {
-            font-size: 1.35rem;
-            color: var(--color-text-main);
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .policy-card h3 {
-            font-size: 1.05rem;
-            color: var(--color-text-main);
-            margin: 1.3rem 0 0.5rem;
-            font-weight: 600;
-        }
-
-        .policy-card p {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--black);
             margin-bottom: 1rem;
         }
-
-        .policy-card p:last-child {
-            margin-bottom: 0;
+        .policy-card p, .policy-card li {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.68;
         }
-
-        .policy-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 1rem 0;
+        .policy-card ul {
+            margin: 1rem 0 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
         }
-
-        .policy-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.7rem;
-            color: var(--color-text-secondary);
-        }
-
-        .policy-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0.3rem;
-            top: 0;
-            color: var(--color-gold);
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
-        .policy-card a {
-            color: var(--color-gold);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.2s ease;
-        }
-
-        .policy-card a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        /* Contact Box */
-        .contact-box {
-            background: linear-gradient(145deg, #18181c, #131316);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 14px;
-            padding: 2.2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .contact-box h3 {
-            font-size: 1.4rem;
-            color: var(--color-text-main);
-            margin-bottom: 0.8rem;
-            font-family: var(--font-serif);
-            font-style: italic;
-        }
-
-        .contact-box p {
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-email-btn {
-            display: inline-block;
-            background-color: var(--color-gold);
-            color: #0c0c0e;
-            text-decoration: none;
-            padding: 0.9rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .contact-email-btn:hover {
-            background-color: var(--color-gold-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .site-footer {
-            border-top: 1px solid var(--color-border);
-            padding: 3rem 1.5rem;
-            text-align: center;
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
-        }
-
-        .site-footer a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            margin: 0 0.8rem;
-        }
-
-        .site-footer a:hover {
-            color: var(--color-gold);
+        .policy-num {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--magenta);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP NAVIGATION -->
-    <header class="top-nav">
-        <div class="nav-container">
-            <a href="index.html" class="brand-link">Francesca Grandi</a>
-            <a href="index.html" class="back-link">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Torna al sito
+    <!-- HEADER & NAVIGATION -->
+    <header class="site-header" id="top">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Francesca Grandi Home">
+                <span class="brand-name">Francesca Grandi</span>
+                <span class="brand-tagline">Mental Coach</span>
             </a>
+
+            <nav aria-label="Menu Principale">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="chi-sono.html" class="nav-link">Chi Sono</a></li>
+                    <li><a href="approccio.html" class="nav-link">Il Mio Approccio</a></li>
+                    <li><a href="servizi.html" class="nav-link">Lavoriamo Insieme</a></li>
+                    <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contatti.html" class="btn btn-primary btn-sm">
+                    <span>PARLIAMONE</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Apri menu di navigazione" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="content-container">
-        
-        <!-- Header -->
-        <header class="header-section">
-            <span class="header-kicker">Trasparenza & Tutela dei Dati</span>
-            <h1 class="header-title">Informativa sulla Privacy & Cookie Policy</h1>
-            <p class="header-subtitle">
-                Informazioni sul trattamento dei dati personali ai sensi dell'art. 13 del Regolamento UE 2016/679 (GDPR).
-            </p>
-            <span class="last-update">Ultimo aggiornamento: Ottobre 2026</span>
-        </header>
-
-        <!-- Newsletter Disiscrizione Immediata -->
-        <div class="highlight-box">
-            <h3>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                Iscrizione alla Newsletter "Mental Reset"
-            </h3>
-            <p>
-                I tuoi dati (nome ed email) vengono utilizzati <strong>esclusivamente</strong> per inviarti le riflessioni, strategie ed aggiornamenti della newsletter. <strong>Non cediamo mai i tuoi dati a terzi</strong>. Puoi revocare il tuo consenso e disiscriverti in qualsiasi momento con un solo clic tramite il link <em>"Disiscriviti"</em> presente in calce a ciascuna email ricevuta.
-            </p>
-        </div>
-
-        <!-- 1. Titolare del Trattamento -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 01</span>
-            <h2>Titolare del Trattamento</h2>
-            <p>
-                Il Titolare del trattamento dei dati personali raccolti tramite questo sito web è:
-            </p>
-            <ul class="policy-list">
-                <li><strong>Professionista:</strong> Francesca Grandi (Mental Coach e Formatrice)</li>
-                <li><strong>Sede:</strong> Novara (NO), Italia</li>
-                <li><strong>Sito web:</strong> <a href="https://www.francescagrandi.it/">https://www.francescagrandi.it/</a></li>
-                <li><strong>Email di contatto per la privacy:</strong> <a href="mailto:info@francescagrandi.it">info@francescagrandi.it</a></li>
-            </ul>
-        </section>
-
-        <!-- 2. Dati Raccolti -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 02</span>
-            <h2>Tipologie di Dati Raccolti</h2>
-            <p>Questo sito web raccoglie dati personali attraverso diverse modalità:</p>
-            
-            <h3>1. Dati forniti volontariamente dall'utente</h3>
-            <ul class="policy-list">
-                <li><strong>Newsletter "Mental Reset":</strong> Nome ed indirizzo email forniti volontariamente tramite l'apposito modulo di iscrizione.</li>
-                <li><strong>Prenotazione Call / Caffè Virtuale:</strong> Nome, cognome, indirizzo email ed eventuali note opzionali inserite nel modulo di prenotazione su piattaforma Calendly.</li>
-                <li><strong>Moduli e Questionari:</strong> Risposte a questionari conoscitivi pre-sessione compilati spontaneamente dall'interessato (es. Jotform).</li>
-            </ul>
-
-            <h3>2. Dati di navigazione tecnici</h3>
-            <p>
-                I sistemi informatici e le procedure software preposte al funzionamento di questo sito web acquisiscono, nel corso del loro normale esercizio, alcuni dati di navigazione la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di Internet (es. indirizzo IP, tipo di browser, orario di accesso). Tali dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime e per controllare il corretto funzionamento del sito.
-            </p>
-        </section>
-
-        <!-- 3. Finalità e Base Giuridica -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 03</span>
-            <h2>Finalità e Base Giuridica del Trattamento</h2>
-            <p>I dati personali sono trattati per le seguenti finalità:</p>
-            <ul class="policy-list">
-                <li>
-                    <strong>Invio della Newsletter "Mental Reset":</strong> Per inviare approfondimenti, contenuti di valore, articoli, aggiornamenti su percorsi ed iniziative formative.  
-                    <br><em>Base giuridica:</em> Il consenso esplicito dell'interessato (Art. 6, par. 1, lett. a del GDPR), espresso spuntando la casella di presa visione della privacy policy.
-                </li>
-                <li>
-                    <strong>Gestione delle richieste e prenotazione sessioni:</strong> Per organizzare e svolgere gli incontri individuali (Caffè virtuale / sessioni 1:1) richiesti dall'utente.  
-                    <br><em>Base giuridica:</em> Esecuzione di misure precontrattuali o contrattuali adottate su richiesta dell'interessato (Art. 6, par. 1, lett. b del GDPR).
-                </li>
-                <li>
-                    <strong>Adempimenti di legge:</strong> Per ottemperare a obblighi previsti dalla legge, da un regolamento o dalla normativa comunitaria (es. obblighi contabili e fiscali).  
-                    <br><em>Base giuridica:</em> Adempimento di un obbligo legale al quale è soggetto il Titolare (Art. 6, par. 1, lett. c del GDPR).
-                </li>
-            </ul>
-        </section>
-
-        <!-- 4. Piattaforme Terze e Destinatari -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 04</span>
-            <h2>Modalità del Trattamento e Piattaforme Esterne</h2>
-            <p>
-                Il trattamento è svolto con strumenti informatici e telematici, con logiche strettamente correlate alle finalità sopra indicate e in modo da garantire la sicurezza e la riservatezza dei dati medesimi.
-            </p>
-            <p>
-                I dati possono essere trattati per conto del Titolare da fornitori di servizi esterni che operano in conformità al GDPR:
-            </p>
-            <ul class="policy-list">
-                <li><strong>Calendly LLC:</strong> Piattaforma per la prenotazione e gestione degli appuntamenti online (<a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy di Calendly</a>).</li>
-                <li><strong>Jotform Inc.:</strong> Piattaforma sicura per la ricezione di questionari conoscitivi (<a href="https://www.jotform.com/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy di Jotform</a>).</li>
-                <li><strong>Provider di Email & Newsletter:</strong> Servizi specializzati per l'invio protetto e conforme della newsletter con crittografia SSL/TLS.</li>
-                <li><strong>Hosting Provider:</strong> Server sicuri protetti da firewall e protocolli HTTPS.</li>
-            </ul>
-            <p>
-                I dati personali <strong>non sono in alcun caso oggetto di diffusione o vendita a terzi</strong> per scopi commerciali o pubblicitari non concordati.
-            </p>
-        </section>
-
-        <!-- 5. Periodo di Conservazione -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 05</span>
-            <h2>Periodo di Conservazione dei Dati</h2>
-            <ul class="policy-list">
-                <li>
-                    <strong>Dati Newsletter:</strong> I dati raccolti per l'invio della newsletter saranno conservati fino a quando l'utente non deciderà di revocare il proprio consenso o disiscriversi tramite l'apposito link.
-                </li>
-                <li>
-                    <strong>Dati per Call e Sessioni:</strong> I dati relativi alle sessioni o prenotazioni vengono conservati per il tempo strettamente necessario a gestire l'incontro e l'eventuale relazione professionale successiva, nel rispetto dei termini di legge civilistici e fiscali.
-                </li>
-            </ul>
-        </section>
-
-        <!-- 6. Diritti dell'Interessato -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 06</span>
-            <h2>Diritti dell'Interessato (Artt. 15-22 GDPR)</h2>
-            <p>In qualità di interessato, hai il diritto in qualunque momento di:</p>
-            <ul class="policy-list">
-                <li><strong>Diritto di Accesso:</strong> Chiedere conferma che sia o meno in corso un trattamento di dati personali che ti riguardano e ottenerne copia.</li>
-                <li><strong>Diritto di Rettifica:</strong> Chiedere l'aggiornamento, la correzione o l'integrazione dei tuoi dati inesatti o incompleti.</li>
-                <li><strong>Diritto alla Cancellazione ("Diritto all'Oblio"):</strong> Chiedere la cancellazione dei dati personali trattati in violazione di legge o non più necessari rispetto alle finalità.</li>
-                <li><strong>Diritto di Revoca:</strong> Revocare in qualsiasi momento il consenso precedentemente accordato, senza pregiudicare la liceità del trattamento basato sul consenso prima della revoca.</li>
-                <li><strong>Diritto di Opposizione e Limitazione:</strong> Opporti al trattamento o richiederne la limitazione nei casi previsti dal GDPR.</li>
-                <li><strong>Diritto di Reclamo:</strong> Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>) qualora ritenessi che il trattamento violi i tuoi diritti.</li>
-            </ul>
-        </section>
-
-        <!-- 7. Cookie Policy -->
-        <section class="policy-card">
-            <span class="policy-num">SEZIONE 07</span>
-            <h2>Informativa sui Cookie</h2>
-            <p>
-                Questo sito web utilizza <strong>esclusivamente cookie tecnici essenziali</strong>.
-            </p>
-            <ul class="policy-list">
-                <li><strong>Cookie Tecnici di Navigazione:</strong> Necessari per il corretto funzionamento delle pagine, la visualizzazione coerente dei font e la sicurezza del server. Non richiedono consenso preventivo ai sensi di legge.</li>
-                <li><strong>Cookie di Terze Parti:</strong> Durante l'interazione con servizi esterni integrati (es. Calendly per la prenotazione delle chiamate o link esterni ai profili social), tali piattaforme possono rilasciare cookie propri conformemente alle rispettive informative sulla privacy.</li>
-            </ul>
-            <p>
-                <strong>Questo sito non fa uso di cookie di profilazione o tracciamento invasivo a scopi commerciali terzi.</strong>
-            </p>
-        </section>
-
-        <!-- CONTATTO DIRETTO PRIVACY -->
-        <div class="contact-box">
-            <h3>Come esercitare i tuoi diritti</h3>
-            <p>
-                Per richiedere la modifica, la cancellazione dei tuoi dati o per qualsiasi chiarimento relativo alla presente informativa, puoi inviare una richiesta scritta in qualsiasi momento.
-            </p>
-            <a href="mailto:info@francescagrandi.it?subject=Richiesta%20Privacy%20-%20Francesca%20Grandi" class="contact-email-btn">
-                Scrivi a info@francescagrandi.it
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Menu Mobile">
+        <ul class="mobile-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-sono.html">Chi Sono</a></li>
+            <li><a href="approccio.html">Il Mio Approccio</a></li>
+            <li><a href="servizi.html">Lavoriamo Insieme</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+        <div style="margin-top: 2rem;">
+            <a href="contatti.html" class="btn btn-primary" style="width: 100%;">
+                <span>PARLIAMONE SU WHATSAPP</span>
             </a>
         </div>
+    </div>
 
+    <main>
+        <div class="story-hero">
+            <div class="container container-narrow text-center" style="text-align: center;">
+                <span class="section-tag">INFORMATIVA LEGALE</span>
+                <h1 class="section-title">Privacy &amp; Cookie Policy</h1>
+                <p class="section-subtitle" style="margin: 0 auto;">
+                    Trasparenza e protezione dei tuoi dati personali ai sensi del Regolamento UE 2016/679 (GDPR).
+                </p>
+            </div>
+        </div>
+
+        <div class="policy-container">
+            <!-- 1. Titolare del Trattamento -->
+            <section class="policy-card">
+                <span class="policy-num">SEZIONE 01</span>
+                <h2>Titolare del Trattamento dei Dati</h2>
+                <p>
+                    Il Titolare del trattamento dei dati personali raccolti tramite questo sito web è:
+                </p>
+                <ul>
+                    <li><strong>Professionista:</strong> Francesca Grandi · Mental Coach</li>
+                    <li><strong>Email di contatto:</strong> info@francescagrandi.it</li>
+                    <li><strong>Sito web:</strong> https://www.francescagrandi.it</li>
+                </ul>
+            </section>
+
+            <!-- 2. Tipologia di Dati Raccolti -->
+            <section class="policy-card">
+                <span class="policy-num">SEZIONE 02</span>
+                <h2>Tipologia di Dati Raccolti</h2>
+                <p>
+                    Durante l'utilizzo di questo sito web possono essere raccolti i seguenti dati:
+                </p>
+                <ul>
+                    <li><strong>Dati forniti volontariamente:</strong> nome, indirizzo email e messaggio inseriti nel modulo di contatto, oppure comunicati tramite messaggistica WhatsApp.</li>
+                    <li><strong>Dati di navigazione tecnici:</strong> indirizzi IP, tipo di browser, orario di accesso raccolti in forma anonima dai server di hosting per ragioni di sicurezza e corretto instradamento del traffico.</li>
+                </ul>
+            </section>
+
+            <!-- 3. Finalità e Base Giuridica -->
+            <section class="policy-card">
+                <span class="policy-num">SEZIONE 03</span>
+                <h2>Finalità del Trattamento e Base Giuridica</h2>
+                <p>
+                    I tuoi dati sono trattati esclusivamente per:
+                </p>
+                <ul>
+                    <li>Rispondere alle tue richieste di informazione o fissare una call conoscitiva (Base giuridica: esecuzione di misure precontrattuali).</li>
+                    <li>Adempiere a obblighi di legge o fiscali derivanti dall'eventuale instaurazione del rapporto di coaching.</li>
+                </ul>
+                <p>I tuoi dati non saranno mai ceduti a terzi per scopi di marketing o profilazione commerciale.</p>
+            </section>
+
+            <!-- 4. Cookie Policy -->
+            <section class="policy-card" id="cookie">
+                <span class="policy-num">SEZIONE 04</span>
+                <h2>Informativa sui Cookie</h2>
+                <p>
+                    Questo sito web utilizza cookie tecnici strettamente necessari al funzionamento del sito (es. memorizzazione del consenso privacy e corretto caricamento delle risorse).
+                </p>
+                <ul>
+                    <li><strong>Cookie Tecnici:</strong> Essenziali per la navigazione. Non richiedono consenso preventivo ai sensi di legge.</li>
+                    <li><strong>Cookie di Terze Parti (opzionali):</strong> Solo previo tuo esplicito consenso tramite il banner informativo, possono essere attivati strumenti statistici aggregati o widget di piattaforme esterne (es. calendari per la prenotazione o font protetti).</li>
+                </ul>
+            </section>
+
+            <!-- 5. Diritti dell'Utente -->
+            <section class="policy-card">
+                <span class="policy-num">SEZIONE 05</span>
+                <h2>I tuoi Diritti (Artt. 15-22 GDPR)</h2>
+                <p>
+                    In qualunque momento puoi esercitare i tuoi diritti di accesso, rettifica, cancellazione, limitazione e opposizione al trattamento inviando una comunicazione a <strong>info@francescagrandi.it</strong>. Hai inoltre il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali.
+                </p>
+            </section>
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>&copy; 2026 Francesca Grandi &middot; Tutti i diritti riservati.</p>
-        <p style="margin-top: 0.8rem;">
-            <a href="index.html">Home</a>
-            <a href="newsletter.html">Newsletter Mental Reset</a>
-            <a href="https://calendly.com/francescagrandi/call-1-1-30-minuti" target="_blank" rel="noopener noreferrer">Prendiamoci un Caffè</a>
-        </p>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>Francesca Grandi</h3>
+                    <div class="footer-motto">Emergi. Senza snaturarti.</div>
+                    <p class="footer-desc">
+                        Mental coaching per coach, consulenti e professioniste online. Percorsi sartoriali per valorizzare il tuo potenziale, vincere la paura e agire con metodo.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigazione</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="chi-sono.html">Chi Sono</a></li>
+                        <li><a href="approccio.html">Il Mio Approccio</a></li>
+                        <li><a href="servizi.html">Lavoriamo Insieme</a></li>
+                        <li><a href="contatti.html">Contatti &amp; Call</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connettiti</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="https://www.instagram.com/francescagrandicoach/" target="_blank" rel="noopener noreferrer">Instagram (@francescagrandicoach)</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCCeq55lGv98rXe3TZwWAmkA" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+                        <li><a href="https://wa.me/message/DOIWIZUOJGNUI1" target="_blank" rel="noopener noreferrer">WhatsApp Diretto</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Francesca Grandi · Mental Coach. P.IVA da inserire. Tutti i diritti riservati.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="privacy.html#cookie">Cookie Policy</a>
+                    <a href="contatti.html">Note Legali</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="brand.js?v=1"></script>
 </body>
 </html>
