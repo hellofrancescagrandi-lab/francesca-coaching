@@ -149,14 +149,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
 
                 if (data.success === "true" || data.success === true) {
+                    const nomeVal = formData.get('Nome_e_Cognome') || '';
+                    const mexVal = formData.get('Messaggio') || '';
+                    const percorsoVal = formData.get('Percorso_Interesse') || '';
+                    const waText = encodeURIComponent(`Ciao Francesca! Mi chiamo ${nomeVal}. Ti ho appena inviato una richiesta dal sito per "${percorsoVal}": ${mexVal}`);
+
                     if (successBox) {
                         successBox.style.display = 'block';
                         successBox.innerHTML = `
                             <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--magenta); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">✓</div>
-                            <h4 style="color: var(--black); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Messaggio inviato con successo!</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                                Grazie per avermi contattata. I tuoi dati sono stati recapitati a <strong>hello.francescagrandi@gmail.com</strong> e ti risponderò entro 24 ore lavorative.
+                            <h4 style="color: var(--black); font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem;">Messaggio inviato con successo!</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.25rem;">
+                                Grazie per avermi contattata. I tuoi dati sono stati inviati a <strong>hello.francescagrandi@gmail.com</strong> e ti risponderò al più presto.
                             </p>
+                            <div style="padding: 1.25rem; background: #fff; border-radius: 14px; border: 1px solid var(--border-light);">
+                                <p style="font-size: 0.88rem; font-weight: 600; color: var(--black); margin-bottom: 0.75rem;">
+                                    Vuoi una risposta ancora più rapida?
+                                </p>
+                                <a href="https://wa.me/message/DOIWIZUOJGNUI1?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width: auto; display: inline-flex;">
+                                    <span>Invia anche su WhatsApp</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
                         `;
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
