@@ -146,15 +146,39 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData
                 });
 
-                if (response.ok) {
+                const data = await response.json();
+
+                if (data.success === "true" || data.success === true) {
                     if (successBox) {
                         successBox.style.display = 'block';
+                        successBox.innerHTML = `
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--magenta); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">✓</div>
+                            <h4 style="color: var(--black); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Messaggio inviato con successo!</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                                Grazie per avermi contattata. I tuoi dati sono stati recapitati a <strong>info.francescagrandi@gmail.com</strong> e ti risponderò entro 24 ore lavorative.
+                            </p>
+                        `;
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                     contactForm.reset();
                     contactForm.style.display = 'none';
+                } else if (data.message && data.message.includes('Activation')) {
+                    if (successBox) {
+                        successBox.style.display = 'block';
+                        successBox.style.background = '#FFF9E6';
+                        successBox.style.borderColor = '#E6A700';
+                        successBox.innerHTML = `
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: #E6A700; color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">!</div>
+                            <h4 style="color: #111; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Primo invio: Attivazione richiesta</h4>
+                            <p style="color: #444; font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.75rem;">
+                                Per abilitare la ricezione, apri <strong>info.francescagrandi@gmail.com</strong> (controlla anche in <em>Spam / Posta indesiderata</em>) e clicca sul pulsante verde <strong>"Activate Form"</strong> nell'email appena ricevuta da FormSubmit.
+                            </p>
+                            <p style="font-size: 0.85rem; color: #666; margin: 0;">Questa conferma è richiesta una sola volta per sicurezza. Dopo aver cliccato, tutti i messaggi arriveranno istantaneamente.</p>
+                        `;
+                        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 } else {
-                    // Fallback nativo
+                    // Fallback a invio standard
                     contactForm.submit();
                 }
             } catch (err) {
