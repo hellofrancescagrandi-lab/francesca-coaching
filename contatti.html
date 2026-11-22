@@ -143,60 +143,73 @@
                         </div>
                     </div>
 
-                    <!-- Modulo di Contatto -->
-                    <div class="contact-form-card">
+                    <!-- Modulo di Contatto / Richiesta Info -->
+                    <div class="contact-form-card" id="richiedi-info">
                         <h3 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; color: var(--black);">
-                            Invia un messaggio
+                            Richiedi Informazioni
                         </h3>
                         <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2rem;">
-                            Compila i campi sottostanti. Riceverai una risposta entro 24 ore lavorative.
+                            Compila i campi sottostanti. Riceverò la tua richiesta direttamente su <strong>info.francescagrandi@gmail.com</strong> e ti risponderò entro 24 ore lavorative.
                         </p>
 
-                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                            <!-- Access key configurabile o fallback mailto -->
-                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                            <input type="hidden" name="subject" value="Nuova richiesta di contatto dal sito francescagrandi.it">
-                            <input type="hidden" name="from_name" value="Sito Web Francesca Grandi">
+                        <!-- Box di successo invio -->
+                        <div id="formSuccessMessage" style="display: none; padding: 1.75rem 2rem; background: #FFF0F6; border: 1.5px solid var(--magenta); border-radius: 18px; margin-bottom: 2rem; text-align: center;">
+                            <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--magenta); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; font-weight: bold;">✓</div>
+                            <h4 style="color: var(--black); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Messaggio inviato con successo!</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+                                Grazie per avermi contattata. Ho ricevuto i tuoi dati e ti ricontatterò personalmente all'indirizzo email che hai indicato.
+                            </p>
+                        </div>
+
+                        <form id="contactForm" action="https://formsubmit.co/info.francescagrandi@gmail.com" method="POST">
+                            <!-- Destinazione email diretta -->
+                            <input type="hidden" name="_to" value="info.francescagrandi@gmail.com">
+                            <input type="hidden" name="_subject" value="Nuova richiesta di info dal sito francescagrandi.it">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://www.francescagrandi.it/contatti.html?inviato=true#richiedi-info">
+                            <!-- Honeypot antispam -->
+                            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                             <div class="form-group">
                                 <label for="nome" class="form-label">Nome e Cognome *</label>
-                                <input type="text" id="nome" name="name" class="form-input" placeholder="Es. Laura Rossi" required>
+                                <input type="text" id="nome" name="Nome_e_Cognome" class="form-input" placeholder="Es. Laura Rossi" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="form-label">La tua Email *</label>
-                                <input type="email" id="email" name="email" class="form-input" placeholder="Es. laura@example.com" required>
+                                <input type="email" id="email" name="Email" class="form-input" placeholder="Es. laura@example.com" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="servizio" class="form-label">A quale percorso sei interessata?</label>
-                                <select id="servizio" name="service" class="form-select">
-                                    <option value="percorso_1_1">Percorso 1:1 "Metodo Grandi"</option>
-                                    <option value="sessione_focus">Consulenza Strategica Focus</option>
-                                    <option value="call_conoscitiva" selected>Richiesta Call Conoscitiva Gratuita</option>
-                                    <option value="altro">Altro / Informazioni generali</option>
+                                <select id="servizio" name="Percorso_Interesse" class="form-select">
+                                    <option value="Percorso 1:1 Metodo Grandi">Percorso 1:1 "Metodo Grandi"</option>
+                                    <option value="Consulenza Strategica Focus">Consulenza Strategica Focus</option>
+                                    <option value="Call Conoscitiva Gratuita" selected>Richiesta Call Conoscitiva Gratuita</option>
+                                    <option value="Informazioni Generali">Altro / Informazioni generali</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="messaggio" class="form-label">Il tuo Messaggio *</label>
-                                <textarea id="messaggio" name="message" rows="5" class="form-textarea" placeholder="Raccontami brevemente di cosa ti occupi e qual è la difficoltà principale su cui vorresti lavorare..." required></textarea>
+                                <label for="messaggio" class="form-label">Il tuo Messaggio / Situazione attuale *</label>
+                                <textarea id="messaggio" name="Messaggio" rows="5" class="form-textarea" placeholder="Raccontami brevemente di cosa ti occupi e qual è la difficoltà principale su cui vorresti lavorare..." required></textarea>
                             </div>
 
                             <div class="form-checkbox-row">
-                                <input type="checkbox" id="privacy" name="privacy_consent" required>
+                                <input type="checkbox" id="privacy" name="Consenso_Privacy" value="Accettato" required>
                                 <label for="privacy">
                                     Ho letto e accetto la <a href="privacy.html" style="color: var(--magenta); text-decoration: underline;" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per ricevere risposta. *
                                 </label>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">
-                                <span>INVIA IL MESSAGGIO</span>
+                            <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
+                                <span>INVIA LA RICHIESTA</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                             </button>
 
                             <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
-                                I tuoi dati non verranno mai ceduti a terzi né utilizzati per spam.
+                                Notifica immediata inviata a info.francescagrandi@gmail.com. I tuoi dati non verranno mai ceduti a terzi.
                             </p>
                         </form>
                     </div>

@@ -112,4 +112,60 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    // 5. Contact / Info Request Form Handler (info.francescagrandi@gmail.com)
+    const contactForm = document.getElementById('contactForm');
+    const successBox = document.getElementById('formSuccessMessage');
+
+    // Mostra messaggio se reindirizzato con ?inviato=true
+    if (window.location.search.includes('inviato=true') && successBox) {
+        successBox.style.display = 'block';
+        if (contactForm) contactForm.style.display = 'none';
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            const submitBtn = document.getElementById('submitBtn') || contactForm.querySelector('button[type="submit"]');
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Invia';
+
+            // Invio AJAX moderno con FormSubmit
+            e.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>INVIO IN CORSO...</span>';
+            }
+
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('https://formsubmit.co/ajax/info.francescagrandi@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    if (successBox) {
+                        successBox.style.display = 'block';
+                        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    contactForm.reset();
+                    contactForm.style.display = 'none';
+                } else {
+                    // Fallback nativo
+                    contactForm.submit();
+                }
+            } catch (err) {
+                // In caso di errore di rete, fallback a submit standard
+                contactForm.submit();
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+            }
+        });
+    }
 });
