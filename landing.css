@@ -87,10 +87,10 @@ em { font-style: normal; color: var(--pink); }
 .bio-photo img { border-radius: 28px; width: 100%; max-height: 640px; object-fit: cover; }
 .bio-text .kicker { margin-bottom: 0.6rem; }
 .bio-text p { margin-bottom: 1rem; color: var(--ink-soft); font-size: 1.15rem; line-height: 1.5; }
-.bio-socials { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; align-items: center; }
-.social-banner { display: inline-flex; align-items: center; gap: 0.65rem; background: #FE6FA3; color: #1d1d1f; padding: 0.82rem 1.25rem; border-radius: 980px; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.01em; text-transform: uppercase; text-decoration: none; white-space: nowrap; box-shadow: 0 6px 20px rgba(254, 111, 163, 0.3); transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
-.social-banner:hover { background: #FF86B2; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(254, 111, 163, 0.45); color: #000; }
-.social-banner svg { width: 18px; height: 18px; flex-shrink: 0; }
+.bio-socials { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.75rem; align-items: center; }
+.social-banner { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; background: #E6007E; color: #000000; padding: 0.75rem 1.15rem; border-radius: 980px; font-weight: 800; font-size: 0.74rem; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 24px rgba(230, 0, 126, 0.35); transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; border: 1px solid rgba(0, 0, 0, 0.1); }
+.social-banner:hover { background: #FF1A9B; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(230, 0, 126, 0.5); color: #000000; }
+.social-banner svg { width: 17px; height: 17px; flex-shrink: 0; color: #000000; stroke: #000000; }
 
 /* Risultati: carosello automatico */
 .carousel { max-width: 720px; margin: 3rem auto 0; }
