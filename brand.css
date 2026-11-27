@@ -1586,13 +1586,13 @@ a {
     }
 }
 
-/* Magenta Social Banners */
+/* Magenta Social Banners - Contrasto Alto (Testo Bianco su Magenta) */
 .social-banner-magenta {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
     background: #E6007E;
-    color: #000000 !important;
+    color: #FFFFFF !important;
     padding: 0.85rem 1.4rem;
     border-radius: 980px;
     font-weight: 800;
@@ -1608,11 +1608,12 @@ a {
     background: #FF1A9B;
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(230, 0, 126, 0.5);
-    color: #000000 !important;
+    color: #FFFFFF !important;
 }
 .social-banner-magenta svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    color: #000000;
+    color: #FFFFFF;
+    stroke: #FFFFFF;
 }
